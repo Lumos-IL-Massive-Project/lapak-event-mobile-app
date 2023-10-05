@@ -26,6 +26,7 @@
         android:paddingVertical="10dp"
         android:textAllCaps="false"
         android:textSize="16sp"
+        android:fontFamily="@font/inter_semi_bold"
         android:visibility="invisible"
         android:onClick="handleSignIn" />
 
@@ -41,6 +42,7 @@
         app:strokeColor="@color/purple_700"
         app:strokeWidth="1dp"
         android:textSize="16sp"
+        android:fontFamily="@font/inter_semi_bold"
         android:visibility="invisible"
         android:onClick="handleSignUp" />
 </LinearLayout>
