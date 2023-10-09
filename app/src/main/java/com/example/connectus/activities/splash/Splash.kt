@@ -1,4 +1,4 @@
-package com.example.connectus.activity
+package com.example.connectus.activities.splash
 
 import android.os.Bundle
 import android.view.View
@@ -11,10 +11,10 @@ import com.example.connectus.R
 import com.google.android.material.button.MaterialButton
 
 
-class LandingPage : AppCompatActivity() {
+class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.landing_page)
+        setContentView(R.layout.activity_splash)
 
         val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         val slideUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_up)
