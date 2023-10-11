@@ -1,13 +1,15 @@
 package com.example.connectus.activities.splash
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.R
+import com.example.connectus.activities.signin.SignInActivity
+import com.example.connectus.activities.signup.SignUpActivity
 import com.example.connectus.databinding.ActivitySplashBinding
 
 
@@ -62,10 +64,10 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleSignIn() {
-        Toast.makeText(this, "Tombol diklik", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, SignInActivity::class.java))
     }
 
     private fun handleSignUp() {
-
+        startActivity(Intent(this, SignUpActivity::class.java))
     }
 }
