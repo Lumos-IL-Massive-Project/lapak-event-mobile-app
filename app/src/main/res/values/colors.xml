@@ -5,8 +5,12 @@
     <color name="purple_700">#5925DC</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="gray_300">#D0D5DD</color>
+    <color name="gray_500">#667085</color>
+    <color name="gray_700">#344054</color>
+    <color name="gray_900">#101828</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="label_otp">#D0D5DD</color>
-    <color name="gray_500">#667085</color>
+    <color name="green">#689F3C</color>
 </resources>
