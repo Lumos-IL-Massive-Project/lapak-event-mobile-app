@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/label_otp" /> <!-- Warna latar belakang kotak -->
+    <corners android:radius="8dp" /> <!-- Radius corner (sesuaikan dengan yang Anda inginkan) -->
+</shape>
