@@ -2,4 +2,12 @@
     <string name="app_name">Connect Us</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="wedding">Pernikahan</string>
+    <string name="sport">Olahraga</string>
+    <string name="birthday">Ulang Tahun</string>
+    <string name="bazaar">Bazar</string>
+    <string name="music_concert">Konser Musik</string>
+    <string name="other_menu">Menu Lainnya</string>
+    <string name="home_search_hint">Mau bikin acara apa?</string>
+    <string name="popular">Populer</string>
 </resources>

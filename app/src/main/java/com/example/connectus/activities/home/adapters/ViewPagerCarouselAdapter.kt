@@ -7,8 +7,8 @@ import com.bumptech.glide.Glide
 import com.example.connectus.activities.home.models.CarouselData
 import com.example.connectus.databinding.HomeCarouselBinding
 
-class CarouselAdapter(private val imageList: List<CarouselData>) :
-    RecyclerView.Adapter<CarouselAdapter.ImageViewHolder>() {
+class ViewPagerCarouselAdapter(private val imageList: List<CarouselData>) :
+    RecyclerView.Adapter<ViewPagerCarouselAdapter.ImageViewHolder>() {
     inner class ImageViewHolder(itemView: HomeCarouselBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         private val binding = itemView
@@ -24,7 +24,7 @@ class CarouselAdapter(private val imageList: List<CarouselData>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CarouselAdapter.ImageViewHolder {
+    ): ViewPagerCarouselAdapter.ImageViewHolder {
         return ImageViewHolder(
             HomeCarouselBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -34,7 +34,7 @@ class CarouselAdapter(private val imageList: List<CarouselData>) :
         )
     }
 
-    override fun onBindViewHolder(holder: CarouselAdapter.ImageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewPagerCarouselAdapter.ImageViewHolder, position: Int) {
         holder.bind(imageList[position])
     }
 
