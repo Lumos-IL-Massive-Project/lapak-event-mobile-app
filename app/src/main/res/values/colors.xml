@@ -9,6 +9,7 @@
     <color name="gray_500">#667085</color>
     <color name="gray_700">#344054</color>
     <color name="gray_900">#101828</color>
+    <color name="error_600">#D92D20</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#689F3C</color>
