@@ -5,13 +5,14 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Html
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
@@ -21,43 +22,38 @@ import com.example.connectus.activities.home.adapters.ViewPagerCarouselAdapter
 import com.example.connectus.activities.home.models.CarouselData
 import com.example.connectus.activities.home.models.MenuData
 import com.example.connectus.activities.home.models.ProductData
-import com.example.connectus.databinding.ActivityHomeBinding
+import com.example.connectus.databinding.FragmentHomeBinding
 
-class HomeActivity : AppCompatActivity(), View.OnClickListener {
-    private lateinit var binding: ActivityHomeBinding
+class HomeFragment : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentHomeBinding
     private val carouselDataList = ArrayList<CarouselData>()
     private lateinit var dotsIndicator: ArrayList<TextView>
 
     private lateinit var handler: Handler
     private lateinit var runnable: Runnable
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         initCarousel()
         initMenu()
         initSearchInput()
         initPopularProduct()
+        return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        handler.post(runnable)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        handler.removeCallbacks(runnable)
-    }
-
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        initCarousel()
+//        initMenu()
+//        initSearchInput()
+//        initPopularProduct()
+//    }
     override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.etSearchFixed -> {
-                Toast.makeText(this, "Tombol diklik", Toast.LENGTH_SHORT).show()
-            }
-        }
+        TODO("Not yet implemented")
     }
 
     private fun initCarousel() {
@@ -109,7 +105,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             MenuData("Menu Lainnya", R.drawable.ic_other_menu),
         )
 
-        val adapter = GridViewMenuAdapter(this, items)
+        val adapter = GridViewMenuAdapter(requireContext(), items)
         gridView.adapter = adapter
     }
 
@@ -185,27 +181,27 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
             ),
         )
 
-        binding.rvPopularProduct.adapter = RecyclerViewPopularProductAdapter(this, productDataList)
-        binding.rvPopularProduct.layoutManager = GridLayoutManager(this, 2)
+        binding.rvPopularProduct.adapter = RecyclerViewPopularProductAdapter(requireContext(), productDataList)
+        binding.rvPopularProduct.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
     fun handleMenu(v: View?) {
-        Toast.makeText(this, "Tombol menu diklik", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Tombol menu diklik", Toast.LENGTH_SHORT).show()
     }
 
     private fun selectedDot(position: Int) {
         for (i in 0 until carouselDataList.size) {
             if (i == position) {
-                dotsIndicator[i].setTextColor(ContextCompat.getColor(this, R.color.purple_700))
+                dotsIndicator[i].setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_700))
             } else {
-                dotsIndicator[i].setTextColor(ContextCompat.getColor(this, R.color.purple_200))
+                dotsIndicator[i].setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_200))
             }
         }
     }
 
     private fun setIndicator() {
         for (i in 0 until carouselDataList.size) {
-            dotsIndicator.add(TextView(this))
+            dotsIndicator.add(TextView(requireContext()))
             dotsIndicator[i].text = Html.fromHtml("&#9679", Html.FROM_HTML_MODE_LEGACY).toString()
             dotsIndicator[i].textSize = 12f
 

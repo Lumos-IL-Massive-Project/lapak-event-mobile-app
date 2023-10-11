@@ -10,4 +10,7 @@
     <string name="other_menu">Menu Lainnya</string>
     <string name="home_search_hint">Mau bikin acara apa?</string>
     <string name="popular">Populer</string>
+    <string name="home">Beranda</string>
+    <string name="transaction">Transaksi</string>
+    <string name="profile">Profil</string>
 </resources>
