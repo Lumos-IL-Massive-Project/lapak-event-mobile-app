@@ -13,4 +13,7 @@
     <string name="home">Beranda</string>
     <string name="transaction">Transaksi</string>
     <string name="profile">Profil</string>
+    <string name="search_history">Riwayat Pencarian</string>
+    <string name="delete_all">Hapus Semua</string>
+    <string name="popular_search">Sedang Populer</string>
 </resources>

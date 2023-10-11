@@ -1,5 +1,6 @@
 package com.example.connectus.activities.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -22,6 +23,7 @@ import com.example.connectus.activities.home.adapters.ViewPagerCarouselAdapter
 import com.example.connectus.activities.home.models.CarouselData
 import com.example.connectus.activities.home.models.MenuData
 import com.example.connectus.activities.home.models.ProductData
+import com.example.connectus.activities.search.SearchActivity
 import com.example.connectus.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -44,16 +46,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
         return binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        initCarousel()
-//        initMenu()
-//        initSearchInput()
-//        initPopularProduct()
-//    }
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        when(v?.id) {
+            R.id.etSearchFixed -> {
+                startActivity(Intent(requireContext(), SearchActivity::class.java))
+            }
+        }
     }
 
     private fun initCarousel() {
