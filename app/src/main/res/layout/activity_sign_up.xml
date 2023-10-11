@@ -91,7 +91,7 @@
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
                 android:hint="Create a Password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
                 android:textColorHint="@color/gray_500"
@@ -122,7 +122,7 @@
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
                 android:hint="Re-enter your password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
                 android:textColorHint="@color/gray_500"
@@ -153,7 +153,7 @@
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
                 android:hint="Enter your email"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
                 android:textColorHint="@color/gray_500"
@@ -183,31 +183,42 @@
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
                 android:hint="Enter your phone number"
-                android:inputType="text"
+                android:inputType="phone|number"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
                 android:textColorHint="@color/gray_500"
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/createAccountBtn"
-            style="@style/primaryBtn"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Create Account" />
+            android:fontFamily="@font/inter_semi_bold"
+            android:paddingVertical="10dp"
+            android:text="Create Account"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="8dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/googleSignUpBtn"
-            style="@style/googleBtn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/inter_semi_bold"
+            android:paddingVertical="10dp"
             android:text="Sign up with google"
+            android:textAllCaps="false"
+            android:textColor="@color/gray_700"
+            android:textSize="16sp"
+            app:cornerRadius="8dp"
             app:icon="@drawable/google_icon"
             app:iconGravity="textStart"
-            app:iconTint="@null" />
+            app:iconSize="24dp"
+            app:iconTint="@null"
+            app:strokeColor="@color/gray_300"
+            app:strokeWidth="1dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

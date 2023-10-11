@@ -13,11 +13,12 @@
     <string name="home">Beranda</string>
     <string name="transaction">Transaksi</string>
     <string name="profile">Profil</string>
-
-    <!-- Sign Up Label -->
     <string name="username">Username<font fgcolor='#D92D20'>*</font></string>
     <string name="password">Password<font fgcolor='#D92D20'>*</font></string>
     <string name="confirm_password">Confirm Password<font fgcolor='#D92D20'>*</font></string>
     <string name="email">Email<font fgcolor='#D92D20'>*</font></string>
     <string name="phone_number">Phone Number<font fgcolor='#D92D20'>*</font></string>
+    <string name="search_history">Riwayat Pencarian</string>
+    <string name="delete_all">Hapus Semua</string>
+    <string name="popular_search">Sedang Populer</string>
 </resources>
