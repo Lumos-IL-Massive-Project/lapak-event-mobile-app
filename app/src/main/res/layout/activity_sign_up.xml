@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".activities.signup.SignUp">
+    tools:context=".activities.signup.SignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -191,7 +191,7 @@
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/signInButton"
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_semi_bold"
@@ -202,7 +202,7 @@
             app:cornerRadius="8dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/googleSignUpBtn"
+            android:id="@+id/googleSignUpButton"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -213,7 +213,7 @@
             android:textColor="@color/gray_700"
             android:textSize="16sp"
             app:cornerRadius="8dp"
-            app:icon="@drawable/google_icon"
+            app:icon="@drawable/ic_google"
             app:iconGravity="textStart"
             app:iconSize="24dp"
             app:iconTint="@null"
@@ -233,7 +233,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/signInBtn"
+                android:id="@+id/tvSignInBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
