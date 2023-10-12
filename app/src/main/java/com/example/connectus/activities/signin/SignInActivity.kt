@@ -1,5 +1,6 @@
 package com.example.connectus.activities.signin
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -28,12 +29,22 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tvSignUpBtn -> {
-                startActivity(Intent(this, SignUpActivity::class.java))
+                val intent = Intent(this, SignUpActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                }
+                val options =
+                    ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
+                startActivity(intent, options.toBundle())
             }
         }
     }
 
     private fun handleSignIn() {
-        startActivity(Intent(this, MainActivity::class.java))
+        val intent = Intent(this, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        val options =
+            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
+        startActivity(intent, options.toBundle())
     }
 }

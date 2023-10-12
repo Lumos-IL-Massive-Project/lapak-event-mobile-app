@@ -1,5 +1,6 @@
 package com.example.connectus.activities.otp
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -27,12 +28,22 @@ class OTPActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tvSignInBtn -> {
-                startActivity(Intent(this, SignInActivity::class.java))
+                val intent = Intent(this, SignInActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                }
+                val options =
+                    ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
+                startActivity(intent, options.toBundle())
             }
         }
     }
 
     private fun handleConfirmOTP() {
-        startActivity(Intent(this, SignInActivity::class.java))
+        val intent = Intent(this, SignInActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        val options =
+            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
+        startActivity(intent, options.toBundle())
     }
 }

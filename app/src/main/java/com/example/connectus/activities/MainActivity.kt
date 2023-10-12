@@ -1,16 +1,16 @@
 package com.example.connectus.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.connectus.R
-import com.example.connectus.activities.home.HomeFragment
-import com.example.connectus.activities.orderlist.OrderListFragment
-import com.example.connectus.activities.profile.ProfileFragment
 import com.example.connectus.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,28 +20,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        replaceFragment(HomeFragment())
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId) {
-                R.id.home -> {
-                    replaceFragment(HomeFragment())
-                }
-                R.id.transaction -> {
-                    replaceFragment(OrderListFragment())
-                }
-                R.id.profile -> {
-                    replaceFragment(ProfileFragment())
-                }
-            }
-
-            true
-        }
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frameLayout, fragment)
-            commit()
-        }
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.mainContainer) as NavHostFragment
+        navController = navHostFragment.navController
+        val bottomNavigationView = binding.bottomNavigationView
+        setupWithNavController(bottomNavigationView, navController)
     }
 }
