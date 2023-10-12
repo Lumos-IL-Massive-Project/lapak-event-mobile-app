@@ -46,6 +46,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        handler.post(runnable)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        handler.removeCallbacks(runnable)
+    }
+
     override fun onClick(v: View?) {
         when(v?.id) {
             R.id.etSearchFixed -> {
