@@ -1,5 +1,6 @@
 package com.example.connectus.activities.splash
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -64,10 +65,20 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleSignIn() {
-        startActivity(Intent(this, SignInActivity::class.java))
+        val intent = Intent(this, SignInActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        val options =
+            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
+        startActivity(intent, options.toBundle())
     }
 
     private fun handleSignUp() {
-        startActivity(Intent(this, SignUpActivity::class.java))
+        val intent = Intent(this, SignUpActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        val options =
+            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
+        startActivity(intent, options.toBundle())
     }
 }

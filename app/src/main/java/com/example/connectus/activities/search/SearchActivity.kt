@@ -1,12 +1,10 @@
 package com.example.connectus.activities.search
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.R
-import com.example.connectus.activities.MainActivity
 import com.example.connectus.activities.search.adapters.RecyclerViewPopularSearchAdapter
 import com.example.connectus.activities.search.adapters.RecyclerViewSearchHistoryAdapter
 import com.example.connectus.activities.search.models.SearchHistoryData
@@ -50,8 +48,7 @@ class SearchActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnBack -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                finish()
             }
         }
     }

@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Html
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
@@ -27,8 +27,8 @@ import com.example.connectus.activities.search.SearchActivity
 import com.example.connectus.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentHomeBinding
-    private val carouselDataList = ArrayList<CarouselData>()
+    private var binding: FragmentHomeBinding? = null
+    private var carouselDataList = ArrayList<CarouselData>()
     private lateinit var dotsIndicator: ArrayList<TextView>
 
     private lateinit var handler: Handler
@@ -43,7 +43,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         initMenu()
         initSearchInput()
         initPopularProduct()
-        return binding.root
+        return binding!!.root
     }
 
     override fun onStart() {
@@ -56,8 +56,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
         handler.removeCallbacks(runnable)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+        carouselDataList = ArrayList()
+    }
+
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.etSearchFixed -> {
                 startActivity(Intent(requireContext(), SearchActivity::class.java))
             }
@@ -71,7 +77,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             override fun run() {
                 if (index == carouselDataList.size) index = 0
                 Log.e("Runnable", "$index")
-                binding.viewPager2.currentItem = index
+                binding?.viewPager2?.currentItem = index
                 index++
                 handler.postDelayed(this, 2000)
             }
@@ -88,11 +94,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
         )
 
         val adapter = ViewPagerCarouselAdapter(carouselDataList)
-        binding.viewPager2.adapter = adapter
+        binding?.viewPager2?.adapter = adapter
         dotsIndicator = ArrayList()
         setIndicator()
 
-        binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        binding?.viewPager2?.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 selectedDot(position)
                 super.onPageSelected(position)
@@ -101,7 +108,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initMenu() {
-        val gridView = binding.gvMenu
+        val gridView = binding?.gvMenu
         val items = listOf(
             MenuData("Pernikahan", R.drawable.ic_wedding),
             MenuData("Olahraga", R.drawable.ic_sport),
@@ -114,11 +121,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
         )
 
         val adapter = GridViewMenuAdapter(requireContext(), items)
-        gridView.adapter = adapter
+        gridView?.adapter = adapter
     }
 
     private fun initSearchInput() {
-        binding.etSearchFixed.setOnClickListener(this)
+        binding?.etSearchFixed?.setOnClickListener(this)
     }
 
     private fun initPopularProduct() {
@@ -189,8 +196,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
             ),
         )
 
-        binding.rvPopularProduct.adapter = RecyclerViewPopularProductAdapter(requireContext(), productDataList)
-        binding.rvPopularProduct.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding?.rvPopularProduct?.adapter =
+            RecyclerViewPopularProductAdapter(requireContext(), productDataList)
+        binding?.rvPopularProduct?.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
     fun handleMenu(v: View?) {
@@ -200,9 +208,19 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private fun selectedDot(position: Int) {
         for (i in 0 until carouselDataList.size) {
             if (i == position) {
-                dotsIndicator[i].setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_700))
+                dotsIndicator[i].setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.purple_700
+                    )
+                )
             } else {
-                dotsIndicator[i].setTextColor(ContextCompat.getColor(requireContext(), R.color.purple_200))
+                dotsIndicator[i].setTextColor(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.purple_200
+                    )
+                )
             }
         }
     }
@@ -220,7 +238,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             layoutParams.setMargins(8, 0, 8, 0)
 
             dotsIndicator[i].layoutParams = layoutParams
-            binding.dotsIndicator.addView(dotsIndicator[i])
+            binding?.dotsIndicator?.addView(dotsIndicator[i])
         }
     }
 }
