@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
+import com.example.connectus.activities.chatlist.ChatListActivity
 import com.example.connectus.activities.home.adapters.GridViewMenuAdapter
 import com.example.connectus.activities.home.adapters.RecyclerViewPopularProductAdapter
 import com.example.connectus.activities.home.adapters.ViewPagerCarouselAdapter
@@ -26,7 +27,7 @@ import com.example.connectus.activities.search.SearchActivity
 import com.example.connectus.databinding.FragmentHomeBinding
 import com.example.connectus.utils.startDynamicActivity
 
-class HomeFragment : Fragment(), View.OnClickListener {
+class HomeFragment : Fragment() {
     private var binding: FragmentHomeBinding? = null
     private var carouselDataList = ArrayList<CarouselData>()
     private lateinit var dotsIndicator: ArrayList<TextView>
@@ -39,6 +40,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        initTopBar()
         initCarousel()
         initMenu()
         initSearchInput()
@@ -62,11 +64,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
         carouselDataList = ArrayList()
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.etSearchFixed -> {
-                startDynamicActivity(requireContext(), SearchActivity::class.java)
-            }
+    private fun initTopBar() {
+        binding?.homeHeader?.ivChat?.setOnClickListener {
+            startDynamicActivity(requireContext(), ChatListActivity::class.java)
         }
     }
 
@@ -125,7 +125,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initSearchInput() {
-        binding?.etSearchFixed?.setOnClickListener(this)
+        binding?.etSearchFixed?.setOnClickListener {
+            startDynamicActivity(requireContext(), SearchActivity::class.java)
+        }
     }
 
     private fun initPopularProduct() {
