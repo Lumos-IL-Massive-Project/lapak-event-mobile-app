@@ -17,13 +17,16 @@ class RecyclerViewCategoryAdapter(
     inner class ViewHolder(itemView: AllcategoriesCategoryItemBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         private val binding = itemView
-        val cvCategoryItem = binding.cvCategoryItem
         fun bind(data: CategoryData) {
             with(binding) {
                 Glide.with(itemView)
                     .load(data.imageUrl)
                     .into(categoryImage)
                 binding.tvCategoryTitle.text = data.title
+
+                binding.cvCategoryItem.setOnClickListener {
+                    Toast.makeText(context, data.title, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -50,9 +53,5 @@ class RecyclerViewCategoryAdapter(
         position: Int
     ) {
         holder.bind(categoryList[position])
-
-        holder.cvCategoryItem.setOnClickListener {
-            Toast.makeText(context, categoryList[position].title, Toast.LENGTH_SHORT).show()
-        }
     }
 }
