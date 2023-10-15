@@ -1,7 +1,5 @@
 package com.example.connectus.activities.signin
 
-import android.app.ActivityOptions
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +7,7 @@ import com.example.connectus.R
 import com.example.connectus.activities.MainActivity
 import com.example.connectus.activities.signup.SignUpActivity
 import com.example.connectus.databinding.ActivitySignInBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class SignInActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySignInBinding
@@ -29,22 +28,12 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tvSignUpBtn -> {
-                val intent = Intent(this, SignUpActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                }
-                val options =
-                    ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
-                startActivity(intent, options.toBundle())
+                startDynamicActivity(this, SignUpActivity::class.java)
             }
         }
     }
 
     private fun handleSignIn() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        }
-        val options =
-            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
-        startActivity(intent, options.toBundle())
+        startDynamicActivity(this, MainActivity::class.java)
     }
 }

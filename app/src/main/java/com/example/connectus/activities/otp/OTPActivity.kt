@@ -1,13 +1,12 @@
 package com.example.connectus.activities.otp
 
-import android.app.ActivityOptions
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.R
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.ActivityOtpBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class OTPActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityOtpBinding
@@ -28,22 +27,12 @@ class OTPActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tvSignInBtn -> {
-                val intent = Intent(this, SignInActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                }
-                val options =
-                    ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
-                startActivity(intent, options.toBundle())
+                startDynamicActivity(this, SignInActivity::class.java)
             }
         }
     }
 
     private fun handleConfirmOTP() {
-        val intent = Intent(this, SignInActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        }
-        val options =
-            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
-        startActivity(intent, options.toBundle())
+        startDynamicActivity(this, SignInActivity::class.java)
     }
 }

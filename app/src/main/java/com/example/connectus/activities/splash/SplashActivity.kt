@@ -1,7 +1,5 @@
 package com.example.connectus.activities.splash
 
-import android.app.ActivityOptions
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -12,6 +10,7 @@ import com.example.connectus.R
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.activities.signup.SignUpActivity
 import com.example.connectus.databinding.ActivitySplashBinding
+import com.example.connectus.utils.startDynamicActivity
 
 
 class SplashActivity : AppCompatActivity(), View.OnClickListener {
@@ -65,20 +64,10 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleSignIn() {
-        val intent = Intent(this, SignInActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        }
-        val options =
-            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
-        startActivity(intent, options.toBundle())
+        startDynamicActivity(this, SignInActivity::class.java)
     }
 
     private fun handleSignUp() {
-        val intent = Intent(this, SignUpActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        }
-        val options =
-            ActivityOptions.makeCustomAnimation(this, R.anim.slide_in, R.anim.slide_out)
-        startActivity(intent, options.toBundle())
+        startDynamicActivity(this, SignUpActivity::class.java)
     }
 }

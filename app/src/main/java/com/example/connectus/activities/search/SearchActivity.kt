@@ -1,16 +1,14 @@
 package com.example.connectus.activities.search
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.connectus.R
 import com.example.connectus.activities.search.adapters.RecyclerViewPopularSearchAdapter
 import com.example.connectus.activities.search.adapters.RecyclerViewSearchHistoryAdapter
 import com.example.connectus.activities.search.models.SearchHistoryData
 import com.example.connectus.databinding.ActivitySearchBinding
 
-class SearchActivity : AppCompatActivity(), View.OnClickListener {
+class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +18,9 @@ class SearchActivity : AppCompatActivity(), View.OnClickListener {
 
         initSearchHistory()
         initPopularSearch()
-        binding.searchHeader.btnBack.setOnClickListener(this)
+        binding.searchHeader.ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initSearchHistory() {
@@ -43,13 +43,5 @@ class SearchActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.rvPopularSearch.adapter = RecyclerViewPopularSearchAdapter(popularSearchList)
         binding.rvPopularSearch.layoutManager = GridLayoutManager(this, 1)
-    }
-
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.btnBack -> {
-                finish()
-            }
-        }
     }
 }
