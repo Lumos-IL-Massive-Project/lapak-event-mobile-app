@@ -8,7 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.connectus.R
+import com.example.connectus.activities.allcategories.AllCategoriesActivity
 import com.example.connectus.activities.home.models.MenuData
+import com.example.connectus.utils.startDynamicActivity
 
 class GridViewMenuAdapter(private val context: Context, private val menuList: List<MenuData>) :
     BaseAdapter() {
@@ -26,7 +28,8 @@ class GridViewMenuAdapter(private val context: Context, private val menuList: Li
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view =
-            convertView ?: LayoutInflater.from(context).inflate(R.layout.home_menu_item, parent, false)
+            convertView ?: LayoutInflater.from(context)
+                .inflate(R.layout.home_menu_item, parent, false)
         val item = getItem(position) as MenuData
         val imageView = view.findViewById<ImageView>(R.id.menuIcon)
         val textView = view.findViewById<TextView>(R.id.menuLabel)
@@ -34,6 +37,13 @@ class GridViewMenuAdapter(private val context: Context, private val menuList: Li
         imageView.setImageResource(item.image)
         textView.text = item.name
 
+        view.setOnClickListener {
+            when (item.name) {
+                "Menu Lainnya" -> {
+                    startDynamicActivity(context, AllCategoriesActivity::class.java)
+                }
+            }
+        }
         return view
     }
 }

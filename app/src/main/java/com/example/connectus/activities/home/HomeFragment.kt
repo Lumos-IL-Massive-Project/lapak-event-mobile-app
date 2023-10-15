@@ -1,6 +1,5 @@
 package com.example.connectus.activities.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -25,6 +24,7 @@ import com.example.connectus.activities.home.models.MenuData
 import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.search.SearchActivity
 import com.example.connectus.databinding.FragmentHomeBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class HomeFragment : Fragment(), View.OnClickListener {
     private var binding: FragmentHomeBinding? = null
@@ -65,7 +65,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.etSearchFixed -> {
-                startActivity(Intent(requireContext(), SearchActivity::class.java))
+                startDynamicActivity(requireContext(), SearchActivity::class.java)
             }
         }
     }

@@ -1,6 +1,5 @@
 package com.example.connectus.activities.signup
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +7,7 @@ import com.example.connectus.R
 import com.example.connectus.activities.otp.OTPActivity
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.ActivitySignUpBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySignUpBinding
@@ -28,12 +28,12 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.tvSignInBtn -> {
-                startActivity(Intent(this, SignInActivity::class.java))
+                startDynamicActivity(this, SignInActivity::class.java)
             }
         }
     }
 
     private fun handleCreateAccount() {
-        startActivity(Intent(this, OTPActivity::class.java))
+        startDynamicActivity(this, OTPActivity::class.java)
     }
 }
