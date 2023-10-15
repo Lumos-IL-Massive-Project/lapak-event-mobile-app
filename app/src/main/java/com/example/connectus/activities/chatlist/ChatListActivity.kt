@@ -3,7 +3,6 @@ package com.example.connectus.activities.chatlist
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.connectus.activities.allcategories.adapter.RecyclerViewCategoryAdapter
 import com.example.connectus.activities.chatlist.adapter.RecyclerViewChatListAdapter
 import com.example.connectus.activities.chatlist.model.ChatData
 import com.example.connectus.databinding.ActivityChatListBinding
