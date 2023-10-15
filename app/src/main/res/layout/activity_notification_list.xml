@@ -6,4 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".activities.notificationlist.NotificationListActivity">
 
+    <include
+        android:id="@+id/customTopBar"
+        layout="@layout/global_top_app_bar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNotificationList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        android:isScrollContainer="false"
+        android:nestedScrollingEnabled="false"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customTopBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,7 @@ import com.example.connectus.activities.home.adapters.ViewPagerCarouselAdapter
 import com.example.connectus.activities.home.models.CarouselData
 import com.example.connectus.activities.home.models.MenuData
 import com.example.connectus.activities.home.models.ProductData
+import com.example.connectus.activities.notificationlist.NotificationListActivity
 import com.example.connectus.activities.search.SearchActivity
 import com.example.connectus.databinding.FragmentHomeBinding
 import com.example.connectus.utils.startDynamicActivity
@@ -67,6 +68,9 @@ class HomeFragment : Fragment() {
     private fun initTopBar() {
         binding?.homeHeader?.ivChat?.setOnClickListener {
             startDynamicActivity(requireContext(), ChatListActivity::class.java)
+        }
+        binding?.homeHeader?.ivNotification?.setOnClickListener {
+            startDynamicActivity(requireContext(), NotificationListActivity::class.java)
         }
     }
 

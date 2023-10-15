@@ -1,8 +1,7 @@
-package com.example.connectus.activities.chatlist.model
+package com.example.connectus.activities.notificationlist.model
 
-data class ChatData(
-    val senderName: String,
-    val senderProfileImageUrl: String,
-    val message: String,
+data class NotificationData(
+    val imageUrl: String,
+    val title: String,
     val createdAt: String
 )

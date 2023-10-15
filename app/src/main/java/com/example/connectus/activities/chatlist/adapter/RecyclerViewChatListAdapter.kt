@@ -8,11 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.connectus.activities.chatlist.model.ChatData
 import com.example.connectus.databinding.ChatlistChatItemBinding
-import com.example.connectus.utils.convertTimestamps
 
 class RecyclerViewChatListAdapter(
     private val context: Context,
-    private val categoryList: List<ChatData>
+    private val chatList: List<ChatData>
 ) :
     RecyclerView.Adapter<RecyclerViewChatListAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: ChatlistChatItemBinding) :
@@ -49,13 +48,13 @@ class RecyclerViewChatListAdapter(
     }
 
     override fun getItemCount(): Int {
-        return categoryList.size
+        return chatList.size
     }
 
     override fun onBindViewHolder(
-        holder: RecyclerViewChatListAdapter.ViewHolder,
+        holder: ViewHolder,
         position: Int
     ) {
-        holder.bind(categoryList[position])
+        holder.bind(chatList[position])
     }
 }
