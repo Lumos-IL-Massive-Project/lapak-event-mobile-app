@@ -34,6 +34,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun handleSignIn() {
-        startDynamicActivity(this, MainActivity::class.java)
+        startDynamicActivity(this, MainActivity::class.java, R.anim.zoom_in, R.anim.zoom_out)
     }
 }
