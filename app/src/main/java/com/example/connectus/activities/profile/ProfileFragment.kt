@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.connectus.R
 import com.example.connectus.activities.changepassword.ChangePasswordActivity
+import com.example.connectus.activities.changeprofile.ChangeProfileActivity
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.FragmentProfileBinding
 import com.example.connectus.utils.startDynamicActivity
@@ -42,6 +43,9 @@ class ProfileFragment : Fragment() {
                 R.anim.slide_right_in,
                 R.anim.slide_right_out
             )
+        }
+        binding?.changeProfileSection?.setOnClickListener {
+            startDynamicActivity(requireContext(), ChangeProfileActivity::class.java)
         }
         binding?.changePasswordSection?.setOnClickListener {
             startDynamicActivity(requireContext(), ChangePasswordActivity::class.java)
