@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ConnectUs"
         tools:targetApi="31">
         <activity
+            android:name=".activities.splash.SplashActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.notificationlist.NotificationListActivity"
             android:exported="false" />
         <activity
@@ -40,7 +43,7 @@
             android:name=".activities.allcategories.AllCategoriesActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.splash.SplashActivity"
+            android:name=".activities.testimonilist.TestimoniListActivity"
             android:exported="true"
             tools:ignore="Instantiatable">
             <intent-filter>
