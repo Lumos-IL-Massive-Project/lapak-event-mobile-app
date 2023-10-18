@@ -45,13 +45,11 @@ class OnboardingActivity : AppCompatActivity() {
             "Selamat Datang",
             R.drawable.welcome,
             "Kami mengumpulkan perusahaan event organizer yang berkomitmen untuk memberikan pengalaman yang tak terlupakan dalam setiap acara impian anda."
-        ),
-        PageData(
+        ), PageData(
             "Kreativitas tanpa batas",
             R.drawable.unlimited_creativity,
             "Kami percaya bahwa setiap acara harus unik, tim kami siap menghadirkan ide dan rekomendasi untuk setiap proyek yang akan di laksanakan."
-        ),
-        PageData(
+        ), PageData(
             "Jaringan yang luas",
             R.drawable.wide_network,
             "Kami memiliki kemitraan yang kuat dengan berbagai vendor dan penyediaan pelayanan memungkinkan kami untuk menawarkan berbagai pilihan dan harga kompetitif."
@@ -95,12 +93,12 @@ class OnboardingActivity : AppCompatActivity() {
             if (onboardingViewPager2.currentItem < onboardingViewPager2.adapter!!.itemCount - 1) {
                 onboardingViewPager2.currentItem += 1
             } else {
-                homeScreenIntent()
+                navigateToHomeScreen()
             }
         }
 
         skipButton.setOnClickListener {
-            homeScreenIntent()
+            navigateToHomeScreen()
         }
     }
 
@@ -109,7 +107,7 @@ class OnboardingActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    private fun homeScreenIntent() {
-        startDynamicActivity(this, MainActivity::class.java)
+    private fun navigateToHomeScreen() {
+        startDynamicActivity(this, MainActivity::class.java, R.anim.zoom_in, R.anim.zoom_out)
     }
 }

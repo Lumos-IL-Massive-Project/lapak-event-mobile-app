@@ -130,7 +130,12 @@ class HomeFragment : Fragment() {
 
     private fun initSearchInput() {
         binding?.etSearchFixed?.setOnClickListener {
-            startDynamicActivity(requireContext(), SearchActivity::class.java)
+            startDynamicActivity(
+                requireContext(),
+                SearchActivity::class.java,
+                R.anim.fade_in,
+                R.anim.fade_out
+            )
         }
     }
 

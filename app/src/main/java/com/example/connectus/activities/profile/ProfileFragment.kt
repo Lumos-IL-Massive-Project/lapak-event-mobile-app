@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.connectus.R
+import com.example.connectus.activities.changepassword.ChangePasswordActivity
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.FragmentProfileBinding
 import com.example.connectus.utils.startDynamicActivity
@@ -34,7 +36,15 @@ class ProfileFragment : Fragment() {
 
     private fun initLayout() {
         binding?.signOutButton?.setOnClickListener {
-            startDynamicActivity(requireContext(), SignInActivity::class.java)
+            startDynamicActivity(
+                requireContext(),
+                SignInActivity::class.java,
+                R.anim.slide_right_in,
+                R.anim.slide_right_out
+            )
+        }
+        binding?.changePasswordSection?.setOnClickListener {
+            startDynamicActivity(requireContext(), ChangePasswordActivity::class.java)
         }
     }
 }

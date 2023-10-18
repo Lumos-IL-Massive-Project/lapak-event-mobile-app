@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
                 this,
                 OnboardingActivity::class.java,
                 R.anim.fade_in,
-                R.anim.slide_out
+                R.anim.fade_out
             )
             finish()
         }, 3000)

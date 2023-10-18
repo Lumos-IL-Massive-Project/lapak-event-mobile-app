@@ -91,6 +91,7 @@
         android:fontFamily="@font/inter_medium"
         android:paddingVertical="10dp"
         android:text="Skip"
+        app:strokeColor="@color/purple_700"
         android:textAllCaps="false"
         android:textSize="12sp"
         app:cornerRadius="8dp" />
