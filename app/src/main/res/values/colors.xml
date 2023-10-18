@@ -14,4 +14,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="label_otp">#D0D5DD</color>
     <color name="green">#689F3C</color>
+    <color name="orange">#FEB273</color>
 </resources>
