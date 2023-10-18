@@ -5,7 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.R
-import com.example.connectus.activities.MainActivity
+import com.example.connectus.activities.onboarding.OnboardingActivity
 import com.example.connectus.databinding.ActivitySplashBinding
 import com.example.connectus.utils.startDynamicActivity
 
@@ -20,7 +20,12 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         handler.postDelayed({
-            startDynamicActivity(this, MainActivity::class.java, R.anim.fade_in, R.anim.slide_out)
+            startDynamicActivity(
+                this,
+                OnboardingActivity::class.java,
+                R.anim.fade_in,
+                R.anim.slide_out
+            )
             finish()
         }, 3000)
     }
