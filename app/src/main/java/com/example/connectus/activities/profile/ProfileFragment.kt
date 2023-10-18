@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.connectus.R
 import com.example.connectus.activities.changepassword.ChangePasswordActivity
 import com.example.connectus.activities.changeprofile.ChangeProfileActivity
+import com.example.connectus.activities.notificationsetting.NotificationSettingActivity
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.FragmentProfileBinding
 import com.example.connectus.utils.startDynamicActivity
@@ -49,6 +50,9 @@ class ProfileFragment : Fragment() {
         }
         binding?.changePasswordSection?.setOnClickListener {
             startDynamicActivity(requireContext(), ChangePasswordActivity::class.java)
+        }
+        binding?.notificationSettingSection?.setOnClickListener {
+            startDynamicActivity(requireContext(), NotificationSettingActivity::class.java)
         }
     }
 }
