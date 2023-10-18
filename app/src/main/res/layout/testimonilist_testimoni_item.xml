@@ -90,7 +90,7 @@
     <ImageView
         android:layout_width="16dp"
         android:layout_height="14dp"
-        android:src="@drawable/arrow_right"
+        android:src="@drawable/ic_arrow_right2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/item_balasan"
