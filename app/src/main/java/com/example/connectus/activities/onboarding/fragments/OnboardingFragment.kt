@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.connectus.activities.onboarding.models.PageData
 import com.example.connectus.databinding.FragmentOnboardingBinding
 
-class OnboardingFragment(val page: PageData) : Fragment() {
+class OnboardingFragment(private val page: PageData) : Fragment() {
     private var binding: FragmentOnboardingBinding? = null
 
     override fun onCreateView(
