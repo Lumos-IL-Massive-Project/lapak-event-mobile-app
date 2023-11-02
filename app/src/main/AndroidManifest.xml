@@ -28,9 +28,6 @@
             android:name=".activities.changepassword.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.account.AccountActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
