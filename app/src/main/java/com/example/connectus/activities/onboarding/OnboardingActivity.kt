@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
-import com.example.connectus.activities.MainActivity
 import com.example.connectus.activities.onboarding.adapters.ViewPagerOnboardingAdapter
 import com.example.connectus.activities.onboarding.models.PageData
+import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.ActivityOnboardingBinding
 import com.example.connectus.utils.startDynamicActivity
 import com.google.android.material.button.MaterialButton
@@ -108,6 +108,6 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun navigateToHomeScreen() {
-        startDynamicActivity(this, MainActivity::class.java, R.anim.zoom_in, R.anim.zoom_out)
+        startDynamicActivity(this, SignInActivity::class.java, R.anim.zoom_in, R.anim.zoom_out)
     }
 }

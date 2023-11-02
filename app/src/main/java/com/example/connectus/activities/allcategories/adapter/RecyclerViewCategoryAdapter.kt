@@ -3,11 +3,12 @@ package com.example.connectus.activities.allcategories.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.connectus.activities.allcategories.model.CategoryData
+import com.example.connectus.activities.productlist.ProductListActivity
 import com.example.connectus.databinding.AllcategoriesCategoryItemBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class RecyclerViewCategoryAdapter(
     private val context: Context,
@@ -25,7 +26,7 @@ class RecyclerViewCategoryAdapter(
                 binding.tvCategoryTitle.text = data.title
 
                 binding.cvCategoryItem.setOnClickListener {
-                    Toast.makeText(context, data.title, Toast.LENGTH_SHORT).show()
+                    startDynamicActivity(context, ProductListActivity::class.java)
                 }
             }
         }

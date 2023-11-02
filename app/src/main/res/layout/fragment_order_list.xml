@@ -21,12 +21,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/customTopBar"
-            app:tabIndicator="@drawable/top_tab_indicator"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorColor="@null"
-            app:tabIndicatorGravity="stretch"
+            app:tabIndicatorColor="@color/purple_500"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/purple_700" />
+            app:tabSelectedTextColor="@color/purple_700"
+            app:tabTextAppearance="@style/TabLayoutTextStyle"
+            app:tabTextColor="@color/black" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager2"
