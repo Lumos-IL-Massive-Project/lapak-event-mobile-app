@@ -31,8 +31,7 @@
             android:name=".activities.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.splash.SplashActivity"
-
+            android:name=".activities.testimonilist.TestimoniListActivity"
             android:exported="false" />
         <activity
             android:name=".activities.testimonidetail.TestimoniDetailActivity"
@@ -62,8 +61,7 @@
             android:name=".activities.allcategories.AllCategoriesActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.testimonilist.TestimoniListActivity"
-
+            android:name=".activities.splash.SplashActivity"
             android:exported="true"
             tools:ignore="Instantiatable">
             <intent-filter>
