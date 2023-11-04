@@ -6,13 +6,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.connectus.activities.testimonidetail.TestimoniDetailActivity
 import com.example.connectus.activities.testimonilist.model.TestimoniData
 import com.example.connectus.databinding.TestimonilistTestimoniItemBinding
+import com.example.connectus.utils.startDynamicActivity
 
-class RecyclerViewTestimoniAdapter (
+class RecyclerViewTestimoniAdapter(
     private val context: Context,
     private val data: List<TestimoniData>
-): RecyclerView.Adapter<RecyclerViewTestimoniAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerViewTestimoniAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: TestimonilistTestimoniItemBinding) :
         RecyclerView.ViewHolder(itemView.root) {
@@ -27,7 +29,7 @@ class RecyclerViewTestimoniAdapter (
                 binding.tvCreatedAt.text = data.createdAt
 
                 binding.testimoniItemLayout.setOnClickListener {
-                    Toast.makeText(context, data.description, Toast.LENGTH_SHORT).show()
+                    startDynamicActivity(context, TestimoniDetailActivity::class.java)
                 }
             }
         }

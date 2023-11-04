@@ -19,10 +19,15 @@ class TestimoniListActivity : AppCompatActivity() {
         binding = ActivityTestimoniListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        init()
+        initTopBar()
+        initRecyclerView()
     }
 
-    private fun init() {
+    private fun initTopBar() {
+        binding?.customTopBar?.tvTopBarTitle?.text = "Testimoni"
+    }
+
+    private fun initRecyclerView() {
         val recyclerView: RecyclerView = binding.rvTestimoniList
 
         val data: List<TestimoniData> = listOf(
