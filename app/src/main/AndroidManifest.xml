@@ -34,6 +34,9 @@
             android:name=".activities.testimonilist.TestimoniListActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.testimonidetail.TestimoniDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.notificationlist.NotificationListActivity"
             android:exported="false" />
         <activity
