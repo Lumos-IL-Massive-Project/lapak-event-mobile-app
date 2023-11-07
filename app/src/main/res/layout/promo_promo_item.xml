@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvPromo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/ivPromo"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:scaleType="fitXY" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <TextView
+                android:id="@+id/tvPromoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Promo Spesial"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/promoStatusChip"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="Terpasang"
+                android:textColor="@color/purple_700"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/purple_50"
+                app:chipEndPadding="8dp"
+                app:chipStartPadding="6dp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPromoDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:isScrollContainer="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginRight="4dp"
+                    android:src="@drawable/ic_clock" />
+
+                <TextView
+                    android:id="@+id/tvExpiredDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:text="Expired Date"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/usePromoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="Pakai"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:cornerRadius="8dp"
+                app:icon="@drawable/ic_arrow_right"
+                app:iconGravity="textEnd"
+                app:iconSize="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/takeOffPromoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="Lepas"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
