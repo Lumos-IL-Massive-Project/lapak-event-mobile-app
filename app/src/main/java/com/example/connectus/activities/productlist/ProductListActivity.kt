@@ -16,8 +16,15 @@ class ProductListActivity : AppCompatActivity() {
         binding = ActivityProductListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initTopBar()
         initFilters()
         initProductList()
+    }
+
+    private fun initTopBar() {
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initFilters() {
@@ -120,8 +127,8 @@ class ProductListActivity : AppCompatActivity() {
             ),
         )
 
-        binding?.rvProducts?.adapter =
+        binding.rvProducts.adapter =
             RecyclerViewProductAdapter(this, productDataList)
-        binding?.rvProducts?.layoutManager = GridLayoutManager(this, 2)
+        binding.rvProducts.layoutManager = GridLayoutManager(this, 2)
     }
 }

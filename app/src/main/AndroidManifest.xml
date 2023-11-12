@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ConnectUs"
         tools:targetApi="31">
         <activity
+            android:name=".activities.productdetail.ProductDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.promo.PromoActivity"
             android:exported="false" />
         <activity
@@ -34,7 +37,7 @@
             android:name=".activities.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.testimonilist.TestimoniListActivity"
+            android:name=".activities.testimonilist.TestimonyListActivity"
             android:exported="false" />
         <activity
             android:name=".activities.testimonidetail.TestimoniDetailActivity"
