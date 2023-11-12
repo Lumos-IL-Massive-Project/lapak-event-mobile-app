@@ -1,3 +1,3 @@
 package com.example.connectus.activities.productdetail.models
 
-data class PlanDetailItemListData()
+data class PlanDetailItemListData(val item: String)

@@ -1,3 +1,3 @@
 package com.example.connectus.activities.productdetail.models
 
-data class ProductImageData()
+data class ProductImageData(val imageUrl: String)
