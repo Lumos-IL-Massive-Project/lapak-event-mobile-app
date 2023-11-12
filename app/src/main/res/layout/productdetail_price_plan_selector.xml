@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pricePlanSelectorChip"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_marginRight="8dp"
+    android:fontFamily="@font/inter_medium"
+    android:text="Plan"
+    android:textColor="@color/black"
+    android:textSize="12sp"
+    app:chipBackgroundColor="@color/purple_200"
+    app:chipEndPadding="8dp"
+    app:chipStartPadding="6dp" />

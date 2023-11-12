@@ -18,7 +18,10 @@ class TestimoniDetailActivity : AppCompatActivity() {
     }
 
     private fun initTopBar() {
-        binding?.customTopBar?.tvTopBarTitle?.text = "Detail Testimoni"
+        binding.customTopBar.ivBack.setOnClickListener {
+            finish()
+        }
+        binding.customTopBar.tvTopBarTitle.text = "Detail Testimoni"
     }
 
 }
