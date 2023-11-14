@@ -37,7 +37,10 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
 
     override fun onPricePlanClicked(data: PlanDetailData) {
         supportFragmentManager.beginTransaction()
-            .replace(binding.pricePlanFragmentContainer.id, PricePlanFragment(data))
+            .replace(
+                binding.pricePlanFragmentContainer.id,
+                PricePlanFragment(data, supportFragmentManager)
+            )
             .addToBackStack(null)
             .commit()
     }
