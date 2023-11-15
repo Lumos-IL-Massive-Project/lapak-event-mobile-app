@@ -1,6 +1,7 @@
 package com.example.connectus.activities.productdetail
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -8,16 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
 import com.example.connectus.activities.home.models.ProductData
-import com.example.connectus.activities.productdetail.adapters.RecyclerViewPlanItemsAdapter
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPricePlanSelectorAdapter
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewProductAdapter
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewTestimonyAdapter
 import com.example.connectus.activities.productdetail.adapters.ViewPagerProductImagesAdapter
+import com.example.connectus.activities.productdetail.fragments.OrderBottomSheetModalFragment
 import com.example.connectus.activities.productdetail.fragments.PricePlanFragment
 import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.activities.productdetail.models.ProductImageData
 import com.example.connectus.activities.productdetail.viewmodels.ProductDetailViewModel
-import com.example.connectus.activities.promo.models.PricePlanClickListener
+import com.example.connectus.activities.productdetail.models.PricePlanClickListener
 import com.example.connectus.activities.testimonilist.TestimonyListActivity
 import com.example.connectus.activities.testimonilist.model.TestimonyData
 import com.example.connectus.databinding.ActivityProductDetailBinding
@@ -54,6 +55,7 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
             initPricePlan(data.plans)
             initDescription(data.description)
             initTestimony(data.testimony)
+            initButtonAction(data.plans)
         })
 
         initVendorProduct()
@@ -246,5 +248,16 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
         binding.rvRecommendationProduct.adapter = RecyclerViewProductAdapter(this, productDataList)
         binding.rvRecommendationProduct.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    private fun initButtonAction(plans: List<PlanDetailData>) {
+        binding.btnChat.setOnClickListener {
+            Toast.makeText(this, "Chat", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnOrderNow.setOnClickListener {
+            val bottomSheetFragment = OrderBottomSheetModalFragment(plans)
+            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+        }
     }
 }
