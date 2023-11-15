@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.connectus.R
 import com.example.connectus.activities.productdetail.models.PlanDetailData
-import com.example.connectus.activities.promo.models.PricePlanClickListener
+import com.example.connectus.activities.productdetail.models.PricePlanClickListener
 import com.example.connectus.databinding.ProductdetailPricePlanSelectorBinding
 
 class RecyclerViewPricePlanSelectorAdapter(

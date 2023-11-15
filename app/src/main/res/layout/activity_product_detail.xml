@@ -350,7 +350,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_medium"
-                        android:text="PProduk lainnya yang mungkin anda suka"
+                        android:text="Produk lainnya yang mungkin anda suka"
                         android:textColor="@color/black"
                         android:textSize="14dp" />
 
