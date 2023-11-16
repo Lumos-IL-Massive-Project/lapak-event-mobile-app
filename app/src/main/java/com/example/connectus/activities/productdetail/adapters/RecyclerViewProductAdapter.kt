@@ -1,4 +1,4 @@
-package com.example.connectus.activities.productlist.adapters
+package com.example.connectus.activities.productdetail.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,35 +6,35 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.connectus.activities.home.models.ProductData
-import com.example.connectus.activities.productdetail.ProductDetailActivity
-import com.example.connectus.databinding.ProductlistProductItemBinding
-import com.example.connectus.utils.startDynamicActivity
+import com.example.connectus.databinding.ProductdetailProductItemBinding
 
 class RecyclerViewProductAdapter(
     private val context: Context,
     private val productList: List<ProductData>
 ) : RecyclerView.Adapter<RecyclerViewProductAdapter.ViewHolder>() {
-    inner class ViewHolder(itemView: ProductlistProductItemBinding) :
+    inner class ViewHolder(itemView: ProductdetailProductItemBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         val binding = itemView
 
         fun bind(data: ProductData) {
-            binding.imgPopularProduct.setImageResource(data.productImage)
+            binding.tvProductName.text = data.productName
+            binding.imgProduct.setImageResource(data.productImage)
             binding.tvVendorName.text = data.vendorName
 
-            binding.cvPopularProduct.setOnClickListener {
-                startDynamicActivity(context, ProductDetailActivity::class.java)
+            binding.cvProduct.setOnClickListener {
+                Toast.makeText(context, data.productName, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ProductlistProductItemBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
+        return ViewHolder(
+            ProductdetailProductItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
-        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {

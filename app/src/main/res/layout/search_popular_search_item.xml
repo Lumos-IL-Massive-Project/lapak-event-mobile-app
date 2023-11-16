@@ -9,7 +9,7 @@
         android:id="@+id/tvPopularSearchLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/squared_ripple_effect"
+        android:background="@drawable/squircle_ripple_effect"
         android:clickable="true"
         android:fontFamily="@font/inter_medium"
         android:text="Product Launching"

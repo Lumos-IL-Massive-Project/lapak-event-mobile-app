@@ -44,5 +44,9 @@
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/inter_medium</item>
     </style>
-
+    
+    <style name="BottomSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_bottom_out</item>
+    </style>
 </resources>

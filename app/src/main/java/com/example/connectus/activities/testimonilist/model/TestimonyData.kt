@@ -1,6 +1,6 @@
 package com.example.connectus.activities.testimonilist.model
 
-class TestimoniData (
+class TestimonyData (
     val userProfileUrl: String,
     val createdAt: String,
     val rating: Int,

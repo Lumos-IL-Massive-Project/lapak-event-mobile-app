@@ -16,8 +16,15 @@ class ProductListActivity : AppCompatActivity() {
         binding = ActivityProductListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initTopBar()
         initFilters()
         initProductList()
+    }
+
+    private fun initTopBar() {
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initFilters() {
@@ -38,12 +45,12 @@ class ProductListActivity : AppCompatActivity() {
             priceSortState = "asc"
         }
         binding.tvBtnPriceFilter.setOnClickListener {
-            if (priceSortState == "asc") {
+            priceSortState = if (priceSortState == "asc") {
                 binding.imgPriceArrow.setImageResource(R.drawable.ic_arrow_down2)
-                priceSortState = "desc"
+                "desc"
             } else {
                 binding.imgPriceArrow.setImageResource(R.drawable.ic_arrow_up2)
-                priceSortState = "asc"
+                "asc"
             }
 
             it.isSelected = true
@@ -120,8 +127,8 @@ class ProductListActivity : AppCompatActivity() {
             ),
         )
 
-        binding?.rvProducts?.adapter =
+        binding.rvProducts.adapter =
             RecyclerViewProductAdapter(this, productDataList)
-        binding?.rvProducts?.layoutManager = GridLayoutManager(this, 2)
+        binding.rvProducts.layoutManager = GridLayoutManager(this, 2)
     }
 }
