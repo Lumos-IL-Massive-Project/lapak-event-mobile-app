@@ -21,6 +21,9 @@ class PromoActivity : AppCompatActivity() {
     }
 
     private fun initTopBar() {
+        binding.customTopBar.ivBack.setOnClickListener {
+            finish()
+        }
         binding.customTopBar.tvTopBarTitle.text = "Promo"
     }
 

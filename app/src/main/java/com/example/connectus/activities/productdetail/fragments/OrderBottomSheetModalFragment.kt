@@ -7,14 +7,15 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.connectus.R
+import com.example.connectus.activities.checkout.CheckoutActivity
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPricePlanSelectorAdapter
 import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.activities.productdetail.models.PricePlanClickListener
 import com.example.connectus.databinding.ProductdetailOrderModalBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) : DialogFragment(),
     PricePlanClickListener {
@@ -71,7 +72,7 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) : D
 
     private fun initOrderNowButton() {
         binding?.btnOrderNow?.setOnClickListener {
-            Toast.makeText(requireContext(), "Pesan Sekarang", Toast.LENGTH_SHORT).show()
+            startDynamicActivity(requireContext(), CheckoutActivity::class.java)
         }
     }
 }
