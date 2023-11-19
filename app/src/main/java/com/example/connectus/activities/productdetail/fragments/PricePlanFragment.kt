@@ -14,8 +14,7 @@ import com.example.connectus.activities.productdetail.adapters.RecyclerViewPlanI
 import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.databinding.FragmentPricePlanBinding
 import com.example.connectus.databinding.ProductdetailPopupCicilanBinding
-import java.text.NumberFormat
-import java.util.Locale
+import com.example.connectus.utils.formatRupiah
 
 class PricePlanFragment(
     private val data: PlanDetailData,
@@ -42,10 +41,8 @@ class PricePlanFragment(
     }
 
     private fun init() {
-        val format = NumberFormat.getCurrencyInstance(Locale("id", "ID"))
-
         binding?.tvPlanDescription?.text = data.description
-        binding?.tvPrice?.text = format.format(data.price)
+        binding?.tvPrice?.text = formatRupiah(data.price)
 
         binding?.btnCicilan?.setOnClickListener {
             val dialog = Dialog(requireContext())
