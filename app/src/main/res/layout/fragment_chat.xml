@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.chatdetail.fragments.ChatFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/warning"
+            layout="@layout/warning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Sabtu 06 Januari 2024"
+            android:textSize="12sp"
+            android:textColor="@color/gray_900"
+            android:fontFamily="@font/inter_regular"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/etUser1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/warning" />
+
+        <!--        Chat User 1-->
+        <EditText
+            android:id="@+id/etUser1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_sent_message"
+            android:fontFamily="@font/inter_regular"
+            android:padding="8dp"
+            android:text="Hai! Saya tertarik untuk mengadakan acara pernikahan pada bulan November. Bolehkah Anda memberi saya beberapa informasi tentang paket yang Anda tawarkan?"
+            android:textColor="@color/gray_25"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toStartOf="@id/cvUser1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUser1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/etUser1"
+            app:layout_constraintTop_toBottomOf="@id/tvDate">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_user"
+                android:layout_gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <!--        Chat EO 1-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEO1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUser1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_eo"
+                android:layout_gravity="center" />
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/etEO1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_received_message"
+            android:padding="8dp"
+            android:text="Tentu, saya senang mendengarnya! Apakah Anda memiliki prefensi tertentu atau tema untuk pernikahan Anda?"
+            android:textColor="@color/gray_900"
+            android:textSize="12dp"
+            android:fontFamily="@font/inter_regular"
+            app:layout_constraintStart_toEndOf="@id/cvEO1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUser1"/>
+
+        <!--        Chat User 2-->
+        <EditText
+            android:id="@+id/etUser2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_sent_message"
+            android:fontFamily="@font/inter_regular"
+            android:padding="8dp"
+            android:text="Kami ingin tema vintage dan resepsi outdoor. Apakah Anda memiliki pengalaman dengan acara semacam ini?"
+            android:textColor="@color/gray_25"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toStartOf="@id/cvUser1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEO1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUser2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEO1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_user"
+                android:layout_gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <!--        Chat EO 2-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEO2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUser2">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_eo"
+                android:layout_gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/etEO2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_received_message"
+            android:padding="8dp"
+            android:text="Kami memiliki pengalaman dalam mengatur acara luar ruangan dan tema vintage. Bisakah Anda memberi saya lebih banyak detail tentang tanggal, lokasi, dan berapa banyak tamu yang diundang?"
+            android:textColor="@color/gray_900"
+            android:textSize="12dp"
+            android:fontFamily="@font/inter_regular"
+            app:layout_constraintStart_toEndOf="@id/cvEO2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUser2"/>
+
+        <!--        Chat User 3-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUser3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEO2">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_user"
+                android:layout_gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/etUser3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_sent_message"
+            android:fontFamily="@font/inter_regular"
+            android:padding="8dp"
+            android:text="Pernikahan kami akan diadakan pada tanggal 15 November di Taman Bunga Indah, dan kami berharap ada sekitar 150 tamu."
+            android:textColor="@color/gray_25"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toStartOf="@id/cvUser3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEO2"/>
+
+        <!--        Chat EO 3-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUser3">
+
+            <ImageView
+                android:id="@+id/ivProfileEO"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_eo"
+                android:layout_gravity="center" />
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/etEO3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/background_received_message"
+            android:padding="8dp"
+            android:text="Terima kasih atas informasinya. Saya akan menyusun beberapa pilihan paket untuk Anda dan mengirimkan penawaran melalui email. Juga, apakah Anda memerlukan layanan tambahan seperti dekorasi, katering, atau hiburan?"
+            android:textColor="@color/gray_900"
+            android:textSize="12dp"
+            android:fontFamily="@font/inter_regular"
+            app:layout_constraintStart_toEndOf="@id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etUser3"/>
+
+        <!--        Chat User 4-->
+        <EditText
+            android:id="@+id/etUser4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/background_sent_message"
+            android:fontFamily="@font/inter_regular"
+            android:padding="8dp"
+            android:text="Pernikahan kami akan diadakan pada tanggal 15 November di Taman Bunga Indah, dan kami berharap ada sekitar 150 tamu."
+            android:textColor="@color/gray_25"
+            android:textSize="12dp"
+            app:layout_constraintEnd_toStartOf="@id/cvUser3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEO3"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvUser4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEO3">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_user"
+                android:layout_gravity="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <FrameLayout
+            android:id="@+id/flSend"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:src="@drawable/ic_send" />
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/etKetikPesan"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/background_chat_input"
+            android:hint="Ketik pesan"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/flSend"
+            app:layout_constraintStart_toEndOf="@id/flAdd"/>
+
+        <FrameLayout
+            android:id="@+id/flAdd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="6dp"
+                android:src="@drawable/round_add_circle">
+            </androidx.appcompat.widget.AppCompatImageView>
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

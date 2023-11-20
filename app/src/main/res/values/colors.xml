@@ -2,11 +2,15 @@
 <resources>
     <color name="purple_50">#F4F3FF</color>
     <color name="purple_200">#D9D6FE</color>
+    <color name="purple_300">#D6BBFB</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#5925DC</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="gray_25">#FCFCFD</color>
+    <color name="gray_200">#EAECF0</color>
     <color name="gray_300">#D0D5DD</color>
+    <color name="gray_400">#98A2B3</color>
     <color name="gray_500">#667085</color>
     <color name="gray_700">#344054</color>
     <color name="gray_900">#101828</color>

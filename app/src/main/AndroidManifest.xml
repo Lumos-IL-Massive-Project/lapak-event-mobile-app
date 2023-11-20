@@ -49,6 +49,9 @@
             android:name=".activities.chatlist.ChatListActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.chatdetail.ChatDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MainActivity"
             android:exported="false" />
         <activity
