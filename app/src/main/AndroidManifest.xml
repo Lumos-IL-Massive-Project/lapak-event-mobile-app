@@ -25,7 +25,7 @@
             android:name=".activities.promo.PromoActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.splash.SplashActivity"
+            android:name=".activities.productlist.ProductListActivity"
             android:exported="false" />
         <activity
             android:name=".activities.notificationsetting.NotificationSettingActivity"
@@ -70,7 +70,7 @@
             android:name=".activities.allcategories.AllCategoriesActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.productlist.ProductListActivity"
+            android:name=".activities.splash.SplashActivity"
             android:exported="true"
             tools:ignore="Instantiatable">
             <intent-filter>
