@@ -1,7 +1,7 @@
 package com.example.connectus.activities.testimonilist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.connectus.activities.testimonilist.adapter.RecyclerViewTestimonyAdapter
@@ -22,7 +22,10 @@ class TestimonyListActivity : AppCompatActivity() {
     }
 
     private fun initTopBar() {
-        binding?.customTopBar?.tvTopBarTitle?.text = "Testimoni"
+        binding.customTopBar.ivBack.setOnClickListener {
+            finish()
+        }
+        binding.customTopBar.tvTopBarTitle.text = "Testimoni"
     }
 
     private fun initRecyclerView() {

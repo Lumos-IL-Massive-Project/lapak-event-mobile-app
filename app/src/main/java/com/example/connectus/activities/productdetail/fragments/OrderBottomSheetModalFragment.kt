@@ -1,22 +1,20 @@
 package com.example.connectus.activities.productdetail.fragments
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.connectus.R
+import com.example.connectus.activities.checkout.CheckoutActivity
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPricePlanSelectorAdapter
 import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.activities.productdetail.models.PricePlanClickListener
 import com.example.connectus.databinding.ProductdetailOrderModalBinding
+import com.example.connectus.utils.startDynamicActivity
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) : DialogFragment(),
+class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) :
+    BottomSheetDialogFragment(),
     PricePlanClickListener {
     private var binding: ProductdetailOrderModalBinding? = null
 
@@ -51,13 +49,13 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) : D
     }
 
     private fun initDialog() {
-        dialog?.window?.setLayout(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.window?.attributes?.windowAnimations = R.style.BottomSheetAnimation
-        dialog?.window?.setGravity(Gravity.BOTTOM)
+//        dialog?.window?.setLayout(
+//            ViewGroup.LayoutParams.MATCH_PARENT,
+//            ViewGroup.LayoutParams.WRAP_CONTENT
+//        );
+//        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//        dialog?.window?.attributes?.windowAnimations = R.style.BottomSheetAnimation
+//        dialog?.window?.setGravity(Gravity.BOTTOM)
     }
 
     private fun initPricePlans() {
@@ -71,7 +69,7 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) : D
 
     private fun initOrderNowButton() {
         binding?.btnOrderNow?.setOnClickListener {
-            Toast.makeText(requireContext(), "Pesan Sekarang", Toast.LENGTH_SHORT).show()
+            startDynamicActivity(requireContext(), CheckoutActivity::class.java)
         }
     }
 }

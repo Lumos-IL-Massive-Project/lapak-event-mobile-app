@@ -65,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_filter_button"
                 android:clickable="true"
+                android:foreground="@drawable/squared_ripple_effect"
                 android:padding="6dp"
                 android:text="Terkait"
                 android:textSize="12sp" />
@@ -80,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_filter_button"
                 android:clickable="true"
+                android:foreground="@drawable/squared_ripple_effect"
                 android:padding="6dp"
                 android:text="Terlaris"
                 android:textSize="12sp" />
@@ -102,6 +104,7 @@
                     android:layout_marginLeft="4dp"
                     android:background="@drawable/bg_filter_button"
                     android:clickable="true"
+                    android:foreground="@drawable/squared_ripple_effect"
                     android:paddingVertical="6dp"
                     android:text="Harga"
                     android:textSize="12sp" />
@@ -128,8 +131,11 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/filterBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:foreground="@drawable/squared_ripple_effect"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -142,12 +148,10 @@
                 android:src="@drawable/ic_filter" />
 
             <TextView
-                android:id="@+id/tvBtnFilter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/bg_filter_button"
-                android:clickable="true"
                 android:paddingVertical="6dp"
                 android:text="Filter"
                 android:textSize="12sp" />
