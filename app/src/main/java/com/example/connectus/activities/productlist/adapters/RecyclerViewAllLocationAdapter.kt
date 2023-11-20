@@ -1,28 +1,30 @@
 package com.example.connectus.activities.productlist.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.connectus.R
-import com.example.connectus.activities.search.models.LocationData
+import com.example.connectus.activities.productlist.models.LocationData
+import com.example.connectus.databinding.ProductlistLocationItemBinding
 
-class RecyclerViewLocationAdapter(
+class RecyclerViewAllLocationAdapter(
     private val listLocation: List<LocationData>
-) : RecyclerView.Adapter<RecyclerViewLocationAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerViewAllLocationAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerViewLocationAdapter.ViewHolder {
+    ): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.productlist_location_item, parent, false)
+            ProductlistLocationItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewLocationAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = listLocation[position]
         holder.checkbox.isChecked = item.isChecked
         holder.location.text = item.location
@@ -38,8 +40,8 @@ class RecyclerViewLocationAdapter(
 
     override fun getItemCount() = listLocation.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val checkbox: CheckBox = view.findViewById(R.id.cbCheckbox)
-        val location: TextView = view.findViewById(R.id.tvLocation)
+    class ViewHolder(view: ProductlistLocationItemBinding) : RecyclerView.ViewHolder(view.root) {
+        val checkbox: CheckBox = view.cbCheckbox
+        val location: TextView = view.tvLocation
     }
 }

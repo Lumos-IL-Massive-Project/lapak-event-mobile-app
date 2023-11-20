@@ -1,24 +1,16 @@
 package com.example.connectus.activities.productlist
 
 import android.os.Bundle
-import android.view.View
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.R
 import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productlist.adapters.RecyclerViewProductAdapter
 import com.example.connectus.activities.productlist.fragments.ModalFilterFragment
 import com.example.connectus.databinding.ActivityProductListBinding
-import com.example.connectus.databinding.ProductlistModalFilterBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class ProductListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductListBinding
-    private lateinit var bindingModal: ProductlistModalFilterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,17 +20,6 @@ class ProductListActivity : AppCompatActivity() {
         initTopBar()
         initFilters()
         initProductList()
-
-        binding.tvBtnFilter.setOnClickListener {
-            ModalFilterFragment().show(supportFragmentManager, "ModalFilterFragment")
-        }
-    }
-
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragmentContainer, fragment)
-        fragmentTransaction.commit()
     }
 
     private fun initTopBar() {
@@ -76,6 +57,9 @@ class ProductListActivity : AppCompatActivity() {
             it.isSelected = true
             binding.tvBtnRelatedFilter.isSelected = false
             binding.tvBtnBestSellingFilter.isSelected = false
+        }
+        binding.filterBtn.setOnClickListener {
+            ModalFilterFragment().show(supportFragmentManager, "ModalFilterFragment")
         }
     }
 

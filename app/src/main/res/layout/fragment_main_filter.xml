@@ -17,23 +17,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="24dp"
+        android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
             android:text="Filter"
             android:textColor="@color/gray_900"
             android:textSize="16sp" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
         <TextView
             android:id="@+id/tvReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
+            android:background="@drawable/squircle_ripple_effect"
+            android:clickable="true"
             android:fontFamily="@font/inter_semi_bold"
             android:text="Reset"
             android:textAlignment="textEnd"
@@ -180,17 +185,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:fontFamily="@font/inter_medium"
             android:text="Lokasi EO"
             android:textColor="@color/gray_900"
             android:textSize="14sp" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
         <TextView
             android:id="@+id/tvShowAllLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:background="@drawable/squircle_ripple_effect"
+            android:clickable="true"
             android:fontFamily="@font/inter_semi_bold"
             android:text="Lihat Semua"
             android:textAlignment="textEnd"
@@ -198,49 +208,11 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-    <com.google.android.material.chip.ChipGroup
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBriefLocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        app:singleSelection="true">
-
-        <com.google.android.material.chip.Chip
-            style="@style/customChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Jabodetabek"
-            app:checkedIconEnabled="false" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/customChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bandung"
-            app:checkedIconEnabled="false" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/customChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Medan"
-            app:checkedIconEnabled="false" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/customChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Surabaya"
-            app:checkedIconEnabled="false" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/customChip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jogjakarta"
-            app:checkedIconEnabled="false" />
-    </com.google.android.material.chip.ChipGroup>
-
+        android:layout_marginBottom="24dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_filterBtn"

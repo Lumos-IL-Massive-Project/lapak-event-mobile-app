@@ -1,4 +1,4 @@
-package com.example.connectus.activities.search.models
+package com.example.connectus.activities.productlist.models
 
 data class LocationData(
     val location: String,

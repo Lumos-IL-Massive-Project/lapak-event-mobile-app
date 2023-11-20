@@ -1,55 +1,56 @@
 package com.example.connectus.activities.productlist.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.connectus.R
+import com.example.connectus.activities.productlist.adapters.RecyclerViewBriefLocationAdapter
+import com.example.connectus.activities.productlist.models.LocationData
 import com.example.connectus.databinding.FragmentMainFilterBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFilterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MainFilterFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentMainFilterBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_filter, container, false)
+        _binding = FragmentMainFilterBinding.inflate(inflater, container, false)
+        return _binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tvShowAllLocation: TextView = view.findViewById(R.id.tvShowAllLocation)
 
-        tvShowAllLocation.setOnClickListener {
+        initBriefLocation()
+
+        _binding?.tvShowAllLocation?.setOnClickListener {
             val fragmentTransaction = parentFragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.fragmentContainer, AllLocationFragment())
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    private fun initBriefLocation() {
+        val location = listOf(
+            LocationData("Jakarta", false),
+            LocationData("Depok", false),
+            LocationData("Bogor", false),
+            LocationData("Tanggerang", false),
+            LocationData("Bekasi", false),
+        )
+
+        _binding?.rvBriefLocation?.layoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL)
+        _binding?.rvBriefLocation?.adapter = RecyclerViewBriefLocationAdapter(location)
     }
 }
