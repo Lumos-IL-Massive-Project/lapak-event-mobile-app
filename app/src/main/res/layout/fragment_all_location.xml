@@ -47,6 +47,19 @@
             android:textSize="14sp" />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/etSearchLocation"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/baseline_search_24"
+        android:fontFamily="@font/inter_regular"
+        android:hint="@string/search_location"
+        android:inputType="text"
+        android:paddingHorizontal="12dp"
+        android:textColor="@color/gray_500"
+        android:textSize="14sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCheckBoxLocation"
         android:layout_width="match_parent"
