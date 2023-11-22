@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.paymentcreditcard.PaymentCreditCardActivity">
+
+    <include
+        android:id="@+id/customTopBar"
+        layout="@layout/global_top_app_bar" />
+
+    <TextView
+        android:id="@+id/tvCreditCardTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Masukkan Info Kartu"
+        android:textColor="@color/gray_900"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customTopBar" />
+
+    <TextView
+        android:id="@+id/tvCardHolderName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Nama Pemegang Kartu"
+        android:textColor="@color/gray_900"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCreditCardTitle" />
+
+    <EditText
+        android:id="@+id/etCardHolderName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center_vertical"
+        android:hint="Nama pemegang kartu"
+        android:inputType="textCapWords"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="14dp"
+        android:textColorHint="@color/gray_500"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvCardHolderName" />
+
+    <TextView
+        android:id="@+id/tvNoCC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="No Kartu Kredit/Debit"
+        android:textColor="@color/gray_900"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etCardHolderName" />
+
+    <EditText
+        android:id="@+id/etNoCC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/ic_mastercard"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center_vertical"
+        android:hint="0000 - 0000 - 0000 - 0000"
+        android:inputType="number"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="14dp"
+        android:textColorHint="@color/gray_500"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tvNoCC" />
+
+    <TextView
+        android:id="@+id/tvValidityPeriod"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="Masa Berlaku"
+        android:textColor="@color/gray_900"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/tvCVV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNoCC" />
+
+    <EditText
+        android:id="@+id/etValidityPeriod"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center_vertical"
+        android:hint="MM / YY"
+        android:inputType="number"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="14dp"
+        android:textColorHint="@color/gray_500"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/etCVV"
+        app:layout_constraintHorizontal_weight=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvValidityPeriod" />
+
+    <TextView
+        android:id="@+id/tvCVV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="CVV"
+        android:textColor="@color/gray_900"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvValidityPeriod"
+        app:layout_constraintTop_toBottomOf="@id/etNoCC" />
+
+    <EditText
+        android:id="@+id/etCVV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/custom_input"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center_vertical"
+        android:hint="CVV"
+        android:inputType="number"
+        android:maxLength="3"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="14dp"
+        android:textColorHint="@color/gray_500"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight=".5"
+        app:layout_constraintStart_toEndOf="@id/tvValidityPeriod"
+        app:layout_constraintTop_toBottomOf="@id/tvCVV" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/flexButtonsContainer" />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp"
+        app:flexDirection="column"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvValidityPeriod"
+        app:layout_constraintVertical_bias="1">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPaymentGuide"
+            style="@style/ButtonOutlineWithoutIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Panduan pembayaran"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPay"
+            style="@style/ButtonWithoutIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_700"
+            android:fontFamily="@font/inter_medium"
+            android:text="Lakukan pembayaran"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </com.google.android.flexbox.FlexboxLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
