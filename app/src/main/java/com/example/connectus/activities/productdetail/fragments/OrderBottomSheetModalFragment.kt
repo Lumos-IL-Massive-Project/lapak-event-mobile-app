@@ -28,7 +28,6 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initDialog()
         initPricePlans()
         initOrderNowButton()
     }
@@ -46,16 +45,6 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) :
             )
             .addToBackStack(null)
             .commit()
-    }
-
-    private fun initDialog() {
-//        dialog?.window?.setLayout(
-//            ViewGroup.LayoutParams.MATCH_PARENT,
-//            ViewGroup.LayoutParams.WRAP_CONTENT
-//        );
-//        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-//        dialog?.window?.attributes?.windowAnimations = R.style.BottomSheetAnimation
-//        dialog?.window?.setGravity(Gravity.BOTTOM)
     }
 
     private fun initPricePlans() {
