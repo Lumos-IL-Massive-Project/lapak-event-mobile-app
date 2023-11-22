@@ -3,6 +3,6 @@
     <item
         android:width="24dp"
         android:height="24dp"
-        android:drawable="@drawable/ic_calendar_img"
+        android:drawable="@drawable/ic_ovo"
         android:gravity="center" />
 </layer-list>
