@@ -11,7 +11,7 @@
         layout="@layout/global_top_app_bar" />
 
     <TextView
-        android:id="@+id/tvMasukanInfoKartu"
+        android:id="@+id/tvCreditCardTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toBottomOf="@id/customTopBar" />
 
     <TextView
-        android:id="@+id/tvNamaPemegangKartu"
+        android:id="@+id/tvCardHolderName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -36,10 +36,10 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMasukanInfoKartu" />
+        app:layout_constraintTop_toBottomOf="@id/tvCreditCardTitle" />
 
     <EditText
-        android:id="@+id/etNamaPemegangKartu"
+        android:id="@+id/etCardHolderName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -48,12 +48,12 @@
         android:fontFamily="@font/inter_regular"
         android:gravity="center_vertical"
         android:hint="Nama pemegang kartu"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:paddingHorizontal="14dp"
         android:paddingVertical="14dp"
         android:textColorHint="@color/gray_500"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/tvNamaPemegangKartu" />
+        app:layout_constraintTop_toBottomOf="@id/tvCardHolderName" />
 
     <TextView
         android:id="@+id/tvNoCC"
@@ -67,7 +67,7 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNamaPemegangKartu" />
+        app:layout_constraintTop_toBottomOf="@id/etCardHolderName" />
 
     <EditText
         android:id="@+id/etNoCC"
@@ -81,7 +81,7 @@
         android:fontFamily="@font/inter_regular"
         android:gravity="center_vertical"
         android:hint="0000 - 0000 - 0000 - 0000"
-        android:inputType="text"
+        android:inputType="number"
         android:paddingHorizontal="14dp"
         android:paddingVertical="14dp"
         android:textColorHint="@color/gray_500"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvNoCC" />
 
     <TextView
-        android:id="@+id/tvMasaBerlaku"
+        android:id="@+id/tvValidityPeriod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -104,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@id/etNoCC" />
 
     <EditText
-        android:id="@+id/etMasaBerlaku"
+        android:id="@+id/etValidityPeriod"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -114,7 +114,7 @@
         android:fontFamily="@font/inter_regular"
         android:gravity="center_vertical"
         android:hint="MM / YY"
-        android:inputType="text"
+        android:inputType="number"
         android:paddingHorizontal="14dp"
         android:paddingVertical="14dp"
         android:textColorHint="@color/gray_500"
@@ -122,7 +122,7 @@
         app:layout_constraintEnd_toStartOf="@id/etCVV"
         app:layout_constraintHorizontal_weight=".5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMasaBerlaku" />
+        app:layout_constraintTop_toBottomOf="@id/tvValidityPeriod" />
 
     <TextView
         android:id="@+id/tvCVV"
@@ -131,11 +131,11 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/inter_medium"
-        android:text="Masa Berlaku"
+        android:text="CVV"
         android:textColor="@color/gray_900"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvMasaBerlaku"
+        app:layout_constraintStart_toEndOf="@id/tvValidityPeriod"
         app:layout_constraintTop_toBottomOf="@id/etNoCC" />
 
     <EditText
@@ -148,14 +148,15 @@
         android:fontFamily="@font/inter_regular"
         android:gravity="center_vertical"
         android:hint="CVV"
-        android:inputType="text"
+        android:inputType="number"
+        android:maxLength="3"
         android:paddingHorizontal="14dp"
         android:paddingVertical="14dp"
         android:textColorHint="@color/gray_500"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight=".5"
-        app:layout_constraintStart_toEndOf="@id/etMasaBerlaku"
+        app:layout_constraintStart_toEndOf="@id/tvValidityPeriod"
         app:layout_constraintTop_toBottomOf="@id/tvCVV" />
 
     <com.google.android.material.divider.MaterialDivider
@@ -173,12 +174,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etMasaBerlaku"
+        app:layout_constraintTop_toBottomOf="@id/tvValidityPeriod"
         app:layout_constraintVertical_bias="1">
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPanduanPembayaran"
+            android:id="@+id/btnPaymentGuide"
             style="@style/ButtonOutlineWithoutIcon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,7 +188,7 @@
             android:textSize="12sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLakukanPembayaran"
+            android:id="@+id/btnPay"
             style="@style/ButtonWithoutIcon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -197,5 +198,4 @@
             android:textColor="@color/white"
             android:textSize="12sp" />
     </com.google.android.flexbox.FlexboxLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
