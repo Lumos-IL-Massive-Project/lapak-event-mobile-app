@@ -19,6 +19,9 @@
             android:name=".activities.instantpayment.InstantPaymentActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.paymentmethod.PaymentMethodActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.productdetail.ProductDetailActivity"
             android:exported="false" />
         <activity

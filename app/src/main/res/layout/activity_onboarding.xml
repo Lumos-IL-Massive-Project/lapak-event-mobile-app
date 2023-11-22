@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="150dp"
         android:background="@android:color/transparent"
         app:tabBackground="@drawable/tab_selector"
         app:tabGravity="center"
@@ -91,8 +91,8 @@
         android:fontFamily="@font/inter_medium"
         android:paddingVertical="10dp"
         android:text="Skip"
-        app:strokeColor="@color/purple_700"
         android:textAllCaps="false"
         android:textSize="12sp"
-        app:cornerRadius="8dp" />
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/purple_700" />
 </RelativeLayout>
