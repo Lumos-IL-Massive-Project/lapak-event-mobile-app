@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.R
 import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productlist.adapters.RecyclerViewProductAdapter
+import com.example.connectus.activities.productlist.fragments.ModalFilterFragment
 import com.example.connectus.databinding.ActivityProductListBinding
 
 class ProductListActivity : AppCompatActivity() {
@@ -56,6 +57,9 @@ class ProductListActivity : AppCompatActivity() {
             it.isSelected = true
             binding.tvBtnRelatedFilter.isSelected = false
             binding.tvBtnBestSellingFilter.isSelected = false
+        }
+        binding.filterBtn.setOnClickListener {
+            ModalFilterFragment().show(supportFragmentManager, "ModalFilterFragment")
         }
     }
 

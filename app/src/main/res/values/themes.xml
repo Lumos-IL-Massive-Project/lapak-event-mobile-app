@@ -17,14 +17,55 @@
         <item name="minWidth">48dp</item>
         <item name="minHeight">48dp</item>
     </style>
-    
+
+    <style name="ButtonOutlineWithoutIcon" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/purple_700</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:padding">14dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <style name="ButtonWithoutIcon" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">8dp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:padding">14dp</item>
+    </style>
+
     <style name="TabLayoutTextStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">false</item>
     </style>
-    
+
+    <style name="pill">
+        <item name="android:paddingHorizontal" tools:targetApi="o">12dp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">8dp</item>
+    </style>
+
+    <style name="customChip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipStartPadding">12dp</item>
+        <item name="chipEndPadding">12dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="chipMinHeight">36dp</item>
+        <item name="chipBackgroundColor">@color/chip_bg_color</item>
+        <item name="android:textColor">@color/chip_text_color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/chip_stroke_color</item>
+        <item name="android:textAppearance">@style/customChipText</item>
+    </style>
+
+    <style name="customChipText" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/inter_medium</item>
+    </style>
+
     <style name="BottomSheetAnimation">
         <item name="android:windowEnterAnimation">@anim/slide_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/slide_bottom_out</item>
+    </style>
+
+    <style name="DatePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:colorAccent">@color/purple_700</item>
+        <item name="colorControlHighlight">@color/purple_700</item>
+        <item name="colorControlActivated">@color/purple_700</item>
     </style>
 </resources>

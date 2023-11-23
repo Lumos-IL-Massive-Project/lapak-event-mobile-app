@@ -23,7 +23,9 @@
     <string name="search_history">Riwayat Pencarian</string>
     <string name="delete_all">Hapus Semua</string>
     <string name="popular_search">Sedang Populer</string>
+    <string name="search_location">Cari lokasi</string>
     <string name="notification_sample">Ada vendor Wedding Planning yang Anda idam-idamkan? Yuk, intip beragam pilihannya di sini!</string>
     <string name="onboarding_description_example">Kami mengumpulkan perusahaan event organizer yang berkomitmen untuk memberikan pengalaman yang tak terlupakan dalam setiap acara impian anda.</string>
     <string name="price_plan_description">Anda bisa <b>custom harga</b> berdasarkan kebutuhan dengan mengklik <b>chat.</b></string>
+    <string name="service_date">Tanggal Layanan<font fgcolor='#D92D20'>*</font></string>
 </resources>

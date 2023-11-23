@@ -19,7 +19,19 @@
             android:name=".activities.paymentbanktransfer.PaymentBankTransferActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.instantpayment.InstantPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.paymentmethod.PaymentMethodActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.productdetail.ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.checkout.CheckoutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.paymentcreditcard.PaymentCreditCardActivity"
             android:exported="false" />
         <activity
             android:name=".activities.promo.PromoActivity"
