@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="312dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:contentPadding="24dp">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:flexDirection="column">
+
+        <LinearLayout
+            android:id="@+id/headerContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="Panduan Pembayaran"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/rounded_ripple_effect"
+                android:clickable="true"
+                android:src="@drawable/ic_close_circle" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivPaymentGuide"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_paymentguide"
+            app:layout_alignSelf="center" />
+
+        <TextView
+            android:id="@+id/tvStepByStepGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/instantpayment_qrcode_guide"
+            android:textColor="@color/gray_900"
+            android:textSize="12sp" />
+    </com.google.android.flexbox.FlexboxLayout>
+
+</androidx.cardview.widget.CardView>
