@@ -187,7 +187,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/inter_medium"
-            android:text="Lanjutkan ke aplikasi"
+            android:text="Lanjutkan ke Aplikasi"
             android:textColor="@color/white"
             android:textSize="12sp" />
     </com.google.android.flexbox.FlexboxLayout>

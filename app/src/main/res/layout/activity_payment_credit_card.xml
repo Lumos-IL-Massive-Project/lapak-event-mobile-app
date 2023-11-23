@@ -184,7 +184,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
-            android:text="Panduan pembayaran"
+            android:text="Panduan Pembayaran"
             android:textSize="12sp" />
 
         <com.google.android.material.button.MaterialButton
@@ -194,7 +194,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/inter_medium"
-            android:text="Lakukan pembayaran"
+            android:text="Lakukan Pembayaran"
             android:textColor="@color/white"
             android:textSize="12sp" />
     </com.google.android.flexbox.FlexboxLayout>

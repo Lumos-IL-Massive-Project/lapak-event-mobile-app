@@ -1,163 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".activities.paymentbanktransfer.PaymentBankTransferActivity">
+    tools:context=".activities.instantpayment.InstantPaymentActivity">
 
     <include
         android:id="@+id/customTopBar"
         layout="@layout/global_top_app_bar" />
 
-    <LinearLayout
-        android:id="@+id/transfer"
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/fbMainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginHorizontal="24dp"
-        android:orientation="vertical">
+        android:layout_marginVertical="8dp"
+        app:flexDirection="column"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/customTopBar">
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Masukan Info Kartu"
+            android:textColor="@color/gray_900"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="No. Rekening"
+            android:textColor="@color/gray_900"
+            android:textSize="12sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/purple_50"
+            app:cardCornerRadius="8dp">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_stroke_roundedstart"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center_vertical"
+                    android:hint="78737489977"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="14dp"
+                    android:textColorHint="@color/gray_900"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlCopyVA"
+                    android:layout_width="96dp"
+                    android:layout_height="49dp"
+                    android:background="@color/purple_700"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_content_copy_24" />
+                </RelativeLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Total Pembayaran"
+            android:textColor="@color/gray_900"
+            android:textSize="12sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardBackgroundColor="@color/purple_50"
+            app:cardCornerRadius="8dp">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_stroke"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Rp 28.920.000"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="14dp"
+                    android:textColorHint="@color/gray_900"
+                    android:textSize="14sp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp">
+            android:layout_marginTop="16dp"
+            app:flexDirection="column">
 
             <TextView
-                android:id="@+id/tvMasukkanInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Masukkan Info Kartu"
-                android:textColor="@color/gray_900"
-                android:textSize="14sp"
-                android:fontFamily="@font/inter_medium"
-                android:lineSpacingExtra="7sp"
-                android:gravity="center_horizontal"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/norekeningContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="No. Rekening"
-                android:textColor="@color/gray_900"
-                android:textSize="12sp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_input_payment"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:text="78737489977"
-                android:paddingLeft="14dp"
-                android:drawableEnd="@drawable/add_on_file_copy_small"
-                android:textSize="12sp"
-                android:inputType="number"
-                android:textColor="@color/gray_900"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/totalpembayaranContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="Total Pembayaran"
-                android:textColor="@color/gray_900"
-                android:textSize="12sp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_input_payment"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:text="Rp28.920.000"
-                android:inputType="number"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="12dp"
-                android:textColorHint="@color/gray_900"
-                android:textSize="12sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/panduanpembayaranContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginVertical="8dp"
+                android:fontFamily="@font/inter_bold"
                 android:text="Panduan Pembayaran"
-                android:fontFamily="@font/inter_medium"
                 android:textColor="@color/gray_900"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
-            <EditText
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPaymentGuideATM"
+                style="@style/ButtonOutlineWithoutIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/custom_input_payment"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Transfer Melalui ATM"
-                android:drawableEnd="@drawable/round_arrow_right_24"
-                android:drawablePadding="8dp"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="12dp"
-                android:textColorHint="@color/gray_500"
-                android:textSize="12sp"/>
+                android:drawableEnd="@drawable/ic_arrow_right2_small"
+                android:drawableTint="@color/gray_900"
+                android:fontFamily="@font/inter_medium"
+                android:text="Transfer melalui ATM"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray_900"
+                android:textSize="12sp"
+                app:strokeColor="@color/gray_900" />
 
-            <EditText
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPaymentGuideMbanking"
+                style="@style/ButtonOutlineWithoutIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_input_payment"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Transfer Melalui Mobile Banking"
-                android:drawableEnd="@drawable/round_arrow_right_24"
-                android:drawablePadding="8dp"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="12dp"
-                android:textColorHint="@color/gray_500"
-                android:textSize="12sp"/>
-        </LinearLayout>
-    </LinearLayout>
+                android:drawableEnd="@drawable/ic_arrow_right2_small"
+                android:drawableTint="@color/gray_900"
+                android:fontFamily="@font/inter_medium"
+                android:text="Transfer melalui mobile banking"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray_900"
+                android:textSize="12sp"
+                app:strokeColor="@color/gray_900" />
+        </com.google.android.flexbox.FlexboxLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/uploadbuktipembayaranButton"
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/inter_medium"
-        android:paddingVertical="10dp"
-        android:text="Upload Bukti Pembayaran"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        app:cornerRadius="8dp"
-        android:backgroundTint="@color/purple_700"
-        app:layout_constraintTop_toBottomOf="@id/transfer"/>
+        app:layout_constraintBottom_toTopOf="@id/flexButtonsContainer" />
 
-</LinearLayout>
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp"
+        app:flexDirection="column"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fbMainLayout"
+        app:layout_constraintVertical_bias="1">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUploadPaymentReceipt"
+            style="@style/ButtonWithoutIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_700"
+            android:fontFamily="@font/inter_medium"
+            android:text="Upload Bukti Pembayaran"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </com.google.android.flexbox.FlexboxLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
