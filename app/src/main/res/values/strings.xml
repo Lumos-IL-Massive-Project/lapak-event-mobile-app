@@ -38,6 +38,7 @@
         \n6. Masukkan PIN GoPay.
         7. Transaksi selesai.
     </string>
+
     <string name="instantpayment_gojek_guide">
         1. Pastikan Anda memiliki akun Gojek pada ponsel Anda.
         \n2. Pilih pembayaran menggunakan GoPay.
@@ -46,5 +47,27 @@
         \n5. Cek Detail Pembayaran lalu klik Bayar.
         \n6. Masukkan PIN GoPay.
         7. Transaksi selesai.
+    </string>
+
+    <string name="paymentva_atm_guide">
+        1. Masukkan kartu ATM dan PIN BNI Anda.
+        \n2. Pada menu utama, pilih “Menu Lainnya”.
+        \n3. Pilih Transfer.
+        \n4. Setelah itu, pilih “Rekening Tabungan”.
+        \n5. Pilih “Rekening BNI”.
+        \n6. Masukkan nomor Virtual Account 78737489977.
+        \n7. Masukkan jumlah pembayaran sesuai tagihan.
+        \n8. Cek kembali transaksi Anda. Setelah itu pilih “Ya”.
+    </string>
+
+    <string name="paymentva_mbaking_guide">
+        1. Masuk ke aplikasi Mobile Banking BRI.
+        \n2. Masukkan User ID dan Password.
+        \n3. Pilih menu “Transfer”.
+        \n4. Setelah itu, pilih “Antar Rekening BNI”.
+        \n5. Pilih “Input Rekening Baru”.
+        \n6. Masukkan nomor Virtual Account 78737489977.
+        \n7. Cek kembali transaksi Anda, setelah itu pilih “Ya”.
+        \n8. Masukkan password untuk konfirmasi pembayaran.
     </string>
 </resources>
