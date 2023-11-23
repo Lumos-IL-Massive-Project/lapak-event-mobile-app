@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.connectus.activities.instantpayment.InstantPaymentActivity
 import com.example.connectus.activities.paymentcreditcard.PaymentCreditCardActivity
 import com.example.connectus.activities.paymentmethod.adapters.ExpandablePaymentMethodListAdapter
 import com.example.connectus.activities.paymentmethod.models.PaymentData
@@ -76,7 +77,12 @@ class PaymentMethodActivity : AppCompatActivity() {
                 }
                 "manual_transfer" -> {}
                 "virtual_account" -> {}
-                "instant_payment" -> {}
+                "instant_payment" -> {
+                    dialog.dismiss()
+                    startDynamicActivity(this, InstantPaymentActivity::class.java, data = arrayOf(
+                        Pair("KEY_HEADER_TITLE", data.name)
+                    ))
+                }
             }
         }
     }

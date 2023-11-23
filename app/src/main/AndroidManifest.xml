@@ -16,6 +16,9 @@
         android:theme="@style/Theme.ConnectUs"
         tools:targetApi="31">
         <activity
+            android:name=".activities.instantpayment.InstantPaymentActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.paymentmethod.PaymentMethodActivity"
             android:exported="false" />
         <activity
