@@ -17,9 +17,11 @@ class InstantPaymentActivity : AppCompatActivity() {
     }
 
     private fun initTopBar() {
+        val headerTitle = intent.getStringExtra("KEY_HEADER_TITLE")
+
         binding.customTopBar.ivBack.setOnClickListener {
             finish()
         }
-        binding.customTopBar.tvTopBarTitle.text = "GoPay"
+        binding.customTopBar.tvTopBarTitle.text = headerTitle
     }
 }

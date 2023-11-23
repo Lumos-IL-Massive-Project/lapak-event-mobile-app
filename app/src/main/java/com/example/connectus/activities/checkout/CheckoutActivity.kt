@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.connectus.R
 import com.example.connectus.activities.checkout.models.OrderSummaryData
 import com.example.connectus.activities.checkout.viewmodels.CheckoutViewModel
+import com.example.connectus.activities.paymentmethod.PaymentMethodActivity
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPlanItemsAdapter
 import com.example.connectus.activities.promo.PromoActivity
 import com.example.connectus.databinding.ActivityCheckoutBinding
@@ -110,5 +111,12 @@ class CheckoutActivity : AppCompatActivity() {
 
         binding.dpButton.text = "Bayar Dp ${formatRupiah(data.downPayment)}"
         binding.cashButton.text = "Bayar Lunas ${formatRupiah(data.totalPrice)}"
+
+        binding.dpButton.setOnClickListener {
+            startDynamicActivity(this, PaymentMethodActivity::class.java)
+        }
+        binding.cashButton.setOnClickListener {
+            startDynamicActivity(this, PaymentMethodActivity::class.java)
+        }
     }
 }
