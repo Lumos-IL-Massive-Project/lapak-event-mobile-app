@@ -1,0 +1,22 @@
+<!-- res/drawable/rounded_background_with_border_dash.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background with rounded corners -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#E9EEF1" /> <!-- Fill color -->
+            <corners android:radius="8dp" /> <!-- Set the corner radius -->
+        </shape>
+    </item>
+    <!-- Dashed border around the background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="2dp"
+                android:color="#98A2B3"
+                android:dashWidth="4dp"
+                android:dashGap="4dp" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</layer-list>
