@@ -2,9 +2,15 @@ package com.example.connectus.activities.uploadpaymentreceipt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.connectus.R
+import com.example.connectus.activities.uploadpaymentreceipt.adapters.RecyclerViewSelectBankModalAdapter
+import com.example.connectus.activities.uploadpaymentreceipt.fragments.ModalChooseBankFragment
 import com.example.connectus.databinding.ActivityUploadPaymentReceiptBinding
+import com.example.connectus.databinding.FragmentModalChoosebankBinding
 
 class UploadPaymentReceipt : AppCompatActivity() {
     private lateinit var binding: ActivityUploadPaymentReceiptBinding
@@ -14,14 +20,20 @@ class UploadPaymentReceipt : AppCompatActivity() {
         setContentView(binding.root)
 
         initTopBar()
+        showModalChooseBank()
         binding.btnSendReceipt.setOnClickListener { toastPlaceholder("Mengirim Receipt") }
-        binding.btnShowModalChooseBank.setOnClickListener { toastPlaceholder("Showing modal choose bank") }
         binding.fbUploadReceipt.setOnClickListener { toastPlaceholder("Upload receipt") }
     }
 
     private fun initTopBar() {
         binding.customTopBar.ivBack.setOnClickListener { finish() }
         binding.customTopBar.tvTopBarTitle.text = "Upload Bukti Pembayaran"
+    }
+
+    private fun showModalChooseBank() {
+        binding.btnShowModalChooseBank.setOnClickListener {
+            ModalChooseBankFragment().show(supportFragmentManager, "ModalChooseBank")
+        }
     }
 
     private fun toastPlaceholder(text: String) {
