@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginVertical="8dp"
+        android:layout_marginTop="48dp"
         app:flexDirection="column"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,9 +172,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="8dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Total Pembayaran"
+                android:text="Panduan Pembayaran"
                 android:textColor="@color/gray_900"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="388dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPaymentGuideATM"
@@ -186,7 +189,8 @@
                 android:text="Transfer melalui ATM"
                 android:textAlignment="textStart"
                 android:textColor="@color/gray_900"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:strokeColor="@color/gray_900" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPaymentGuideMbanking"
@@ -199,7 +203,8 @@
                 android:text="Transfer melalui mobile banking"
                 android:textAlignment="textStart"
                 android:textColor="@color/gray_900"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:strokeColor="@color/gray_900" />
         </com.google.android.flexbox.FlexboxLayout>
 
     </com.google.android.flexbox.FlexboxLayout>
