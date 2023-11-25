@@ -13,6 +13,7 @@ import com.example.connectus.activities.paymentmethod.adapters.ExpandablePayment
 import com.example.connectus.activities.paymentmethod.models.PaymentData
 import com.example.connectus.activities.paymentmethod.models.PaymentMethodData
 import com.example.connectus.activities.paymentmethod.viewmodels.PaymentMethodViewModel
+import com.example.connectus.activities.paymentvirtualaccount.PaymentVirtualAccountActivity
 import com.example.connectus.databinding.ActivityPaymentMethodBinding
 import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.utils.startDynamicActivity
@@ -76,7 +77,10 @@ class PaymentMethodActivity : AppCompatActivity() {
                     startDynamicActivity(this, PaymentCreditCardActivity::class.java)
                 }
                 "manual_transfer" -> {}
-                "virtual_account" -> {}
+                "virtual_account" -> {
+                    dialog.dismiss()
+                    startDynamicActivity(this, PaymentVirtualAccountActivity::class.java)
+                }
                 "instant_payment" -> {
                     dialog.dismiss()
                     startDynamicActivity(this, InstantPaymentActivity::class.java, data = arrayOf(
