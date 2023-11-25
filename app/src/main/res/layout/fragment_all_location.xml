@@ -63,7 +63,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCheckBoxLocation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:layout_marginTop="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/productlist_location_item" />
