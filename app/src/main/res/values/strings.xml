@@ -29,26 +29,6 @@
     <string name="price_plan_description">Anda bisa <b>custom harga</b> berdasarkan kebutuhan dengan mengklik <b>chat.</b></string>
     <string name="service_date">Tanggal Layanan<font fgcolor='#D92D20'>*</font></string>
 
-    <string name="instantpayment_qrcode_guide">
-        1. Klik bayar menggunakan GoPay.
-        \n2. Pilih Lanjutkan Pembayaran. Lalu QR Code akan tampil.
-        \n3. Atau buka aplikasi yang bisa menggunakan QRIS, yang terpasang di ponsel Anda, seperti Gojek.
-        \n4. Klik Bayar dan Scan QR Code.
-        \n5. Cek Detail Pembayaran lalu klik Bayar.
-        \n6. Masukkan PIN GoPay.
-        7. Transaksi selesai.
-    </string>
-
-    <string name="instantpayment_gojek_guide">
-        1. Pastikan Anda memiliki akun Gojek pada ponsel Anda.
-        \n2. Pilih pembayaran menggunakan GoPay.
-        \n3. Klik Lanjutkan Pembayaran, lalu pilih Lanjutkan.
-        \n4. Klik Lanjut ke Aplikasi Gojek, Anda akan diarahkan ke aplikasi Gojek.
-        \n5. Cek Detail Pembayaran lalu klik Bayar.
-        \n6. Masukkan PIN GoPay.
-        7. Transaksi selesai.
-    </string>
-
     <string name="paymentva_atm_guide">
         1. Masukkan kartu ATM dan PIN BNI Anda.
         \n2. Pada menu utama, pilih “Menu Lainnya”.
