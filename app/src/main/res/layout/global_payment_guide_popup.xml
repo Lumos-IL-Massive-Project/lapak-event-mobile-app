@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="312dp"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="12dp"
-    app:contentPadding="24dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/popup_background"
+    android:padding="24dp">
 
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:flexDirection="column">
+        app:flexDirection="column"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/headerContainer"
@@ -54,9 +57,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/inter_regular"
-            android:text="@string/paymentva_mbaking_guide"
+            android:text="@string/paymentva_atm_guide"
             android:textColor="@color/gray_900"
             android:textSize="12sp" />
     </com.google.android.flexbox.FlexboxLayout>
 
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

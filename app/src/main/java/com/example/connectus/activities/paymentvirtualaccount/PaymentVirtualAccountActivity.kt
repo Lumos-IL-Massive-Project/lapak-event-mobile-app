@@ -3,25 +3,24 @@ package com.example.connectus.activities.paymentvirtualaccount
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
-import com.example.connectus.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.databinding.ActivityPaymentVirtualAccountBinding
+import com.example.connectus.databinding.GlobalPaymentGuidePopupBinding
 
 class PaymentVirtualAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentVirtualAccountBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentVirtualAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initTopBar()
-        binding.btnPaymentGuideATM.setOnClickListener { showPopup(R.layout.paymentva_popup_guide_atm) }
-        binding.btnPaymentGuideMbanking.setOnClickListener { showPopup(R.layout.paymentva_popup_guide_mbanking) }
-        binding.rlCopyVA.setOnClickListener { toastPlaceholder("Nomor VA berhasil disalin!") }
+        initDoPaymentSection()
+        initPaymentGuideSection()
     }
 
     private fun initTopBar() {
@@ -31,21 +30,34 @@ class PaymentVirtualAccountActivity : AppCompatActivity() {
         binding.customTopBar.tvTopBarTitle.text = "Virtual Account"
     }
 
-    private fun showPopup(layoutResourceId: Int) {
+    private fun initDoPaymentSection() {
+        binding.rlCopyVA.setOnClickListener {
+            Toast.makeText(this, "Nomor VA berhasil disalin!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun initPaymentGuideSection() {
+        binding.btnPaymentGuideATM.setOnClickListener {
+            showPopup()
+        }
+        binding.btnPaymentGuideMbanking.setOnClickListener {
+            showPopup()
+        }
+    }
+
+    private fun showPopup() {
         val dialog = Dialog(this)
-        dialog.setContentView(layoutResourceId)
+        val paymentGuidePopupBinding = GlobalPaymentGuidePopupBinding.inflate(layoutInflater)
+        dialog.setContentView(paymentGuidePopupBinding.root)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.window?.setLayout(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-        val btnClose = dialog.findViewById<ImageView>(R.id.btnClose)
-        btnClose.setOnClickListener { dialog.dismiss() }
+        paymentGuidePopupBinding.btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
         dialog.show()
-    }
-
-    private fun toastPlaceholder(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 }

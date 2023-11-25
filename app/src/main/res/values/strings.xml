@@ -59,15 +59,4 @@
         \n7. Masukkan jumlah pembayaran sesuai tagihan.
         \n8. Cek kembali transaksi Anda. Setelah itu pilih “Ya”.
     </string>
-
-    <string name="paymentva_mbaking_guide">
-        1. Masuk ke aplikasi Mobile Banking BRI.
-        \n2. Masukkan User ID dan Password.
-        \n3. Pilih menu “Transfer”.
-        \n4. Setelah itu, pilih “Antar Rekening BNI”.
-        \n5. Pilih “Input Rekening Baru”.
-        \n6. Masukkan nomor Virtual Account 78737489977.
-        \n7. Cek kembali transaksi Anda, setelah itu pilih “Ya”.
-        \n8. Masukkan password untuk konfirmasi pembayaran.
-    </string>
 </resources>
