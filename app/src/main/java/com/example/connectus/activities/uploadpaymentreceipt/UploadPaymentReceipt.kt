@@ -7,12 +7,13 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.activities.MainActivity
+import com.example.connectus.activities.uploadpaymentreceipt.fragments.ModalChooseBankFragment
 import com.example.connectus.databinding.ActivityUploadPaymentReceiptBinding
 import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.utils.resetActivity
+
 
 class UploadPaymentReceipt : AppCompatActivity() {
     private lateinit var binding: ActivityUploadPaymentReceiptBinding
@@ -45,7 +46,7 @@ class UploadPaymentReceipt : AppCompatActivity() {
 
     private fun initSelectBankInput() {
         binding.btnShowModalChooseBank.setOnClickListener {
-            toastPlaceholder("Showing modal choose bank")
+            ModalChooseBankFragment().show(supportFragmentManager, "ModalChooseBank")
         }
     }
 
@@ -81,9 +82,5 @@ class UploadPaymentReceipt : AppCompatActivity() {
                 resetActivity(this, MainActivity::class.java)
             }
         }
-    }
-
-    private fun toastPlaceholder(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 }
