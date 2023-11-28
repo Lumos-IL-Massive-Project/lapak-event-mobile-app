@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/llBankSelector"
+        android:id="@+id/bankItemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -14,6 +14,7 @@
             android:id="@+id/ivBankLogo"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginRight="8dp"
             tools:src="@drawable/ic_bank_bsi" />
 
         <TextView
@@ -21,7 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1" />
+            android:fontFamily="@font/inter_medium"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <com.google.android.material.divider.MaterialDivider

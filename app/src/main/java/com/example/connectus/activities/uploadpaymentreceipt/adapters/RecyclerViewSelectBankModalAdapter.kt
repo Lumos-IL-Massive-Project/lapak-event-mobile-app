@@ -1,34 +1,41 @@
 package com.example.connectus.activities.uploadpaymentreceipt.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.connectus.R
+import com.example.connectus.activities.uploadpaymentreceipt.models.BankData
+import com.example.connectus.databinding.UploadpaymentreceiptBankItemBinding
 
-class RecyclerViewSelectBankModalAdapter(private val listBank: List<Int>) :
+class RecyclerViewSelectBankModalAdapter(private val listBank: List<BankData>) :
     RecyclerView.Adapter<RecyclerViewSelectBankModalAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerViewSelectBankModalAdapter.ViewHolder {
+    ): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.uploadpaymentreceipt_bank_item, parent, false)
+            UploadpaymentreceiptBankItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 
     override fun onBindViewHolder(
-        holder: RecyclerViewSelectBankModalAdapter.ViewHolder,
+        holder: ViewHolder,
         position: Int
     ) {
-        holder.bankLogo.setImageResource(listBank[position])
+        holder.bind(listBank[position])
     }
 
     override fun getItemCount() = listBank.size
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val bankLogo: ImageView = view.findViewById(R.id.ivBankLogo)
+    class ViewHolder(itemView: UploadpaymentreceiptBankItemBinding) :
+        RecyclerView.ViewHolder(itemView.root) {
+        private val binding = itemView
+        fun bind(data: BankData) {
+            binding.ivBankLogo.setImageResource(data.bankImage)
+            binding.tvBankName.text = data.bankName
+        }
     }
 }

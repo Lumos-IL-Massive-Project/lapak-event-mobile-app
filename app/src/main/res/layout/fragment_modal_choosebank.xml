@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    tools:context=".activities.productlist.fragments.AllLocationFragment">
+    android:padding="24dp">
 
     <ImageView
         android:layout_width="match_parent"
@@ -15,28 +14,17 @@
         android:layout_marginBottom="8dp"
         android:src="@drawable/slider" />
 
-    <LinearLayout
-        android:id="@+id/headerContainer"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <ImageView
-            android:id="@+id/ivBackBtn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/rounded_ripple_effect"
-            android:clickable="true"
-            android:src="@drawable/ic_arrow_left" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/inter_semi_bold"
+        android:text="Pilih Bank"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/etSearchLocation"
+        android:id="@+id/etSearchBank"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:background="@drawable/custom_input"
