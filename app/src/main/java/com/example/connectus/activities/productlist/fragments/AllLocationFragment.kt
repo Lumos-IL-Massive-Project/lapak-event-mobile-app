@@ -21,6 +21,10 @@ class AllLocationFragment : Fragment() {
         LocationData("Bogor", false),
         LocationData("Tanggerang", false),
         LocationData("Bekasi", false),
+        LocationData("Surabaya", false),
+        LocationData("Yogyakarta", false),
+        LocationData("Bandung", false),
+        LocationData("Banjarmasin", false),
     )
 
     override fun onCreateView(

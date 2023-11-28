@@ -19,6 +19,12 @@
             android:name=".activities.splash.SplashActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.paymentbanktransfer.PaymentBankTransferActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.paymentvirtualaccount.PaymentVirtualAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.instantpayment.InstantPaymentActivity"
             android:exported="false" />
         <activity

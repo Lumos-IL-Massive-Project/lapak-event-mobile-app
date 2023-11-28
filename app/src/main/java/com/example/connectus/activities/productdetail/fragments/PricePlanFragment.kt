@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPlanItemsAdapter
 import com.example.connectus.activities.productdetail.models.PlanDetailData
@@ -18,7 +17,6 @@ import com.example.connectus.utils.formatRupiah
 
 class PricePlanFragment(
     private val data: PlanDetailData,
-    private val fragmentManager: FragmentManager
 ) : Fragment() {
     private var binding: FragmentPricePlanBinding? = null
 

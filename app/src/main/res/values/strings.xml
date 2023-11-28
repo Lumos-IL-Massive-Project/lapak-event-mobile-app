@@ -28,4 +28,15 @@
     <string name="onboarding_description_example">Kami mengumpulkan perusahaan event organizer yang berkomitmen untuk memberikan pengalaman yang tak terlupakan dalam setiap acara impian anda.</string>
     <string name="price_plan_description">Anda bisa <b>custom harga</b> berdasarkan kebutuhan dengan mengklik <b>chat.</b></string>
     <string name="service_date">Tanggal Layanan<font fgcolor='#D92D20'>*</font></string>
+
+    <string name="paymentva_atm_guide">
+        1. Masukkan kartu ATM dan PIN BNI Anda.
+        \n2. Pada menu utama, pilih “Menu Lainnya”.
+        \n3. Pilih Transfer.
+        \n4. Setelah itu, pilih “Rekening Tabungan”.
+        \n5. Pilih “Rekening BNI”.
+        \n6. Masukkan nomor Virtual Account 78737489977.
+        \n7. Masukkan jumlah pembayaran sesuai tagihan.
+        \n8. Cek kembali transaksi Anda. Setelah itu pilih “Ya”.
+    </string>
 </resources>

@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.connectus.activities.checkout.CheckoutActivity
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPricePlanSelectorAdapter
 import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.activities.productdetail.models.PricePlanClickListener
 import com.example.connectus.databinding.ProductdetailOrderModalBinding
+import com.example.connectus.utils.RecyclerViewRowGapItemDecoration
 import com.example.connectus.utils.startDynamicActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -21,7 +22,7 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) :
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = ProductdetailOrderModalBinding.inflate(inflater, container, false)
         return binding!!.root
     }
@@ -41,7 +42,7 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) :
         childFragmentManager.beginTransaction()
             .replace(
                 binding?.pricePlanFragmentContainer?.id!!,
-                PricePlanFragment(data, childFragmentManager)
+                PricePlanFragment(data)
             )
             .addToBackStack(null)
             .commit()
@@ -51,7 +52,8 @@ class OrderBottomSheetModalFragment(private val plans: List<PlanDetailData>) :
         binding?.rvPricePlanSelectors?.adapter =
             RecyclerViewPricePlanSelectorAdapter(requireContext(), plans, this)
         binding?.rvPricePlanSelectors?.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+        binding?.rvPricePlanSelectors?.addItemDecoration(RecyclerViewRowGapItemDecoration(8))
 
         this.onPricePlanClicked(plans[0])
     }
