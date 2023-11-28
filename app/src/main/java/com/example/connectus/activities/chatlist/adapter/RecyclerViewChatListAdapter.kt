@@ -3,11 +3,12 @@ package com.example.connectus.activities.chatlist.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.connectus.activities.chatdetail.ChatDetailActivity
 import com.example.connectus.activities.chatlist.model.ChatData
 import com.example.connectus.databinding.ChatlistChatItemBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class RecyclerViewChatListAdapter(
     private val context: Context,
@@ -28,7 +29,9 @@ class RecyclerViewChatListAdapter(
                 binding.tvMessage.text = data.message
 
                 binding.chatItem.setOnClickListener {
-                    Toast.makeText(context, data.senderName, Toast.LENGTH_SHORT).show()
+                    startDynamicActivity(context, ChatDetailActivity::class.java, data = arrayOf(
+                        Pair("KEY_HEADER_TITLE", data.senderName)
+                    ))
                 }
             }
         }

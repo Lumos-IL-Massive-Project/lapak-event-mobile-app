@@ -1,7 +1,6 @@
 package com.example.connectus.activities.productdetail
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -9,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
+import com.example.connectus.activities.chatdetail.ChatDetailActivity
 import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPricePlanSelectorAdapter
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewProductAdapter
@@ -18,6 +18,7 @@ import com.example.connectus.activities.productdetail.fragments.OrderBottomSheet
 import com.example.connectus.activities.productdetail.fragments.PricePlanFragment
 import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.activities.productdetail.models.PricePlanClickListener
+import com.example.connectus.activities.productdetail.models.ProductDetailData
 import com.example.connectus.activities.productdetail.models.ProductImageData
 import com.example.connectus.activities.productdetail.viewmodels.ProductDetailViewModel
 import com.example.connectus.activities.testimonilist.TestimonyListActivity
@@ -57,7 +58,7 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
             initPricePlan(data.plans)
             initDescription(data.description)
             initTestimony(data.testimony)
-            initButtonAction(data.plans)
+            initButtonAction(data)
         })
 
         initVendorProduct()
@@ -253,13 +254,15 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun initButtonAction(plans: List<PlanDetailData>) {
+    private fun initButtonAction(data: ProductDetailData) {
         binding.btnChat.setOnClickListener {
-            Toast.makeText(this, "Chat", Toast.LENGTH_SHORT).show()
+            startDynamicActivity(this, ChatDetailActivity::class.java, data = arrayOf(
+                Pair("KEY_HEADER_TITLE", data.profile.name)
+            ))
         }
 
         binding.btnOrderNow.setOnClickListener {
-            val bottomSheetFragment = OrderBottomSheetModalFragment(plans)
+            val bottomSheetFragment = OrderBottomSheetModalFragment(data.plans)
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
     }
