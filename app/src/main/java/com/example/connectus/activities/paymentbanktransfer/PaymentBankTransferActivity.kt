@@ -7,8 +7,10 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.connectus.activities.uploadpaymentreceipt.UploadPaymentReceipt
 import com.example.connectus.databinding.ActivityPaymentBankTransferBinding
 import com.example.connectus.databinding.GlobalPaymentGuidePopupBinding
+import com.example.connectus.utils.startDynamicActivity
 
 class PaymentBankTransferActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentBankTransferBinding
@@ -46,7 +48,7 @@ class PaymentBankTransferActivity : AppCompatActivity() {
 
     private fun initUploadButton() {
         binding.btnUploadPaymentReceipt.setOnClickListener {
-            Toast.makeText(this, "Mengupload Bukti Pembayaran", Toast.LENGTH_SHORT).show()
+            startDynamicActivity(this, UploadPaymentReceipt::class.java)
         }
     }
 
