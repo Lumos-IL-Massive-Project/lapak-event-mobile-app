@@ -29,30 +29,14 @@
     <string name="price_plan_description">Anda bisa <b>custom harga</b> berdasarkan kebutuhan dengan mengklik <b>chat.</b></string>
     <string name="service_date">Tanggal Layanan<font fgcolor='#D92D20'>*</font></string>
 
-    <string name="paymentbanktransfer_atm_guide">
-        1. Masukkan kartu ATM dan PIN ATM.
-        \n2. Pilih menu Penarikan Tunai/Transaksi Lainnya.
-        \n3. Pilih menu Transaksi Lainnya.
-        \n4. Pilih menu Transfer.
-        \n5. Masukkan no rekening BNI Connect Us, yaitu <b>78737489977</b> a/n PT. Connect Us.
-        \n6. Masukkan jumlah uang yang harus di transfer melalui ATM BNI.
-        \n7. Jika semua proses telah selesai dan benar, pilih “Ya” (Jangan lupa screenshot bukti transfer).
-        \n8. Setelah transfer berhasil, buka Konfirmasi Pembayaran di aplikasi. Masukkan Nama Pengirim dan Upload Bukti Transfer.
-        \n9. Klik Konfirmasi Transfer.
-        \n10. Pembayaran akan diperiksa.
-    </string>
-
-    <string name="paymentbanktransfer_mbanking_guide">
-        1. Buka aplikasi Mobile Banking, pilih menu m-Transfer.
-        \n2. Klik menu Daftar Transfer.
-        \n3. Pilih menu Antar Rekening (Untuk pengguna BNI) dan Antar Bank (Untuk pengguna selain BNI).
-        \n4. Masukkan no rekening BNI Connect Us, yaitu 78737489977 a/n PT. Connect Us dan klik Benar.
-        \n5. Masukkan jumlah uang yang harus ditransfer melalui ATM BNI.
-        \n6. Masukkan PIN.
-        \n7. Jika semua proses telah selesai dan benar, pilih “Ya” (Jangan lupa screenshoot bukti transfer).
-        \n8. Setelah transfer berhasil, buka Konfirmasi Pembayaran di aplikasi.
-        \n9. Masukkan Nama Pengirim dan Upload Bukti Transfer.
-        \n10. Klik konfirmasi Transfer.
-        \n11. Pembayaran akan diperiksa.
+    <string name="paymentva_atm_guide">
+        1. Masukkan kartu ATM dan PIN BNI Anda.
+        \n2. Pada menu utama, pilih “Menu Lainnya”.
+        \n3. Pilih Transfer.
+        \n4. Setelah itu, pilih “Rekening Tabungan”.
+        \n5. Pilih “Rekening BNI”.
+        \n6. Masukkan nomor Virtual Account 78737489977.
+        \n7. Masukkan jumlah pembayaran sesuai tagihan.
+        \n8. Cek kembali transaksi Anda. Setelah itu pilih “Ya”.
     </string>
 </resources>
