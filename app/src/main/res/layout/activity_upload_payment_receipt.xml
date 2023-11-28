@@ -34,11 +34,12 @@
             android:id="@+id/etSenderName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/bg_stroke"
             android:fontFamily="@font/inter_regular"
             android:gravity="center_vertical"
             android:hint="Nama Pengirim"
+            android:inputType="textCapWords"
             android:paddingHorizontal="14dp"
             android:paddingVertical="14dp"
             android:textColorHint="@color/gray_900"
@@ -47,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="8dp"
+            android:layout_marginVertical="4dp"
             android:fontFamily="@font/inter_bold"
             android:text="Pilih Bank"
             android:textColor="@color/gray_900"
@@ -58,7 +59,7 @@
             style="@style/ButtonOutlineWithoutIcon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:drawableEnd="@drawable/ic_arrow_down_24"
             android:drawableTint="@color/gray_900"
             android:fontFamily="@font/inter_medium"
@@ -101,6 +102,48 @@
                 android:textAlignment="center"
                 android:textColor="@color/gray_500"
                 android:textSize="12sp" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/imagePreviewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/button_outline"
+            android:foreground="@drawable/squircle_ripple_effect"
+            android:padding="8dp"
+            android:visibility="gone"
+            app:alignItems="center"
+            app:justifyContent="space_between">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:alignItems="center">
+
+                <ImageView
+                    android:id="@+id/imgPreview"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semi_bold"
+                    android:text="Image.jpg"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <ImageView
+                android:id="@+id/clearImagePreviewButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/rounded_ripple_effect"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_close_circle" />
         </com.google.android.flexbox.FlexboxLayout>
     </com.google.android.flexbox.FlexboxLayout>
 
