@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.instantpayment.InstantPaymentActivity">
+    tools:context=".activities.paymentbanktransfer.PaymentBankTransferActivity">
 
     <include
         android:id="@+id/customTopBar"
         layout="@layout/global_top_app_bar" />
 
     <com.google.android.flexbox.FlexboxLayout
-        android:id="@+id/flexboxLayout"
+        android:id="@+id/fbMainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -21,78 +21,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/customTopBar">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/purple_200"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp">
-
-            <com.google.android.flexbox.FlexboxLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="8dp"
-                app:flexDirection="column">
-
-                <com.google.android.flexbox.FlexboxLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    app:justifyContent="space_between">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="Selesaikan sebelum"
-                        android:textColor="@color/purple_700"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="10.00"
-                        android:textColor="@color/purple_700"
-                        android:textSize="12sp" />
-                </com.google.android.flexbox.FlexboxLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_regular"
-                    android:text="Jum’at, 29 September 2023 15.21"
-                    android:textColor="@color/purple_700"
-                    android:textSize="12sp" />
-            </com.google.android.flexbox.FlexboxLayout>
-        </androidx.cardview.widget.CardView>
+            android:layout_marginVertical="8dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Masukan Info Kartu"
+            android:textColor="@color/gray_900"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
             android:fontFamily="@font/inter_bold"
-            android:text="Klik Untuk Memperbesar Kode QR"
+            android:text="No. Rekening"
             android:textColor="@color/gray_900"
             android:textSize="12sp" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvZoomQRCode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:cardBackgroundColor="@color/purple_50"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="0dp"
-            app:contentPaddingBottom="16dp"
-            app:contentPaddingTop="16dp">
+            app:cardCornerRadius="8dp">
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/qrcode" />
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_stroke_roundedstart"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center_vertical"
+                    android:hint="78737489977"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="14dp"
+                    android:textColorHint="@color/gray_900"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:id="@+id/rlCopyVA"
+                    android:layout_width="96dp"
+                    android:layout_height="49dp"
+                    android:background="@color/purple_700"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/baseline_content_copy_24" />
+                </RelativeLayout>
+            </com.google.android.flexbox.FlexboxLayout>
+
         </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,21 +89,28 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:cardBackgroundColor="@color/purple_50"
             app:cardCornerRadius="8dp">
 
-            <TextView
+            <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_stroke"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Rp 28.920.000"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="14dp"
-                android:textColorHint="@color/gray_900"
-                android:textSize="14sp" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_stroke"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Rp 28.920.000"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="14dp"
+                    android:textColorHint="@color/gray_900"
+                    android:textSize="14sp" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
         </androidx.cardview.widget.CardView>
 
         <com.google.android.flexbox.FlexboxLayout
@@ -133,45 +124,48 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="8dp"
                 android:fontFamily="@font/inter_bold"
-                android:text="Total Pembayaran"
+                android:text="Panduan Pembayaran"
                 android:textColor="@color/gray_900"
                 android:textSize="12sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPaymentGuideQR"
+                android:id="@+id/btnPaymentGuideATM"
                 style="@style/ButtonOutlineWithoutIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_arrow_right2_24"
                 android:drawableTint="@color/gray_900"
                 android:fontFamily="@font/inter_medium"
-                android:text="Instruksi Pembayaran Via Kode QR"
+                android:text="Transfer melalui ATM"
                 android:textAlignment="textStart"
                 android:textColor="@color/gray_900"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:strokeColor="@color/gray_900" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPaymentGuideGojek"
+                android:id="@+id/btnPaymentGuideMbanking"
                 style="@style/ButtonOutlineWithoutIcon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableEnd="@drawable/ic_arrow_right2_24"
                 android:drawableTint="@color/gray_900"
                 android:fontFamily="@font/inter_medium"
-                android:text="Instruksi Pembayaran Aplikasi Gojek"
+                android:text="Transfer melalui mobile banking"
                 android:textAlignment="textStart"
                 android:textColor="@color/gray_900"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:strokeColor="@color/gray_900" />
         </com.google.android.flexbox.FlexboxLayout>
+
     </com.google.android.flexbox.FlexboxLayout>
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/flexButtonContainer" />
+        app:layout_constraintBottom_toTopOf="@id/flexButtonsContainer" />
 
     <com.google.android.flexbox.FlexboxLayout
-        android:id="@+id/flexButtonContainer"
+        android:id="@+id/flexButtonsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="24dp"
@@ -180,17 +174,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fbMainLayout"
         app:layout_constraintVertical_bias="1">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnContinueToApp"
+            android:id="@+id/btnUploadPaymentReceipt"
             style="@style/ButtonWithoutIcon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/inter_medium"
-            android:text="Lanjutkan ke aplikasi"
+            android:text="Upload Bukti Pembayaran"
             android:textColor="@color/white"
             android:textSize="12sp" />
     </com.google.android.flexbox.FlexboxLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.connectus.utils
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
@@ -26,4 +27,12 @@ fun startDynamicActivity(
         context, animIn, animOut
     )
     context.startActivity(intent, options.toBundle())
+}
+
+fun resetActivity(activity: Activity, activityClass: Class<*>) {
+    val intent = Intent(activity, activityClass).apply {
+        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_ANIMATION)
+    }
+    activity.finish()
+    activity.startActivity(intent)
 }

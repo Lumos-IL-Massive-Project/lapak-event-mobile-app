@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.connectus.activities.instantpayment.InstantPaymentActivity
+import com.example.connectus.activities.paymentbanktransfer.PaymentBankTransferActivity
 import com.example.connectus.activities.paymentcreditcard.PaymentCreditCardActivity
 import com.example.connectus.activities.paymentmethod.adapters.ExpandablePaymentMethodListAdapter
 import com.example.connectus.activities.paymentmethod.models.PaymentData
 import com.example.connectus.activities.paymentmethod.models.PaymentMethodData
 import com.example.connectus.activities.paymentmethod.viewmodels.PaymentMethodViewModel
+import com.example.connectus.activities.paymentvirtualaccount.PaymentVirtualAccountActivity
 import com.example.connectus.databinding.ActivityPaymentMethodBinding
 import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.utils.startDynamicActivity
@@ -75,8 +77,14 @@ class PaymentMethodActivity : AppCompatActivity() {
                     dialog.dismiss()
                     startDynamicActivity(this, PaymentCreditCardActivity::class.java)
                 }
-                "manual_transfer" -> {}
-                "virtual_account" -> {}
+                "manual_transfer" -> {
+                    dialog.dismiss()
+                    startDynamicActivity(this, PaymentBankTransferActivity::class.java)
+                }
+                "virtual_account" -> {
+                    dialog.dismiss()
+                    startDynamicActivity(this, PaymentVirtualAccountActivity::class.java)
+                }
                 "instant_payment" -> {
                     dialog.dismiss()
                     startDynamicActivity(this, InstantPaymentActivity::class.java, data = arrayOf(

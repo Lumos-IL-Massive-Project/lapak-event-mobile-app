@@ -5,23 +5,24 @@
     android:background="@drawable/squircle_ripple_effect"
     android:clickable="true"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="2dp">
 
     <ImageView
         android:id="@+id/menuIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:contentDescription="Menu"
-        android:src="@drawable/ic_wedding" />
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="Menu" />
 
     <TextView
         android:id="@+id/menuLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_medium"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/inter_regular"
         android:text="Menu"
         android:textAlignment="center"
         android:textColor="@color/gray_700"
-        android:textSize="12sp" />
+        android:textSize="10sp" />
 
 </LinearLayout>
