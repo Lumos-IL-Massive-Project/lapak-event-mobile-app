@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.chatdetail.fragments.ChatFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/alertContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@color/purple_300"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:lineHeight="16dp"
+                android:text="Demi keamanan &amp; kenyamanan Anda, mohon untuk tidak bertansaksi diluar platform"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMessages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/inputMessageContainer"
+            android:layout_below="@+id/alertContainer"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <LinearLayout
+            android:id="@+id/inputMessageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp">
+
+            <ImageView
+                android:id="@+id/attachFileButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/rounded_ripple_effect"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_plus_circle" />
+
+            <EditText
+                android:id="@+id/etMessage"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:layout_weight=".5"
+                android:background="@drawable/chat_input"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Ketik pesan"
+                android:inputType="textShortMessage"
+                android:paddingHorizontal="10dp"
+                android:singleLine="true"
+                android:textColorHint="@color/gray_500"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/sendButton"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/squircle_ripple_effect"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_send" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
