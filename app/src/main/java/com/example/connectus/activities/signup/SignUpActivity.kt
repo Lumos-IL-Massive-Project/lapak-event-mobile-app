@@ -2,7 +2,6 @@ package com.example.connectus.activities.signup
 
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -13,7 +12,9 @@ import com.example.connectus.activities.signup.viewmodels.SignUpViewModel
 import com.example.connectus.databinding.ActivitySignUpBinding
 import com.example.connectus.network.ApiResult
 import com.example.connectus.network.bodyrequest.RegisterBody
-import com.example.connectus.utils.showWarningPopup
+import com.example.connectus.utils.GlobalPopup.dismissLoadingPopup
+import com.example.connectus.utils.GlobalPopup.showLoadingPopup
+import com.example.connectus.utils.GlobalPopup.showWarningPopup
 import com.example.connectus.utils.startDynamicActivity
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,14 +39,16 @@ class SignUpActivity : AppCompatActivity() {
         viewModel.registrationResult.observe(this, Observer { result ->
             when (result) {
                 is ApiResult.Error -> {
+                    dismissLoadingPopup()
                     showWarningPopup(this, layoutInflater, false, result.message.toString(), null)
                 }
 
                 is ApiResult.Loading -> {
-                    Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show()
+                    showLoadingPopup(this, layoutInflater, true)
                 }
 
                 is ApiResult.Success -> {
+                    dismissLoadingPopup()
                     showWarningPopup(this, layoutInflater, true, result.data.message.toString()) {
                         startDynamicActivity(this, OTPActivity::class.java)
                     }
