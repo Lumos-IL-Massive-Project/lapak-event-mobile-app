@@ -13,7 +13,9 @@ import com.example.connectus.databinding.ActivityOnboardingBinding
 import com.example.connectus.utils.startDynamicActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity() {
     private val onboardingPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
@@ -43,16 +45,16 @@ class OnboardingActivity : AppCompatActivity() {
     private val pagerList = arrayListOf<PageData>(
         PageData(
             "Selamat Datang",
+            "Kami mengumpulkan perusahaan event organizer yang berkomitmen untuk memberikan pengalaman yang tak terlupakan dalam setiap acara impian anda.",
             R.drawable.welcome,
-            "Kami mengumpulkan perusahaan event organizer yang berkomitmen untuk memberikan pengalaman yang tak terlupakan dalam setiap acara impian anda."
         ), PageData(
             "Kreativitas tanpa batas",
+            "Kami percaya bahwa setiap acara harus unik, tim kami siap menghadirkan ide dan rekomendasi untuk setiap proyek yang akan di laksanakan.",
             R.drawable.unlimited_creativity,
-            "Kami percaya bahwa setiap acara harus unik, tim kami siap menghadirkan ide dan rekomendasi untuk setiap proyek yang akan di laksanakan."
         ), PageData(
             "Jaringan yang luas",
+            "Kami memiliki kemitraan yang kuat dengan berbagai vendor dan penyediaan pelayanan memungkinkan kami untuk menawarkan berbagai pilihan dan harga kompetitif.",
             R.drawable.wide_network,
-            "Kami memiliki kemitraan yang kuat dengan berbagai vendor dan penyediaan pelayanan memungkinkan kami untuk menawarkan berbagai pilihan dan harga kompetitif."
         )
     )
 

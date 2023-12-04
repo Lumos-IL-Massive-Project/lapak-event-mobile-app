@@ -1,10 +1,11 @@
 package com.example.connectus.activities.testimonidetail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.connectus.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.databinding.ActivityTestimoniDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TestimoniDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTestimoniDetailBinding

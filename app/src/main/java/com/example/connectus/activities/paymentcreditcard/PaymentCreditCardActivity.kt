@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.databinding.ActivityPaymentCreditCardBinding
 import com.example.connectus.utils.formatCreditCardNumber
 import com.example.connectus.utils.formatExpirationDate
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaymentCreditCardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentCreditCardBinding
 

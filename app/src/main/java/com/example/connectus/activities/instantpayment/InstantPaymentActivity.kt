@@ -12,7 +12,9 @@ import com.example.connectus.R
 import com.example.connectus.databinding.ActivityInstantPaymentBinding
 import com.example.connectus.databinding.GlobalPaymentGuidePopupBinding
 import com.example.connectus.databinding.InstantpaymentPopupZoomQrCodeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class InstantPaymentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInstantPaymentBinding
 

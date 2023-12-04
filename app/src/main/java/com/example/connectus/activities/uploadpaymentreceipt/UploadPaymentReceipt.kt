@@ -13,8 +13,9 @@ import com.example.connectus.activities.uploadpaymentreceipt.fragments.ModalChoo
 import com.example.connectus.databinding.ActivityUploadPaymentReceiptBinding
 import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.utils.resetActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class UploadPaymentReceipt : AppCompatActivity() {
     private lateinit var binding: ActivityUploadPaymentReceiptBinding
     private val PICK_DOCUMENT_REQUEST_CODE = 123

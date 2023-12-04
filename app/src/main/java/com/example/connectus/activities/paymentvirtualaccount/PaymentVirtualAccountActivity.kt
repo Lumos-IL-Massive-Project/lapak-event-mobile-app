@@ -9,7 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.databinding.ActivityPaymentVirtualAccountBinding
 import com.example.connectus.databinding.GlobalPaymentGuidePopupBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaymentVirtualAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentVirtualAccountBinding
 

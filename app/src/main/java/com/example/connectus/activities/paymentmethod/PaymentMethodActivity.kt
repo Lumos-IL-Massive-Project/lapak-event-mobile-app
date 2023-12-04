@@ -18,7 +18,9 @@ import com.example.connectus.activities.paymentvirtualaccount.PaymentVirtualAcco
 import com.example.connectus.databinding.ActivityPaymentMethodBinding
 import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaymentMethodActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentMethodBinding
     private lateinit var viewModel: PaymentMethodViewModel

@@ -17,8 +17,10 @@ import com.example.connectus.activities.promo.PromoActivity
 import com.example.connectus.databinding.ActivityCheckoutBinding
 import com.example.connectus.utils.formatRupiah
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 
+@AndroidEntryPoint
 class CheckoutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCheckoutBinding
     private lateinit var viewModel: CheckoutViewModel

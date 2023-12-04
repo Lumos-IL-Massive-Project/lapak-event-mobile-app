@@ -6,13 +6,16 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.connectus.activities.onboarding.fragments.OnboardingFragment
 import com.example.connectus.activities.onboarding.models.PageData
 
-class ViewPagerOnboardingAdapter(private val activity: FragmentActivity, private val pagerList: ArrayList<PageData>):
-FragmentStateAdapter(activity) {
+class ViewPagerOnboardingAdapter(
+    activity: FragmentActivity,
+    private val pagerList: ArrayList<PageData>
+) :
+    FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return pagerList.size
     }
 
     override fun createFragment(position: Int): Fragment {
-        return OnboardingFragment(pagerList[position])
+        return OnboardingFragment.newInstance(pagerList[position])
     }
 }

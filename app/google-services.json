@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "366165432214",
+    "project_id": "lapak-event",
+    "storage_bucket": "lapak-event.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366165432214:android:dc2fc3f18f397d3443afb7",
+        "android_client_info": {
+          "package_name": "com.example.connectus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366165432214-qj099h8dmi8u5qnbjsb835koh940m84l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.connectus",
+            "certificate_hash": "676a0f70df3c29bdbec6b234c71760c4e278d5a1"
+          }
+        },
+        {
+          "client_id": "366165432214-tq4fij398pemkbm70q5104vv9h43ro7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtyPZyawNCsxTIzVdaVjXGD6MUMwpIpZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366165432214-tq4fij398pemkbm70q5104vv9h43ro7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

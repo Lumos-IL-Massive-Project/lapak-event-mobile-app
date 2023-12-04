@@ -7,7 +7,9 @@ import com.example.connectus.activities.promo.adapters.RecyclerViewPromoListAdap
 import com.example.connectus.activities.promo.models.PromoData
 import com.example.connectus.activities.promo.models.PromoDescriptionData
 import com.example.connectus.databinding.ActivityPromoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PromoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPromoBinding
 

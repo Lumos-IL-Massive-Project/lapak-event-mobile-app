@@ -40,4 +40,5 @@
         \n7. Masukkan jumlah pembayaran sesuai tagihan.
         \n8. Cek kembali transaksi Anda. Setelah itu pilih “Ya”.
     </string>
+    <string name="default_web_client_id">366165432214-qj099h8dmi8u5qnbjsb835koh940m84l.apps.googleusercontent.com</string>
 </resources>

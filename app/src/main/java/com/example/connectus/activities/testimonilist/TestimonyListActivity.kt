@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.connectus.activities.testimonilist.adapter.RecyclerViewTestimonyAdapter
 import com.example.connectus.activities.testimonilist.model.TestimonyData
 import com.example.connectus.databinding.ActivityTestimoniListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TestimonyListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTestimoniListBinding

@@ -27,7 +27,9 @@ import com.example.connectus.activities.notificationlist.NotificationListActivit
 import com.example.connectus.activities.search.SearchActivity
 import com.example.connectus.databinding.FragmentHomeBinding
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var binding: FragmentHomeBinding? = null
     private var carouselDataList = ArrayList<CarouselData>()

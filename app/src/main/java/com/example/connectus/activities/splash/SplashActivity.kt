@@ -8,8 +8,9 @@ import com.example.connectus.R
 import com.example.connectus.activities.onboarding.OnboardingActivity
 import com.example.connectus.databinding.ActivitySplashBinding
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     private val handler = Handler(Looper.getMainLooper())
