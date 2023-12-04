@@ -29,10 +29,24 @@ fun startDynamicActivity(
     context.startActivity(intent, options.toBundle())
 }
 
-fun resetActivity(activity: Activity, activityClass: Class<*>) {
+fun resetActivity(
+    activity: Activity,
+    activityClass: Class<*>,
+    animIn: Int = R.anim.slide_left_in,
+    animOut: Int = R.anim.slide_left_out,
+    vararg data: Pair<String, Any?>,
+) {
     val intent = Intent(activity, activityClass).apply {
-        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        data.forEach { (key, value) ->
+            when (value) {
+                is String -> putExtra(key, value)
+                is Int -> putExtra(key, value)
+                // add more
+            }
+        }
     }
     activity.finish()
     activity.startActivity(intent)
+    activity.overridePendingTransition(animIn, animOut)
 }
