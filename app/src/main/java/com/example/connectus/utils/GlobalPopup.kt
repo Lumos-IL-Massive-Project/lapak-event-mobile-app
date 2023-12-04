@@ -10,6 +10,7 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.connectus.R
+import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.databinding.GlobalLoadingPopupBinding
 import com.example.connectus.databinding.GlobalWarningPopupBinding
 
@@ -84,5 +85,32 @@ object GlobalPopup {
 
     fun dismissLoadingPopup() {
         loadingDialog?.dismiss()
+    }
+
+    fun showConfirmationPopup(
+        context: Context,
+        layoutInflater: LayoutInflater,
+        message: String,
+        confirmCallback: (() -> Unit)?
+    ) {
+        val dialog = Dialog(context)
+        val confirmationPopupBinding = GlobalConfirmationPopupBinding.inflate(layoutInflater)
+        dialog.setContentView(confirmationPopupBinding.root)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        confirmationPopupBinding.tvWarningTitle.text = message
+
+        dialog.show()
+
+        confirmationPopupBinding.btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+        confirmationPopupBinding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        confirmationPopupBinding.btnConfirm.setOnClickListener {
+            dialog.dismiss()
+            confirmCallback?.invoke()
+        }
     }
 }

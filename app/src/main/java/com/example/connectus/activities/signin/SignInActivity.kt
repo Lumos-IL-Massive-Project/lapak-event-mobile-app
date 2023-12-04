@@ -31,6 +31,7 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initForm()
         initSignInButton()
         initSignInButtonWithGoogle()
         initSignUpButton()
@@ -56,6 +57,11 @@ class SignInActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login google gagal", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun initForm() {
+        val email = intent.getStringExtra(EMAIL_TO_REGISTER)
+        binding.etEmail.setText(email)
     }
 
     private fun initSignInButtonWithGoogle() {

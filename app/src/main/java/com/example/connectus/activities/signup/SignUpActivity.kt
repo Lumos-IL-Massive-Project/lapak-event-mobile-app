@@ -5,6 +5,7 @@ import android.text.method.PasswordTransformationMethod
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.connectus.BuildConfig
 import com.example.connectus.R
 import com.example.connectus.activities.otp.OTPActivity
 import com.example.connectus.activities.signin.SignInActivity
@@ -50,7 +51,22 @@ class SignUpActivity : AppCompatActivity() {
                 is ApiResult.Success -> {
                     dismissLoadingPopup()
                     showWarningPopup(this, layoutInflater, true, result.data.message.toString()) {
-                        startDynamicActivity(this, OTPActivity::class.java)
+                        val emailToRegister = intent.getStringExtra(EMAIL_TO_REGISTER)
+
+                        if (BuildConfig.DEBUG) {
+                            startDynamicActivity(
+                                this, OTPActivity::class.java, data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, emailToRegister),
+                                    Pair(OTP_CODE, result.data.data?.otp)
+                                )
+                            )
+                        } else {
+                            startDynamicActivity(
+                                this, OTPActivity::class.java, data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, emailToRegister)
+                                )
+                            )
+                        }
                     }
                 }
             }
@@ -140,5 +156,6 @@ class SignUpActivity : AppCompatActivity() {
 
     companion object {
         private const val EMAIL_TO_REGISTER = "EMAIL_TO_REGISTER"
+        private const val OTP_CODE = "OTP_CODE"
     }
 }
