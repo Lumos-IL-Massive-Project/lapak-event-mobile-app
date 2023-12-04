@@ -16,33 +16,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/ivWarning"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/ic_failed"
-            app:layout_alignSelf="center" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading_animation" />
 
         <TextView
-            android:id="@+id/tvWarningTitle"
+            android:id="@+id/tvLoadingTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_semi_bold"
-            android:text="Warning"
+            android:text="Loading..."
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tvWarningMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="Gagal"
-            android:textAlignment="center"
-            android:textColor="@color/gray_900"
-            android:textSize="12sp" />
     </com.google.android.flexbox.FlexboxLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
