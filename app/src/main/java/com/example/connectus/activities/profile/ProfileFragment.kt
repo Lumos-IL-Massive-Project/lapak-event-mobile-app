@@ -12,7 +12,9 @@ import com.example.connectus.activities.notificationsetting.NotificationSettingA
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.FragmentProfileBinding
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private var binding: FragmentProfileBinding? = null
 

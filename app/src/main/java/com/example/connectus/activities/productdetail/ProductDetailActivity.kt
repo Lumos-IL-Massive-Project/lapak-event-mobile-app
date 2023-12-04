@@ -26,7 +26,9 @@ import com.example.connectus.activities.testimonilist.model.TestimonyData
 import com.example.connectus.databinding.ActivityProductDetailBinding
 import com.example.connectus.utils.RecyclerViewRowGapItemDecoration
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
     private lateinit var binding: ActivityProductDetailBinding
     private lateinit var viewModel: ProductDetailViewModel

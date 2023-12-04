@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.activities.notificationlist.adapter.RecyclerViewNotificationListAdapter
 import com.example.connectus.activities.notificationlist.model.NotificationData
 import com.example.connectus.databinding.ActivityNotificationListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class NotificationListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNotificationListBinding
 

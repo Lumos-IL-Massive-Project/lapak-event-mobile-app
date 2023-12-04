@@ -1,10 +1,11 @@
 package com.example.connectus.activities.changepassword
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.connectus.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.connectus.databinding.ActivityChangePasswordBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ChangePasswordActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChangePasswordBinding
 

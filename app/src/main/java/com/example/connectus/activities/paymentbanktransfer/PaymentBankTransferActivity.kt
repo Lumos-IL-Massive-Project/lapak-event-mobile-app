@@ -11,7 +11,9 @@ import com.example.connectus.activities.uploadpaymentreceipt.UploadPaymentReceip
 import com.example.connectus.databinding.ActivityPaymentBankTransferBinding
 import com.example.connectus.databinding.GlobalPaymentGuidePopupBinding
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaymentBankTransferActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPaymentBankTransferBinding
 

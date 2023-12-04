@@ -8,7 +8,9 @@ import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productlist.adapters.RecyclerViewProductAdapter
 import com.example.connectus.activities.productlist.fragments.ModalFilterFragment
 import com.example.connectus.databinding.ActivityProductListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductListBinding
 

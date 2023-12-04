@@ -9,7 +9,9 @@ import com.example.connectus.activities.chatdetail.fragments.CustomOfferFragment
 import com.example.connectus.databinding.ActivityChatDetailBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ChatDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatDetailBinding
 

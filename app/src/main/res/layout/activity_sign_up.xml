@@ -69,6 +69,68 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/emailContainer"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/email"
+                android:textColor="@color/gray_900"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_input"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="14dp"
+                android:textColorHint="@color/gray_500"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/phoneNumberContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/phone_number"
+                android:textColor="@color/gray_900"
+                android:textSize="14sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_input"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:hint="Enter your phone number"
+                android:inputType="phone|number"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="14dp"
+                android:textColorHint="@color/gray_500"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/passwordContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -129,97 +191,17 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/emailContainer"
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/email"
-                android:textColor="@color/gray_900"
-                android:textSize="14sp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Enter your email"
-                android:inputType="textEmailAddress"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="14dp"
-                android:textColorHint="@color/gray_500"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/phoneNumberContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="@string/phone_number"
-                android:textColor="@color/gray_900"
-                android:textSize="14sp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Enter your phone number"
-                android:inputType="phone|number"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="14dp"
-                android:textColorHint="@color/gray_500"
-                android:textSize="14sp" />
-        </LinearLayout>
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/inter_semi_bold"
             android:paddingVertical="10dp"
             android:text="Create Account"
-            android:backgroundTint="@color/purple_700"
             android:textAllCaps="false"
             android:textSize="16sp"
             app:cornerRadius="8dp" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/googleSignUpButton"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_semi_bold"
-            android:paddingVertical="10dp"
-            android:text="Sign up with google"
-            android:textAllCaps="false"
-            android:textColor="@color/gray_700"
-            android:textSize="16sp"
-            app:cornerRadius="8dp"
-            app:icon="@drawable/ic_google"
-            app:iconGravity="textStart"
-            app:iconSize="24dp"
-            app:iconTint="@null"
-            app:strokeColor="@color/gray_300"
-            app:strokeWidth="1dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.activities.orderlist.adapters.ViewPagerOrderHistoryListAdapter
-import com.example.connectus.activities.orderlist.models.OrderData
 import com.example.connectus.databinding.FragmentOrderListBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OrderListFragment : Fragment() {
     private var binding: FragmentOrderListBinding? = null
     override fun onCreateView(

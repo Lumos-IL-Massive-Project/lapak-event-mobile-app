@@ -8,8 +8,29 @@ import androidx.fragment.app.Fragment
 import com.example.connectus.activities.onboarding.models.PageData
 import com.example.connectus.databinding.FragmentOnboardingBinding
 
-class OnboardingFragment(private val page: PageData) : Fragment() {
+class OnboardingFragment : Fragment() {
+
     private var binding: FragmentOnboardingBinding? = null
+    private lateinit var page: PageData
+
+    companion object {
+        private const val ARG_PAGE_DATA = "pageData"
+
+        fun newInstance(page: PageData): OnboardingFragment {
+            val fragment = OnboardingFragment()
+            val args = Bundle()
+            args.putParcelable(ARG_PAGE_DATA, page)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            page = it.getParcelable(ARG_PAGE_DATA) ?: PageData("", "", 0)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

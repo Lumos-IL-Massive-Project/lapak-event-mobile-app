@@ -7,7 +7,9 @@ import com.example.connectus.R
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.ActivityOtpBinding
 import com.example.connectus.utils.startDynamicActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class OTPActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityOtpBinding
 

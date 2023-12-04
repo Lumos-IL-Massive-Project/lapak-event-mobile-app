@@ -1,15 +1,14 @@
 package com.example.connectus.activities.allcategories
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.activities.allcategories.adapter.RecyclerViewCategoryAdapter
 import com.example.connectus.activities.allcategories.model.CategoryData
 import com.example.connectus.databinding.ActivityAllCategoriesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AllCategoriesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllCategoriesBinding
 

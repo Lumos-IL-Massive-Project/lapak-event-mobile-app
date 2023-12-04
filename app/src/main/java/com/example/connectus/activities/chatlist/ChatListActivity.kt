@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.activities.chatlist.adapter.RecyclerViewChatListAdapter
 import com.example.connectus.activities.chatlist.model.ChatData
 import com.example.connectus.databinding.ActivityChatListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ChatListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatListBinding
 
