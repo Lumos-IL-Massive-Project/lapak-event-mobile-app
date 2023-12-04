@@ -55,6 +55,7 @@
                 android:textSize="14sp" />
 
             <EditText
+                android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_input"
@@ -117,6 +118,7 @@
                 android:textSize="14sp" />
 
             <EditText
+                android:id="@+id/etPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_input"
@@ -146,18 +148,37 @@
                 android:textColor="@color/gray_900"
                 android:textSize="14sp" />
 
-            <EditText
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Create a Password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="14dp"
-                android:textColorHint="@color/gray_500"
-                android:textSize="14sp" />
+                android:background="@drawable/custom_input">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/togglePassword"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Create a Password"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="14dp"
+                    android:textColorHint="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/togglePassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_eye_off" />
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -177,18 +198,36 @@
                 android:textColor="@color/gray_900"
                 android:textSize="14sp" />
 
-            <EditText
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_input"
-                android:fontFamily="@font/inter_regular"
-                android:gravity="center_vertical"
-                android:hint="Re-enter your password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="14dp"
-                android:textColorHint="@color/gray_500"
-                android:textSize="14sp" />
+                android:background="@drawable/custom_input">
+
+                <EditText
+                    android:id="@+id/etConfirmationPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_input"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center_vertical"
+                    android:hint="Re-enter your password"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="14dp"
+                    android:textColorHint="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/toggleConfirmationPassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="?android:selectableItemBackground"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_eye_off" />
+            </RelativeLayout>
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
