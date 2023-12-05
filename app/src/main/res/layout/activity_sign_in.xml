@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:src="@font/inter_medium"
-        android:text="Log in"
+        android:text="Masuk"
         android:textColor="@color/gray_700"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/inter_medium"
-        android:text="Email"
+        android:text="@string/email"
         android:textColor="@color/gray_700"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:autofillHints="emailAddress"
         android:background="@drawable/custom_input"
         android:fontFamily="@font/inter_regular"
-        android:hint="Enter your email"
+        android:hint="Masukkan email anda"
         android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
@@ -63,34 +63,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
-    <TextView
-        android:id="@+id/tvPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="Password"
-        android:textColor="@color/gray_700"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
-
-    <EditText
-        android:id="@+id/etPassword"
+    <LinearLayout
+        android:id="@+id/passwordContainer"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="6dp"
-        android:autofillHints="password"
-        android:background="@drawable/custom_input"
-        android:fontFamily="@font/inter_regular"
-        android:hint="Enter your password"
-        android:inputType="textPassword"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:textColor="@color/gray_500"
-        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/password"
+            android:textColor="@color/gray_900"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_input">
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/togglePassword"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:hint="Masukkan password anda"
+                android:inputType="textPassword"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="14dp"
+                android:textColorHint="@color/gray_500"
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/togglePassword"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:src="@drawable/ic_eye_off_24" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvForgotPassword"
@@ -98,11 +120,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:src="@font/inter_semi_bold"
-        android:text="Forgot password"
+        android:text="Lupa password"
         android:textColor="@color/purple_700"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -110,10 +132,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/inter_medium"
-        android:text="Remember me"
+        android:text="Ingat saya"
         android:textColor="@color/gray_700"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signInButton"
@@ -122,13 +144,13 @@
         android:layout_marginTop="64dp"
         android:fontFamily="@font/inter_semi_bold"
         android:paddingVertical="10dp"
-        android:text="Sign In"
+        android:text="Masuk"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signInButtonWithGoogle"
@@ -137,7 +159,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_semi_bold"
         android:paddingVertical="10dp"
-        android:text="Sign in with Google"
+        android:text="Masuk dengan Google"
         android:textAllCaps="false"
         android:textColor="@color/gray_700"
         android:textSize="16sp"
@@ -166,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:fontFamily="@font/inter_regular"
-            android:text="Don’t have an account? "
+            android:text="Belum punya akun? "
             android:textColor="@color/gray_500"
             android:textSize="14sp" />
 
@@ -176,7 +198,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:fontFamily="@font/inter_semi_bold"
-            android:text="Sign up"
+            android:text="Ayo daftar"
             android:textColor="@color/purple_700"
             android:textSize="14sp" />
     </LinearLayout>
