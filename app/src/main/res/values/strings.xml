@@ -13,7 +13,7 @@
     <string name="home">Beranda</string>
     <string name="transaction">Transaksi</string>
     <string name="profile">Profil</string>
-    <string name="username">Username<font fgcolor='#D92D20'>*</font></string>
+    <string name="username">Nama<font fgcolor='#D92D20'>*</font></string>
     <string name="password">Password<font fgcolor='#D92D20'>*</font></string>
     <string name="old_password">Password Lama<font fgcolor='#D92D20'>*</font></string>
     <string name="new_password">Password Baru<font fgcolor='#D92D20'>*</font></string>

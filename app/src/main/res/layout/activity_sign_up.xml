@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_medium"
-                android:text="Sign Up"
+                android:text="Daftar akun Lapak Event"
                 android:textColor="@color/gray_900"
                 android:textSize="24sp" />
 
@@ -61,7 +61,7 @@
                 android:background="@drawable/custom_input"
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
-                android:hint="Enter your username"
+                android:hint="Masukkan nama anda"
                 android:inputType="text"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
@@ -93,7 +93,7 @@
                 android:background="@drawable/custom_input"
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
-                android:hint="Enter your email"
+                android:hint="Masukkan email"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
@@ -124,7 +124,7 @@
                 android:background="@drawable/custom_input"
                 android:fontFamily="@font/inter_regular"
                 android:gravity="center_vertical"
-                android:hint="Enter your phone number"
+                android:hint="Masukkan nomor telpon"
                 android:inputType="phone|number"
                 android:paddingHorizontal="14dp"
                 android:paddingVertical="14dp"
@@ -161,7 +161,7 @@
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="center_vertical"
-                    android:hint="Create a Password"
+                    android:hint="Masukkan password"
                     android:inputType="textPassword"
                     android:paddingHorizontal="14dp"
                     android:paddingVertical="14dp"
@@ -177,7 +177,7 @@
                     android:layout_marginRight="10dp"
                     android:background="?android:selectableItemBackground"
                     android:padding="10dp"
-                    android:src="@drawable/ic_eye_off" />
+                    android:src="@drawable/ic_eye_off_24" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -210,7 +210,7 @@
                     android:background="@drawable/custom_input"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="center_vertical"
-                    android:hint="Re-enter your password"
+                    android:hint="Masukkan konfirmasi password"
                     android:inputType="textPassword"
                     android:paddingHorizontal="14dp"
                     android:paddingVertical="14dp"
@@ -226,7 +226,7 @@
                     android:layout_marginRight="10dp"
                     android:background="?android:selectableItemBackground"
                     android:padding="10dp"
-                    android:src="@drawable/ic_eye_off" />
+                    android:src="@drawable/ic_eye_off_24" />
             </RelativeLayout>
         </LinearLayout>
 
@@ -237,7 +237,7 @@
             android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/inter_semi_bold"
             android:paddingVertical="10dp"
-            android:text="Create Account"
+            android:text="Buat Akun"
             android:textAllCaps="false"
             android:textSize="16sp"
             app:cornerRadius="8dp" />
@@ -250,7 +250,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account? "
+                android:text="Sudah punya akun? "
                 android:textColor="@color/gray_700"
                 android:textSize="14sp" />
 
@@ -260,7 +260,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:fontFamily="@font/inter_semi_bold"
-                android:text="Sign in"
+                android:text="Masuk"
                 android:textColor="@color/purple_700"
                 android:textSize="14sp" />
         </LinearLayout>

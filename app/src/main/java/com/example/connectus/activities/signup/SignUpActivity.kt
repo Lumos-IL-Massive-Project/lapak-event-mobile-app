@@ -80,10 +80,10 @@ class SignUpActivity : AppCompatActivity() {
         binding.togglePassword.setOnClickListener {
             if (binding.etPassword.transformationMethod === PasswordTransformationMethod.getInstance()) {
                 binding.etPassword.transformationMethod = null
-                binding.togglePassword.setImageResource(R.drawable.ic_eye)
+                binding.togglePassword.setImageResource(R.drawable.ic_eye_24)
             } else {
                 binding.etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
-                binding.togglePassword.setImageResource(R.drawable.ic_eye_off)
+                binding.togglePassword.setImageResource(R.drawable.ic_eye_off_24)
             }
 
             binding.etPassword.setSelection(binding.etPassword.text.length)
@@ -92,11 +92,11 @@ class SignUpActivity : AppCompatActivity() {
         binding.toggleConfirmationPassword.setOnClickListener {
             if (binding.etConfirmationPassword.transformationMethod === PasswordTransformationMethod.getInstance()) {
                 binding.etConfirmationPassword.transformationMethod = null
-                binding.toggleConfirmationPassword.setImageResource(R.drawable.ic_eye)
+                binding.toggleConfirmationPassword.setImageResource(R.drawable.ic_eye_24)
             } else {
                 binding.etConfirmationPassword.transformationMethod =
                     PasswordTransformationMethod.getInstance()
-                binding.toggleConfirmationPassword.setImageResource(R.drawable.ic_eye_off)
+                binding.toggleConfirmationPassword.setImageResource(R.drawable.ic_eye_off_24)
             }
 
             binding.etConfirmationPassword.setSelection(binding.etConfirmationPassword.text.length)
