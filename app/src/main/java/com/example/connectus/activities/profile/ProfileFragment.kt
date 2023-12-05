@@ -1,5 +1,7 @@
 package com.example.connectus.activities.profile
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +42,16 @@ class ProfileFragment : Fragment() {
 
     private fun initLayout() {
         binding?.signOutButton?.setOnClickListener {
+            val sharedPreferences: SharedPreferences? =
+                this.activity?.getSharedPreferences("MySession", Context.MODE_PRIVATE)
+            val editor = sharedPreferences?.edit()
+
+            editor?.apply {
+                putBoolean("IS_LOGGED_IN_KEY", false)
+                putString("USER_DATA_KEY", null)
+                apply()
+            }
+
             startDynamicActivity(
                 requireContext(),
                 SignInActivity::class.java,
