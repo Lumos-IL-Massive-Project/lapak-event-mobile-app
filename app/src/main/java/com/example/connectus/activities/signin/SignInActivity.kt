@@ -1,6 +1,8 @@
 package com.example.connectus.activities.signin
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
@@ -23,6 +25,7 @@ import com.example.connectus.utils.startDynamicActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -101,9 +104,7 @@ class SignInActivity : AppCompatActivity() {
 
                 is ApiResult.Success -> {
                     dismissLoadingPopup()
-                    showWarningPopup(this, layoutInflater, true, result.data.message.toString()) {
-                        resetActivity(this, MainActivity::class.java)
-                    }
+                    resetActivity(this, MainActivity::class.java)
                 }
             }
         })
@@ -123,7 +124,21 @@ class SignInActivity : AppCompatActivity() {
 
                 is ApiResult.Success -> {
                     dismissLoadingPopup()
-                    resetActivity(this, MainActivity::class.java)
+
+                    val sharedPreferences: SharedPreferences =
+                        getSharedPreferences("MySession", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    val gson = Gson()
+                    val userDataJson = gson.toJson(result.data.data)
+
+                    editor.apply {
+                        putBoolean("IS_LOGGED_IN_KEY", true)
+                        putString("USER_DATA_KEY", userDataJson)
+                        apply()
+                    }
+
+                    startDynamicActivity(this, MainActivity::class.java)
+                    finish()
                 }
             }
         })

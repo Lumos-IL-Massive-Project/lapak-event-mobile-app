@@ -1,5 +1,7 @@
 package com.example.connectus.activities.onboarding
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -69,6 +71,15 @@ class OnboardingActivity : AppCompatActivity() {
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        init()
+    }
+
+    override fun onDestroy() {
+        onboardingViewPager2.unregisterOnPageChangeCallback(onboardingPageChangeCallback)
+        super.onDestroy()
+    }
+
+    private fun init() {
         onboardingViewPager2 = binding.vpOnboarding
         skipButton = binding.skipButton
         prevButton = binding.prevButton
@@ -104,12 +115,14 @@ class OnboardingActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        onboardingViewPager2.unregisterOnPageChangeCallback(onboardingPageChangeCallback)
-        super.onDestroy()
-    }
-
     private fun navigateToHomeScreen() {
+        val sharedPreferences: SharedPreferences =
+            getSharedPreferences("MySession", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("SPLASH_STATUS_KEY", true)
+        editor.apply()
+
         startDynamicActivity(this, SignInActivity::class.java, R.anim.zoom_in, R.anim.zoom_out)
+        finish()
     }
 }
