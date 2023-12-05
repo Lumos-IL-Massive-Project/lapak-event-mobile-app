@@ -2,35 +2,42 @@ package com.example.connectus.activities.signin
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.Observer
 import com.example.connectus.R
 import com.example.connectus.activities.MainActivity
 import com.example.connectus.activities.signin.viewmodels.SignInViewModel
 import com.example.connectus.activities.signup.SignUpActivity
 import com.example.connectus.databinding.ActivitySignInBinding
+import com.example.connectus.network.ApiResult
 import com.example.connectus.network.bodyrequest.EmailCheckBody
-import com.example.connectus.utils.ApiResponseHandler
+import com.example.connectus.network.bodyrequest.LoginBody
+import com.example.connectus.utils.GlobalPopup.dismissLoadingPopup
+import com.example.connectus.utils.GlobalPopup.showLoadingPopup
+import com.example.connectus.utils.GlobalPopup.showWarningPopup
+import com.example.connectus.utils.resetActivity
 import com.example.connectus.utils.startDynamicActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private val viewModel by viewModels<SignInViewModel>()
+    private var emailToCheck: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initCheckEmailResultObserver()
+        initLoginResultObserver()
         initForm()
         initSignInButton()
         initSignInButtonWithGoogle()
@@ -46,9 +53,9 @@ class SignInActivity : AppCompatActivity() {
             try {
                 val account = task.getResult(ApiException::class.java)
                 if (account != null) {
-                    val email = account.email
-                    if (!email.isNullOrBlank()) {
-                        checkEmailAndSignIn(email)
+                    emailToCheck = account.email
+                    if (!emailToCheck.isNullOrBlank()) {
+                        viewModel.checkEmail(EmailCheckBody(emailToCheck!!))
                     } else {
                         Toast.makeText(this, "Email tidak ditemukan", Toast.LENGTH_SHORT).show()
                     }
@@ -59,9 +66,84 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
+    private fun initCheckEmailResultObserver() {
+        viewModel.emailCheckResult.observe(this, Observer { result ->
+            when (result) {
+                is ApiResult.Error -> {
+                    dismissLoadingPopup()
+                    showWarningPopup(
+                        this,
+                        layoutInflater,
+                        false,
+                        result.message.toString(),
+                    ) {
+                        if (result.message == "Email tidak terdaftar") {
+                            startDynamicActivity(
+                                this,
+                                SignUpActivity::class.java,
+                                data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, emailToCheck)
+                                )
+                            )
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "Error: ${result.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                }
+
+                is ApiResult.Loading -> {
+                    showLoadingPopup(this, layoutInflater, true)
+                }
+
+                is ApiResult.Success -> {
+                    dismissLoadingPopup()
+                    showWarningPopup(this, layoutInflater, true, result.data.message.toString()) {
+                        resetActivity(this, MainActivity::class.java)
+                    }
+                }
+            }
+        })
+    }
+
+    private fun initLoginResultObserver() {
+        viewModel.loginResult.observe(this, Observer { result ->
+            when (result) {
+                is ApiResult.Error -> {
+                    dismissLoadingPopup()
+                    showWarningPopup(this, layoutInflater, true, result.message.toString(), null)
+                }
+
+                is ApiResult.Loading -> {
+                    showLoadingPopup(this, layoutInflater, true)
+                }
+
+                is ApiResult.Success -> {
+                    dismissLoadingPopup()
+                    resetActivity(this, MainActivity::class.java)
+                }
+            }
+        })
+    }
+
     private fun initForm() {
         val email = intent.getStringExtra(EMAIL_TO_REGISTER)
         binding.etEmail.setText(email)
+
+        binding.togglePassword.setOnClickListener {
+            if (binding.etPassword.transformationMethod === PasswordTransformationMethod.getInstance()) {
+                binding.etPassword.transformationMethod = null
+                binding.togglePassword.setImageResource(R.drawable.ic_eye_24)
+            } else {
+                binding.etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.togglePassword.setImageResource(R.drawable.ic_eye_off_24)
+            }
+
+            binding.etPassword.setSelection(binding.etPassword.text.length)
+        }
     }
 
     private fun initSignInButtonWithGoogle() {
@@ -80,55 +162,26 @@ class SignInActivity : AppCompatActivity() {
 
     private fun initSignInButton() {
         binding.signInButton.setOnClickListener {
-            startDynamicActivity(this, MainActivity::class.java)
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            if (email.isEmpty()) {
+                binding.etEmail.error = "Email tidak boleh kosong"
+                return@setOnClickListener
+            }
+
+            if (password.isEmpty()) {
+                binding.etPassword.error = "Password tidak boleh kosong"
+                return@setOnClickListener
+            }
+
+            viewModel.login(LoginBody(email, password, "mobile"))
         }
     }
 
     private fun initSignUpButton() {
         binding.tvSignUpBtn.setOnClickListener {
             startDynamicActivity(this, SignUpActivity::class.java)
-        }
-    }
-
-    private fun checkEmailAndSignIn(email: String) {
-        viewModel.viewModelScope.launch {
-            try {
-                val emailRequestBody = EmailCheckBody(email)
-                val emailCheckResponse = viewModel.checkEmail(emailRequestBody)
-
-                if (emailCheckResponse.success == true) {
-                    startDynamicActivity(this@SignInActivity, MainActivity::class.java)
-                } else {
-                    Toast.makeText(applicationContext, "Email belum terdaftar", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            } catch (e: retrofit2.HttpException) {
-                ApiResponseHandler.handleApiError(
-                    applicationContext,
-                    e,
-                    object : ApiResponseHandler.ErrorCallback {
-                        override fun onFailure(message: String) {
-                            if (message == "Email tidak terdaftar") {
-                                startDynamicActivity(
-                                    this@SignInActivity,
-                                    SignUpActivity::class.java,
-                                    data = arrayOf(
-                                        Pair(EMAIL_TO_REGISTER, email)
-                                    )
-                                )
-                            } else {
-                                Toast.makeText(
-                                    applicationContext,
-                                    "Error: $message",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
-                        }
-                    })
-            } catch (e: Exception) {
-                Log.e("SignInActivity", "Error: ${e.message}")
-                Toast.makeText(applicationContext, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 
