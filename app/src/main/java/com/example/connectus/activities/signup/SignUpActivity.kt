@@ -13,6 +13,8 @@ import com.example.connectus.activities.signup.viewmodels.SignUpViewModel
 import com.example.connectus.databinding.ActivitySignUpBinding
 import com.example.connectus.network.ApiResult
 import com.example.connectus.network.bodyrequest.RegisterBody
+import com.example.connectus.utils.Constants.EMAIL_TO_REGISTER
+import com.example.connectus.utils.Constants.OTP_CODE
 import com.example.connectus.utils.GlobalPopup.dismissLoadingPopup
 import com.example.connectus.utils.GlobalPopup.showLoadingPopup
 import com.example.connectus.utils.GlobalPopup.showWarningPopup
@@ -152,10 +154,5 @@ class SignUpActivity : AppCompatActivity() {
         binding.tvSignInBtn.setOnClickListener {
             startDynamicActivity(this, SignInActivity::class.java)
         }
-    }
-
-    companion object {
-        private const val EMAIL_TO_REGISTER = "EMAIL_TO_REGISTER"
-        private const val OTP_CODE = "OTP_CODE"
     }
 }

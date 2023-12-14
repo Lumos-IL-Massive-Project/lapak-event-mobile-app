@@ -1,21 +1,28 @@
 package com.example.connectus.activities.allcategories
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.activities.allcategories.adapter.RecyclerViewCategoryAdapter
-import com.example.connectus.activities.allcategories.model.CategoryData
+import com.example.connectus.activities.allcategories.viewmodels.AllCategoriesViewModel
 import com.example.connectus.databinding.ActivityAllCategoriesBinding
+import com.example.connectus.network.ApiResult
+import com.example.connectus.utils.GlobalPopup
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AllCategoriesActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAllCategoriesBinding
+    private val viewModel by viewModels<AllCategoriesViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllCategoriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel.getProductCategory()
         initTopBar()
         initCategoryList()
     }
@@ -28,38 +35,30 @@ class AllCategoriesActivity : AppCompatActivity() {
     }
 
     private fun initCategoryList() {
-        val categoryList: List<CategoryData> = listOf(
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Pernikahan"
-            ),
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Olahraga"
-            ),
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Ulang Tahun"
-            ),
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Bazar"
-            ),
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Konser Musik"
-            ),
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Seminar"
-            ),
-            CategoryData(
-                "https://media.istockphoto.com/id/1372252644/id/foto/template-banner-belanja-online-dengan-keranjang-belanja-dan-kotak-hadiah-web-mockup-untuk.jpg?s=1024x1024&w=is&k=20&c=mr5DnIRrWSAJ-GrQ9Xij5mHXWSdfwu-QV7zrPE5ueCc=",
-                "Gathering"
-            )
-        )
+        viewModel.productCategoryResult.observe(this, Observer { result ->
+            when (result) {
+                is ApiResult.Error -> {
+                    GlobalPopup.showLoadingPopup(this, layoutInflater, false)
+                    GlobalPopup.showWarningPopup(
+                        this,
+                        layoutInflater,
+                        false,
+                        result.message.toString(),
+                        null
+                    )
+                }
 
-        binding.rvCategories.adapter = RecyclerViewCategoryAdapter(this, categoryList)
-        binding.rvCategories.layoutManager = GridLayoutManager(this, 2)
+                is ApiResult.Loading -> {
+                    GlobalPopup.showLoadingPopup(this, layoutInflater, true)
+                }
+
+                is ApiResult.Success -> {
+                    GlobalPopup.dismissLoadingPopup()
+
+                    binding.rvCategories.adapter = RecyclerViewCategoryAdapter(this, result.data.data)
+                    binding.rvCategories.layoutManager = GridLayoutManager(this, 2)
+                }
+            }
+        })
     }
 }

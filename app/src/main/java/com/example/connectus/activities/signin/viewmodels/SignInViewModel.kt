@@ -35,7 +35,11 @@ class SignInViewModel @Inject constructor(
 
             try {
                 val response = apiService.checkEmail(request)
-                _emailCheckResult.value = ApiResult.Success(response)
+                if (response.success == true) {
+                    _emailCheckResult.value = ApiResult.Success(response)
+                } else {
+                    _emailCheckResult.value = ApiResult.Error(response.message)
+                }
             } catch (e: retrofit2.HttpException) {
                 _emailCheckResult.value = handleHttpException(e)
             } catch (e: Exception) {
@@ -50,7 +54,11 @@ class SignInViewModel @Inject constructor(
 
             try {
                 val response = apiService.login(request)
-                _loginResult.value = ApiResult.Success(response)
+                if (response.success == true) {
+                    _loginResult.value = ApiResult.Success(response)
+                } else {
+                    _loginResult.value = ApiResult.Error(response.message)
+                }
             } catch (e: retrofit2.HttpException) {
                 _loginResult.value = handleHttpException(e)
             } catch (e: Exception) {

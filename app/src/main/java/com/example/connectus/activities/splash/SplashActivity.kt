@@ -1,7 +1,6 @@
 package com.example.connectus.activities.splash
 
-import android.content.Context
-import android.content.SharedPreferences
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,13 +10,19 @@ import com.example.connectus.activities.MainActivity
 import com.example.connectus.activities.onboarding.OnboardingActivity
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.ActivitySplashBinding
+import com.example.connectus.utils.AppPreferenceManager
 import com.example.connectus.utils.startDynamicActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@SuppressLint("CustomSplashScreen")
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     private val handler = Handler(Looper.getMainLooper())
+
+    @Inject
+    lateinit var appPreferenceManager: AppPreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +33,11 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val sharedPreferences: SharedPreferences =
-            getSharedPreferences("MySession", Context.MODE_PRIVATE)
-        val splashStatus = sharedPreferences.getBoolean("SPLASH_STATUS_KEY", false)
-        val loginStatus = sharedPreferences.getBoolean("IS_LOGGED_IN_KEY", false)
+        val onboardingStatus = appPreferenceManager.getOnboardingStatus()
+        val loginStatus = appPreferenceManager.getLoginStatus()
 
         handler.postDelayed({
-            if (splashStatus) {
+            if (onboardingStatus) {
                 if (loginStatus) {
                     startDynamicActivity(
                         this,

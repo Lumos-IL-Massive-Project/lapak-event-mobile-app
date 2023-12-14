@@ -2,7 +2,7 @@ package com.example.connectus.network.response
 
 import com.google.gson.annotations.SerializedName
 
-data class EmailCheckResponse(
+data class RefreshTokenResponse(
 
 	@field:SerializedName("data")
 	val data: LoginData? = null,

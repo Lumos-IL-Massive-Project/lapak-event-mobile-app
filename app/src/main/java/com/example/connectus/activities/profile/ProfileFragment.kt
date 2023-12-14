@@ -1,7 +1,5 @@
 package com.example.connectus.activities.profile
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +11,17 @@ import com.example.connectus.activities.changeprofile.ChangeProfileActivity
 import com.example.connectus.activities.notificationsetting.NotificationSettingActivity
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.FragmentProfileBinding
+import com.example.connectus.utils.AppPreferenceManager
 import com.example.connectus.utils.startDynamicActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private var binding: FragmentProfileBinding? = null
+
+    @Inject
+    lateinit var appPreferenceManager: AppPreferenceManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,16 +45,7 @@ class ProfileFragment : Fragment() {
 
     private fun initLayout() {
         binding?.signOutButton?.setOnClickListener {
-            val sharedPreferences: SharedPreferences? =
-                this.activity?.getSharedPreferences("MySession", Context.MODE_PRIVATE)
-            val editor = sharedPreferences?.edit()
-
-            editor?.apply {
-                putBoolean("IS_LOGGED_IN_KEY", false)
-                putString("USER_DATA_KEY", null)
-                apply()
-            }
-
+            appPreferenceManager.removeAuthCredentials()
             startDynamicActivity(
                 requireContext(),
                 SignInActivity::class.java,

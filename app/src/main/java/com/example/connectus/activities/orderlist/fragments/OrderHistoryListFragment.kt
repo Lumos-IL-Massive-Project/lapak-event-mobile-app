@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.connectus.activities.allcategories.model.CategoryData
 import com.example.connectus.activities.orderlist.adapters.RecyclerViewOrderItemAdapter
 import com.example.connectus.activities.orderlist.models.OrderData
 import com.example.connectus.databinding.FragmentOrderHistoryListBinding

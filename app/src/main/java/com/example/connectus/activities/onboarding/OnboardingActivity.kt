@@ -1,7 +1,5 @@
 package com.example.connectus.activities.onboarding
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,33 +10,40 @@ import com.example.connectus.activities.onboarding.adapters.ViewPagerOnboardingA
 import com.example.connectus.activities.onboarding.models.PageData
 import com.example.connectus.activities.signin.SignInActivity
 import com.example.connectus.databinding.ActivityOnboardingBinding
+import com.example.connectus.utils.AppPreferenceManager
 import com.example.connectus.utils.startDynamicActivity
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class OnboardingActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityOnboardingBinding
+    private lateinit var onboardingViewPager2: ViewPager2
+
+    @Inject
+    lateinit var appPreferenceManager: AppPreferenceManager
+
     private val onboardingPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
             when (position) {
                 0 -> {
-                    skipButton.text = "Skip"
-                    nextButton.visibility = View.VISIBLE
-                    prevButton.visibility = View.GONE
+                    binding.skipButton.text = "Skip"
+                    binding.nextButton.visibility = View.VISIBLE
+                    binding.prevButton.visibility = View.GONE
                 }
 
                 1 -> {
-                    skipButton.text = "Skip"
-                    nextButton.visibility = View.VISIBLE
-                    prevButton.visibility = View.VISIBLE
+                    binding.skipButton.text = "Skip"
+                    binding.nextButton.visibility = View.VISIBLE
+                    binding.prevButton.visibility = View.VISIBLE
                 }
 
                 2 -> {
-                    skipButton.text = "Mulai"
-                    nextButton.visibility = View.GONE
-                    prevButton.visibility = View.VISIBLE
+                    binding.skipButton.text = "Mulai"
+                    binding.nextButton.visibility = View.GONE
+                    binding.prevButton.visibility = View.VISIBLE
                 }
             }
         }
@@ -60,12 +65,6 @@ class OnboardingActivity : AppCompatActivity() {
         )
     )
 
-    private lateinit var binding: ActivityOnboardingBinding
-    private lateinit var onboardingViewPager2: ViewPager2
-    private lateinit var skipButton: MaterialButton
-    private lateinit var prevButton: MaterialButton
-    private lateinit var nextButton: MaterialButton
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
@@ -81,9 +80,6 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun init() {
         onboardingViewPager2 = binding.vpOnboarding
-        skipButton = binding.skipButton
-        prevButton = binding.prevButton
-        nextButton = binding.nextButton
 
         onboardingViewPager2.apply {
             adapter = ViewPagerOnboardingAdapter(this@OnboardingActivity, pagerList)
@@ -96,13 +92,13 @@ class OnboardingActivity : AppCompatActivity() {
 
         }.attach()
 
-        prevButton.setOnClickListener {
+        binding.prevButton.setOnClickListener {
             if (onboardingViewPager2.currentItem > 0) {
                 onboardingViewPager2.currentItem -= 1
             }
         }
 
-        nextButton.setOnClickListener {
+        binding.nextButton.setOnClickListener {
             if (onboardingViewPager2.currentItem < onboardingViewPager2.adapter!!.itemCount - 1) {
                 onboardingViewPager2.currentItem += 1
             } else {
@@ -110,18 +106,13 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
 
-        skipButton.setOnClickListener {
+        binding.skipButton.setOnClickListener {
             navigateToHomeScreen()
         }
     }
 
     private fun navigateToHomeScreen() {
-        val sharedPreferences: SharedPreferences =
-            getSharedPreferences("MySession", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("SPLASH_STATUS_KEY", true)
-        editor.apply()
-
+        appPreferenceManager.setOnboardingStatus(true)
         startDynamicActivity(this, SignInActivity::class.java, R.anim.zoom_in, R.anim.zoom_out)
         finish()
     }

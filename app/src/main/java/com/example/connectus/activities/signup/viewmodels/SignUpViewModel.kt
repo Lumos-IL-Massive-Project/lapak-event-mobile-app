@@ -28,18 +28,16 @@ class SignUpViewModel @Inject constructor(
 
             try {
                 val response = apiService.registerUser(request)
-                _registrationResult.value = ApiResult.Success(response)
+                if (response.success == true) {
+                    _registrationResult.value = ApiResult.Success(response)
+                } else {
+                    _registrationResult.value = ApiResult.Error(response.message)
+                }
+            } catch (e: retrofit2.HttpException) {
+                handleHttpException(e)
             } catch (e: Exception) {
-                handleException(e)
+                _registrationResult.value = ApiResult.Error(e.message ?: "An error occurred")
             }
-        }
-    }
-
-    private fun handleException(e: Exception) {
-        if (e is retrofit2.HttpException) {
-            handleHttpException(e)
-        } else {
-            _registrationResult.value = ApiResult.Error(e.message ?: "An error occurred")
         }
     }
 
