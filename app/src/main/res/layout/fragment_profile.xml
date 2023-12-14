@@ -187,7 +187,7 @@
             app:layout_constraintTop_toBottomOf="@+id/notificationSettingSection" />
 
         <LinearLayout
-            android:id="@+id/helpCenterSection"
+            android:id="@+id/FAQSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -200,6 +200,41 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvHelp">
+
+            <TextView
+                android:id="@+id/tvFAQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semi_bold"
+                android:text="FAQ"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/ivArrowRightFAQ"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/helpCenterSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/squircle_ripple_effect"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FAQSection">
 
             <TextView
                 android:id="@+id/tvHelpCenter"
