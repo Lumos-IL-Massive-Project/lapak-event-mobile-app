@@ -13,10 +13,16 @@ import com.example.connectus.R
 import com.example.connectus.databinding.GlobalConfirmationPopupBinding
 import com.example.connectus.databinding.GlobalLoadingPopupBinding
 import com.example.connectus.databinding.GlobalWarningPopupBinding
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 object GlobalPopup {
     private var loadingDialog: Dialog? = null
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun showWarningPopup(
         context: Context,
         layoutInflater: LayoutInflater,
@@ -55,10 +61,11 @@ object GlobalPopup {
 
         dialog.show()
 
-        Handler().postDelayed({
+        GlobalScope.launch(Dispatchers.Main) {
+            delay(1500)
             dialog.dismiss()
             callback?.invoke()
-        }, 3000)
+        }
     }
 
     fun showLoadingPopup(context: Context, layoutInflater: LayoutInflater, show: Boolean) {

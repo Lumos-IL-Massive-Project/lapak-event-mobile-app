@@ -1,38 +1,44 @@
 package com.example.connectus.activities.signin
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.example.connectus.BuildConfig
 import com.example.connectus.R
 import com.example.connectus.activities.MainActivity
+import com.example.connectus.activities.otp.OTPActivity
 import com.example.connectus.activities.signin.viewmodels.SignInViewModel
 import com.example.connectus.activities.signup.SignUpActivity
 import com.example.connectus.databinding.ActivitySignInBinding
 import com.example.connectus.network.ApiResult
 import com.example.connectus.network.bodyrequest.EmailCheckBody
 import com.example.connectus.network.bodyrequest.LoginBody
+import com.example.connectus.utils.AppPreferenceManager
+import com.example.connectus.utils.Constants.EMAIL_TO_REGISTER
+import com.example.connectus.utils.Constants.OTP_CODE
 import com.example.connectus.utils.GlobalPopup.dismissLoadingPopup
 import com.example.connectus.utils.GlobalPopup.showLoadingPopup
 import com.example.connectus.utils.GlobalPopup.showWarningPopup
-import com.example.connectus.utils.resetActivity
 import com.example.connectus.utils.startDynamicActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private val viewModel by viewModels<SignInViewModel>()
     private var emailToCheck: String? = null
+
+    @Inject
+    lateinit var appPreferenceManager: AppPreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +64,7 @@ class SignInActivity : AppCompatActivity() {
                 if (account != null) {
                     emailToCheck = account.email
                     if (!emailToCheck.isNullOrBlank()) {
-                        viewModel.checkEmail(EmailCheckBody(emailToCheck!!))
+                        viewModel.checkEmail(EmailCheckBody(emailToCheck!!, "mobile"))
                     } else {
                         Toast.makeText(this, "Email tidak ditemukan", Toast.LENGTH_SHORT).show()
                     }
@@ -88,12 +94,6 @@ class SignInActivity : AppCompatActivity() {
                                     Pair(EMAIL_TO_REGISTER, emailToCheck)
                                 )
                             )
-                        } else {
-                            Toast.makeText(
-                                applicationContext,
-                                "Error: ${result.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
                         }
                     }
                 }
@@ -104,7 +104,29 @@ class SignInActivity : AppCompatActivity() {
 
                 is ApiResult.Success -> {
                     dismissLoadingPopup()
-                    resetActivity(this, MainActivity::class.java)
+                    if (result.data.message == "Berhasil mengirim kode OTP, silahkan cek email anda") {
+                        if (BuildConfig.DEBUG) {
+                            startDynamicActivity(
+                                this, OTPActivity::class.java, data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, emailToCheck),
+                                    Pair(OTP_CODE, result.data.data?.otp)
+                                )
+                            )
+                        } else {
+                            startDynamicActivity(
+                                this, OTPActivity::class.java, data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, emailToCheck)
+                                )
+                            )
+                        }
+                    } else {
+                        val gson = Gson()
+                        val userDataJson = gson.toJson(result.data.data)
+                        appPreferenceManager.saveAuthCredentials(userDataJson)
+
+                        startDynamicActivity(this, MainActivity::class.java)
+                        finish()
+                    }
                 }
             }
         })
@@ -115,7 +137,7 @@ class SignInActivity : AppCompatActivity() {
             when (result) {
                 is ApiResult.Error -> {
                     dismissLoadingPopup()
-                    showWarningPopup(this, layoutInflater, true, result.message.toString(), null)
+                    showWarningPopup(this, layoutInflater, false, result.message.toString(), null)
                 }
 
                 is ApiResult.Loading -> {
@@ -124,21 +146,31 @@ class SignInActivity : AppCompatActivity() {
 
                 is ApiResult.Success -> {
                     dismissLoadingPopup()
+                    if (result.data.message == "Berhasil mengirim kode OTP, silahkan cek email anda") {
+                        val email = binding.etEmail.text.toString()
 
-                    val sharedPreferences: SharedPreferences =
-                        getSharedPreferences("MySession", Context.MODE_PRIVATE)
-                    val editor = sharedPreferences.edit()
-                    val gson = Gson()
-                    val userDataJson = gson.toJson(result.data.data)
+                        if (BuildConfig.DEBUG) {
+                            startDynamicActivity(
+                                this, OTPActivity::class.java, data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, email),
+                                    Pair(OTP_CODE, result.data.data?.otp)
+                                )
+                            )
+                        } else {
+                            startDynamicActivity(
+                                this, OTPActivity::class.java, data = arrayOf(
+                                    Pair(EMAIL_TO_REGISTER, email)
+                                )
+                            )
+                        }
+                    } else {
+                        val gson = Gson()
+                        val userDataJson = gson.toJson(result.data.data)
+                        appPreferenceManager.saveAuthCredentials(userDataJson)
 
-                    editor.apply {
-                        putBoolean("IS_LOGGED_IN_KEY", true)
-                        putString("USER_DATA_KEY", userDataJson)
-                        apply()
+                        startDynamicActivity(this, MainActivity::class.java)
+                        finish()
                     }
-
-                    startDynamicActivity(this, MainActivity::class.java)
-                    finish()
                 }
             }
         })
@@ -202,6 +234,5 @@ class SignInActivity : AppCompatActivity() {
 
     companion object {
         private const val RC_SIGN_IN = 354
-        private const val EMAIL_TO_REGISTER = "EMAIL_TO_REGISTER"
     }
 }

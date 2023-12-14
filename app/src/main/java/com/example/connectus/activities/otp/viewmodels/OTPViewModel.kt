@@ -30,7 +30,11 @@ class OTPViewModel @Inject constructor(private val apiService: ApiService): View
                 _verifyOtpResult.value = ApiResult.Loading()
 
                 val response = apiService.verifyOtp(request)
-                _verifyOtpResult.value = ApiResult.Success(response)
+                if (response.success == true) {
+                    _verifyOtpResult.value = ApiResult.Success(response)
+                } else {
+                    _verifyOtpResult.value = ApiResult.Error(response.message)
+                }
             } catch (e: retrofit2.HttpException) {
                 _verifyOtpResult.value = handleHttpException(e)
             } catch (e: Exception) {
@@ -45,7 +49,11 @@ class OTPViewModel @Inject constructor(private val apiService: ApiService): View
                 _refreshOtpResult.value = ApiResult.Loading()
 
                 val response = apiService.refreshOtp(request)
-                _refreshOtpResult.value = ApiResult.Success(response)
+                if (response.success == true) {
+                    _refreshOtpResult.value = ApiResult.Success(response)
+                } else {
+                    _refreshOtpResult.value = ApiResult.Error(response.message)
+                }
             } catch (e: retrofit2.HttpException) {
                 _refreshOtpResult.value = handleHttpException(e)
             } catch (e: Exception) {

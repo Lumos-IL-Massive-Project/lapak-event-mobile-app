@@ -12,6 +12,8 @@ import com.example.connectus.databinding.ActivityOtpBinding
 import com.example.connectus.network.ApiResult
 import com.example.connectus.network.bodyrequest.RefreshOTPBody
 import com.example.connectus.network.bodyrequest.VerifyOtpBody
+import com.example.connectus.utils.Constants.EMAIL_TO_REGISTER
+import com.example.connectus.utils.Constants.OTP_CODE
 import com.example.connectus.utils.GlobalPopup.dismissLoadingPopup
 import com.example.connectus.utils.GlobalPopup.showConfirmationPopup
 import com.example.connectus.utils.GlobalPopup.showLoadingPopup
@@ -185,10 +187,5 @@ class OTPActivity : AppCompatActivity() {
         }
 
         resendOtpCountDownTimer.start()
-    }
-
-    companion object {
-        private const val EMAIL_TO_REGISTER = "EMAIL_TO_REGISTER"
-        private const val OTP_CODE = "OTP_CODE"
     }
 }

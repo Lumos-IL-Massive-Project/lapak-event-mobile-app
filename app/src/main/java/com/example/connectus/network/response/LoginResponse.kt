@@ -16,26 +16,32 @@ data class LoginResponse(
 
 data class LoginData(
 
-	@field:SerializedName("createdAt")
+	@field:SerializedName("role")
+	val role: String? = null,
+
+	@field:SerializedName("created_at")
 	val createdAt: String? = null,
+
+	@field:SerializedName("otp")
+	val otp: String? = null,
+
+	@field:SerializedName("token")
+	val token: String? = null,
+
+	@field:SerializedName("refresh_token")
+	val refreshToken: String? = null,
 
 	@field:SerializedName("profile_image")
 	val profileImage: Any? = null,
 
-	@field:SerializedName("role")
-	val role: String? = null,
-
-	@field:SerializedName("otp_expired_date")
-	val otpExpiredDate: String? = null,
+	@field:SerializedName("updated_at")
+	val updatedAt: String? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
 
 	@field:SerializedName("phone_number")
 	val phoneNumber: String? = null,
-
-	@field:SerializedName("otp")
-	val otp: Int? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,
@@ -44,11 +50,5 @@ data class LoginData(
 	val email: String? = null,
 
 	@field:SerializedName("status")
-	val status: String? = null,
-
-	@field:SerializedName("updatedAt")
-	val updatedAt: String? = null,
-
-	@field:SerializedName("token")
-	val token: String? = null
+	val status: String? = null
 )
