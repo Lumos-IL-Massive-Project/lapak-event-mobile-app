@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductCategoryResponse(
 
+	@field:SerializedName("pagination")
+	val pagination: Pagination? = null,
+
 	@field:SerializedName("data")
 	val data: List<ProductCategoryItem?>? = null,
 
