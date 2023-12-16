@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ConnectUs"
         tools:targetApi="31">
         <activity
+            android:name=".activities.eoprofile.EventOrganizerProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.faq.FAQActivity"
             android:exported="false" />
         <activity

@@ -6,4 +6,5 @@ object Constants {
 
     const val EMAIL_TO_REGISTER = "EMAIL_TO_REGISTER"
     const val OTP_CODE = "OTP_CODE"
+    const val VENDOR_ID = "VENDOR_ID"
 }
