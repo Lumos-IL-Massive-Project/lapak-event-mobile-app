@@ -21,7 +21,8 @@ class ChatFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentChatBinding.inflate(layoutInflater)
-        init()
+        initChat()
+        initButtonAction()
         return binding!!.root
     }
 
@@ -30,7 +31,7 @@ class ChatFragment : Fragment() {
         binding = null
     }
 
-    private fun init() {
+    private fun initChat() {
         val adapter = RecyclerViewMessagingAdapter()
         binding?.rvMessages?.adapter = adapter
         binding?.rvMessages?.layoutManager = LinearLayoutManager(requireContext())
@@ -47,6 +48,13 @@ class ChatFragment : Fragment() {
                 binding?.etMessage?.text?.clear()
                 binding?.rvMessages?.scrollToPosition(adapter.itemCount - 1)
             }
+        }
+    }
+
+    private fun initButtonAction() {
+        binding?.attachFileButton?.setOnClickListener {
+            val modalAttachmentFragment = ModalAttachmentFragment()
+            modalAttachmentFragment.show(childFragmentManager, modalAttachmentFragment.tag)
         }
     }
 }

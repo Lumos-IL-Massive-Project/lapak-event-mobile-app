@@ -90,13 +90,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnConfirm"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/inter_semi_bold"
             android:paddingVertical="10dp"
             android:text="Konfirmasi"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="12sp"
             app:cornerRadius="8dp" />
     </com.google.android.flexbox.FlexboxLayout>

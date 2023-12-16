@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.chatdetail.fragments.CustomOfferFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/gray_100"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="32dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Anda belum meminta custom offer"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="Silakan berdiskusi dengan EO acara seperti apa yang anda inginkan lalu anda dapat meminta custom offer jika EO sudah memahami kebutuhan anda."
+            android:textAlignment="center"
+            android:textColor="@color/gray_500"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="230dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="empty custom offer"
+            android:src="@drawable/img_empty_box" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/askCustomOfferButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/inter_semi_bold"
+            android:paddingVertical="10dp"
+            android:text="Minta Custom Offer"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:cornerRadius="8dp"
+            app:icon="@drawable/ic_money"
+            app:iconGravity="textStart"
+            app:iconSize="24dp"
+            app:iconTint="@null"
+            app:strokeColor="@color/gray_300"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
 </FrameLayout>
