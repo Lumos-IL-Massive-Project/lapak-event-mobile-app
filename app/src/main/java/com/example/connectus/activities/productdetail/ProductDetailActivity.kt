@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.connectus.R
 import com.example.connectus.activities.chatdetail.ChatDetailActivity
+import com.example.connectus.activities.eoprofile.EventOrganizerProfileActivity
 import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewPricePlanSelectorAdapter
 import com.example.connectus.activities.productdetail.adapters.RecyclerViewProductAdapter
@@ -20,10 +21,12 @@ import com.example.connectus.activities.productdetail.models.PlanDetailData
 import com.example.connectus.activities.productdetail.models.PricePlanClickListener
 import com.example.connectus.activities.productdetail.models.ProductDetailData
 import com.example.connectus.activities.productdetail.models.ProductImageData
+import com.example.connectus.activities.productdetail.models.VendorProfileData
 import com.example.connectus.activities.productdetail.viewmodels.ProductDetailViewModel
 import com.example.connectus.activities.testimonilist.TestimonyListActivity
 import com.example.connectus.activities.testimonilist.model.TestimonyData
 import com.example.connectus.databinding.ActivityProductDetailBinding
+import com.example.connectus.utils.Constants.VENDOR_ID
 import com.example.connectus.utils.RecyclerViewRowGapItemDecoration
 import com.example.connectus.utils.startDynamicActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -57,6 +60,7 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
         viewModel = ViewModelProvider(this)[ProductDetailViewModel::class.java]
         viewModel.data.observe(this, Observer { data ->
             initImageSlider(data.images)
+            initVendorProfile(data.profile)
             initPricePlan(data.plans)
             initDescription(data.description)
             initTestimony(data.testimony)
@@ -85,6 +89,16 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
                 super.onPageSelected(position)
             }
         })
+    }
+
+    private fun initVendorProfile(profile: VendorProfileData) {
+        binding.eventOrganizerProfileContainer.setOnClickListener {
+            startDynamicActivity(
+                this, EventOrganizerProfileActivity::class.java, data = arrayOf(
+                    Pair(VENDOR_ID, profile.id.toString())
+                )
+            )
+        }
     }
 
     private fun initPricePlan(plans: List<PlanDetailData>) {
@@ -258,9 +272,11 @@ class ProductDetailActivity : AppCompatActivity(), PricePlanClickListener {
 
     private fun initButtonAction(data: ProductDetailData) {
         binding.btnChat.setOnClickListener {
-            startDynamicActivity(this, ChatDetailActivity::class.java, data = arrayOf(
-                Pair("KEY_HEADER_TITLE", data.profile.name)
-            ))
+            startDynamicActivity(
+                this, ChatDetailActivity::class.java, data = arrayOf(
+                    Pair("KEY_HEADER_TITLE", data.profile.name)
+                )
+            )
         }
 
         binding.btnOrderNow.setOnClickListener {
