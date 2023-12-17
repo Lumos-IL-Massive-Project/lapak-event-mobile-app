@@ -29,6 +29,18 @@
     <string name="onboarding_description_example">Kami mengumpulkan perusahaan event organizer yang berkomitmen untuk memberikan pengalaman yang tak terlupakan dalam setiap acara impian anda.</string>
     <string name="price_plan_description">Anda bisa <b>custom harga</b> berdasarkan kebutuhan dengan mengklik <b>chat.</b></string>
     <string name="service_date">Tanggal Layanan<font fgcolor='#D92D20'>*</font></string>
+    <string name="company_name">Nama Perusahaan<font fgcolor='#D92D20'>*</font></string>
+    <string name="company_owner_name">Nama Pemilik Perusahaan<font fgcolor='#D92D20'>*</font></string>
+    <string name="company_npwp">NPWP Perusahaan<font fgcolor='#D92D20'>*</font></string>
+    <string name="event_organizer_name">Nama Event Organizer<font fgcolor='#D92D20'>*</font></string>
+    <string name="bio">Bio<font fgcolor='#D92D20'>*</font></string>
+    <string name="category_event_organizer">Spesialisasi Kategori<font fgcolor='#D92D20'>*</font></string>
+    <string name="country">Negara<font fgcolor='#D92D20'>*</font></string>
+    <string name="province">Provinsi<font fgcolor='#D92D20'>*</font></string>
+    <string name="city">Kota<font fgcolor='#D92D20'>*</font></string>
+    <string name="postal_code">Kode Pos<font fgcolor='#D92D20'>*</font></string>
+    <string name="office_address">Alamat Kantor<font fgcolor='#D92D20'>*</font></string>
+    <string name="business_document">Dokumen Bisnis (min 1 berkas)<font fgcolor='#D92D20'>*</font></string>
 
     <string name="paymentva_atm_guide">
         1. Masukkan kartu ATM dan PIN BNI Anda.

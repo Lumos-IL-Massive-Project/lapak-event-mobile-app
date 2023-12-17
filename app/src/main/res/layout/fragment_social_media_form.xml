@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.eoregistration.fragments.SocialMediaFormFragment">
+
+    <LinearLayout
+        android:id="@+id/socialMediaSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:id="@+id/tvSocialMediaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Media Sosial"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvWebsite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Situs Web"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etWebsite"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Masukkan situs web"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvInstagram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Instagram"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etInstagram"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Masukkan profil Instagram"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Facebook"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Masukkan profil Facebook"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvLinkedin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="LinkedIn"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etLinkedin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Masukkan profil LinkedIn"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+    </LinearLayout>
+</FrameLayout>

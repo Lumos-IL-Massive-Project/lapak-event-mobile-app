@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.eoregistration.fragments.LocationFormFragment">
+
+    <LinearLayout
+        android:id="@+id/locationSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="100dp">
+
+        <TextView
+            android:id="@+id/tvLocationSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Lokasi"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/country"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etCountry"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/custom_input"
+                android:enabled="false"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Masukkan negara"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:text="Indonesia"
+                android:textColor="@color/gray_500"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProvince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/province"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectProvince"
+                style="@style/ButtonOutlineWithoutIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_down_24"
+                android:drawableTint="@color/gray_500"
+                android:fontFamily="@font/inter_light"
+                android:text="Provinsi"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp"
+                app:strokeColor="@color/gray_300" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/city"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectCity"
+                style="@style/ButtonOutlineWithoutIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_down_24"
+                android:drawableTint="@color/gray_500"
+                android:fontFamily="@font/inter_light"
+                android:text="Kota"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp"
+                app:strokeColor="@color/gray_300" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPostalCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/postal_code"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectPostalCode"
+                style="@style/ButtonOutlineWithoutIcon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_arrow_down_24"
+                android:drawableTint="@color/gray_500"
+                android:fontFamily="@font/inter_light"
+                android:text="Kode Pos"
+                android:textAlignment="textStart"
+                android:textColor="@color/gray_700"
+                android:textSize="14sp"
+                app:strokeColor="@color/gray_300" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvOfficeAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/office_address"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etOfficeAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="top|start"
+            android:hint="Contoh: Jl. Tebet Dalam II C No.32, RT 02, RW 03, Kel. Tebet Barat, Kec. Tebet"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+    </LinearLayout>
+</FrameLayout>
