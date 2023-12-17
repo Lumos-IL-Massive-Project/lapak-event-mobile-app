@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.eoregistration.fragments.AdditionalDocumentFormFragment">
+
+    <LinearLayout
+        android:id="@+id/eventOrganizerInformationSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:id="@+id/tvEventOrganizerInformationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Dokumen Tambahan"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/business_document"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/fbUploadDocument"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_stroke_dash_rounded"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/squircle_ripple_effect"
+            android:paddingVertical="24dp"
+            app:alignItems="center"
+            app:flexDirection="column">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_upload" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:text="Unggah Dokumen"
+                android:textAlignment="center"
+                android:textColor="@color/gray_500"
+                android:textSize="12sp" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDocumentList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</FrameLayout>

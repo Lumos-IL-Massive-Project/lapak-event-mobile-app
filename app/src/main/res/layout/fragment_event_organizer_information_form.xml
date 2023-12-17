@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.eoregistration.fragments.EventOrganizerInformationFormFragment">
+
+    <LinearLayout
+        android:id="@+id/eventOrganizerInformationSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp">
+
+        <TextView
+            android:id="@+id/tvEventOrganizerInformationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
+            android:text="Informasi Event Organizer"
+            android:textColor="@color/purple_700"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvEventOrganizerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/event_organizer_name"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etEventOrganizerName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:hint="Masukkan nama Event Organizer"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/bio"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/etBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_input"
+            android:fontFamily="@font/inter_regular"
+            android:gravity="top|start"
+            android:hint="Masukkan bio"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvSelectCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/category_event_organizer"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelectCategory"
+            style="@style/ButtonOutlineWithoutIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_arrow_down_24"
+            android:drawableTint="@color/gray_500"
+            android:fontFamily="@font/inter_light"
+            android:text="Pilih spesialisasi kategori"
+            android:textAlignment="textStart"
+            android:textColor="@color/gray_700"
+            android:textSize="14sp"
+            app:strokeColor="@color/gray_300" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:text="Pilihan spesialisasi kategori yang tepat akan membuat target klien anda menemukan anda dengan lebih mudah."
+            android:textColor="@color/gray_500"
+            android:textSize="14sp" />
+    </LinearLayout>
+</FrameLayout>
