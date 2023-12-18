@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottom_nav"
+    android:id="@+id/bottom_nav_event_organizer"
     app:startDestination="@id/home">
 
     <fragment
@@ -16,6 +16,12 @@
         android:name="com.example.connectus.activities.orderlist.OrderListFragment"
         android:label="fragment_order_list"
         tools:layout="@layout/fragment_order_list" >
+    </fragment>
+    <fragment
+        android:id="@+id/business"
+        android:name="com.example.connectus.activities.business.BusinessFragment"
+        android:label="fragment_business"
+        tools:layout="@layout/fragment_business" >
     </fragment>
     <fragment
         android:id="@+id/profile"

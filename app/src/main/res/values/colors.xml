@@ -21,6 +21,8 @@
     <color name="label_otp">#D0D5DD</color>
     <color name="green">#689F3C</color>
     <color name="orange">#FEB273</color>
+    <color name="success_100">#D1FADF</color>
     <color name="success_500">#12B76A</color>
+    <color name="blue_light_100">#D1E9FF</color>
     <color name="blue_light_500">#0BA5EC</color>
 </resources>
