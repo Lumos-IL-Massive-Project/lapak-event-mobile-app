@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_transaction"
         android:title="@string/transaction" />
     <item
+        android:id="@+id/business"
+        android:icon="@drawable/ic_business"
+        android:title="@string/business" />
+    <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/profile" />

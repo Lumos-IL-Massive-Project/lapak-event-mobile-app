@@ -12,6 +12,7 @@
     <string name="popular">Populer</string>
     <string name="home">Beranda</string>
     <string name="transaction">Transaksi</string>
+    <string name="business">Bisnis</string>
     <string name="profile">Profil</string>
     <string name="username">Nama<font fgcolor='#D92D20'>*</font></string>
     <string name="password">Password<font fgcolor='#D92D20'>*</font></string>
