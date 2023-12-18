@@ -37,12 +37,7 @@ class MainActivity : AppCompatActivity() {
         val authCredential = appPreferenceManager.getAuthCredentials()
         val role = Gson().fromJson(authCredential, LoginData::class.java)?.role
 
-        for (i in 0 until binding.bottomNavigationView.menu.size()) {
-            val menuItem = binding.bottomNavigationView.menu.getItem(i)
-
-            if (menuItem.itemId == R.id.business) {
-                menuItem.isVisible = role == "event organizer"
-            }
-        }
+        val menuItem = binding.bottomNavigationView.menu.getItem(2)
+        menuItem.isVisible = role == "event organizer"
     }
 }
