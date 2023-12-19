@@ -42,6 +42,10 @@
     <string name="postal_code">Kode Pos<font fgcolor='#D92D20'>*</font></string>
     <string name="office_address">Alamat Kantor<font fgcolor='#D92D20'>*</font></string>
     <string name="business_document">Dokumen Bisnis (min 1 berkas)<font fgcolor='#D92D20'>*</font></string>
+    <string name="product_name">Nama Produk<font fgcolor='#D92D20'>*</font></string>
+    <string name="product_category">Kategori Produk<font fgcolor='#D92D20'>*</font></string>
+    <string name="product_description">Deskripsi Produk<font fgcolor='#D92D20'>*</font></string>
+    <string name="upload_product_images">Unggah Portfolio (gambar/video)<font fgcolor='#D92D20'>*</font></string>
 
     <string name="paymentva_atm_guide">
         1. Masukkan kartu ATM dan PIN BNI Anda.

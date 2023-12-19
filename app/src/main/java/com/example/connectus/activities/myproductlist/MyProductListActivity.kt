@@ -3,9 +3,11 @@ package com.example.connectus.activities.myproductlist
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.connectus.activities.myproductdetails.MyProductDetailsActivity
 import com.example.connectus.activities.myproductlist.adapters.RecyclerViewMyProductAdapter
 import com.example.connectus.activities.myproductlist.models.MyProductData
 import com.example.connectus.databinding.ActivityMyProductListBinding
+import com.example.connectus.utils.startDynamicActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +20,8 @@ class MyProductListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initTopBar()
-        init()
+        initProductList()
+        initAddProductButton()
     }
 
     private fun initTopBar() {
@@ -28,7 +31,7 @@ class MyProductListActivity : AppCompatActivity() {
         binding.customTopBar.tvTopBarTitle.text = "Produk Saya"
     }
 
-    private fun init() {
+    private fun initProductList() {
         val data = listOf(
             MyProductData(1, "Product Launching for Company", "Corporate Event", 3, 3),
             MyProductData(2, "Product Launching for Company", "Corporate Event", 3, 3),
@@ -42,5 +45,11 @@ class MyProductListActivity : AppCompatActivity() {
 
         binding.rvProducts.adapter = RecyclerViewMyProductAdapter(data)
         binding.rvProducts.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun initAddProductButton() {
+        binding.btnAddProduct.setOnClickListener {
+            startDynamicActivity(this, MyProductDetailsActivity::class.java)
+        }
     }
 }

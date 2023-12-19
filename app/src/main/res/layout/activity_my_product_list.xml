@@ -42,7 +42,7 @@
             app:layout_constraintBottom_toTopOf="@+id/actionContainer" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnContinueStep"
+            android:id="@+id/btnAddProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"

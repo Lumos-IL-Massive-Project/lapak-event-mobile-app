@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.myproductdetails.MyProductDetailsActivity">
+
+    <include
+        android:id="@+id/customTopBar"
+        layout="@layout/global_top_app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customTopBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/productInformationSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customTopBar">
+
+                <TextView
+                    android:id="@+id/tvEventOrganizerInformationTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Informasi Produk"
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvEventOrganizerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/product_name"
+                    android:textColor="@color/gray_700"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etEventOrganizerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/custom_input"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="Tuliskan nama produk"
+                    android:inputType="text"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvSelectCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/product_category"
+                    android:textColor="@color/gray_700"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSelectCategory"
+                    style="@style/ButtonOutlineWithoutIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_arrow_down_24"
+                    android:drawableTint="@color/gray_500"
+                    android:fontFamily="@font/inter_light"
+                    android:text="Pilih kategori"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/gray_700"
+                    android:textSize="14sp"
+                    app:strokeColor="@color/gray_300" />
+
+                <TextView
+                    android:id="@+id/tvProductDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/product_description"
+                    android:textColor="@color/gray_700"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etProductDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/custom_input"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="top|start"
+                    android:hint="Masukkan deskripsi produk"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvBio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="@string/upload_product_images"
+                    android:textColor="@color/gray_700"
+                    android:textSize="14sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvUploadedImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="6dp"
+                    android:isScrollContainer="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6sp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="Pilih gambar atau video untuk diunggah."
+                    android:textColor="@color/gray_500"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/priceAndPlanSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productInformationSection">
+
+                <TextView
+                    android:id="@+id/tvPriceAndPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Paket dan Harga"
+                    android:textColor="@color/purple_700"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvPlans"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:isScrollContainer="false"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="@font/inter_semi_bold"
+                android:paddingVertical="10dp"
+                android:text="Tambah Produk"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                app:cornerRadius="8dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

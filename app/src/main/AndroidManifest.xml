@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ConnectUs"
         tools:targetApi="31">
         <activity
+            android:name=".activities.myproductdetails.MyProductDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.myproductlist.MyProductListActivity"
             android:exported="false" />
         <activity
