@@ -52,13 +52,7 @@ class SplashActivity : AppCompatActivity() {
         } else {
             GlobalScope.launch {
                 delay(3000)
-                startDynamicActivity(
-                    this@SplashActivity,
-                    SignInActivity::class.java,
-                    R.anim.fade_in,
-                    R.anim.fade_out
-                )
-                finish()
+                handleGuestAction()
             }
         }
     }
@@ -68,24 +62,7 @@ class SplashActivity : AppCompatActivity() {
             when (result) {
                 is ApiResult.Error -> {
                     appPreferenceManager.removeAuthCredentials()
-                    val onboardingStatus = appPreferenceManager.getOnboardingStatus()
-
-                    if (onboardingStatus) {
-                        startDynamicActivity(
-                            this@SplashActivity,
-                            SignInActivity::class.java,
-                            R.anim.fade_in,
-                            R.anim.fade_out
-                        )
-                    } else {
-                        startDynamicActivity(
-                            this@SplashActivity,
-                            OnboardingActivity::class.java,
-                            R.anim.fade_in,
-                            R.anim.fade_out
-                        )
-                    }
-                    finish()
+                    handleGuestAction()
                 }
 
                 is ApiResult.Loading -> {}
@@ -103,5 +80,26 @@ class SplashActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun handleGuestAction() {
+        val onboardingStatus = appPreferenceManager.getOnboardingStatus()
+
+        if (onboardingStatus) {
+            startDynamicActivity(
+                this@SplashActivity,
+                SignInActivity::class.java,
+                R.anim.fade_in,
+                R.anim.fade_out
+            )
+        } else {
+            startDynamicActivity(
+                this@SplashActivity,
+                OnboardingActivity::class.java,
+                R.anim.fade_in,
+                R.anim.fade_out
+            )
+        }
+        finish()
     }
 }

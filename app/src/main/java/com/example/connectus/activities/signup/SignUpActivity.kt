@@ -53,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
                 is ApiResult.Success -> {
                     dismissLoadingPopup()
                     showWarningPopup(this, layoutInflater, true, result.data.message.toString()) {
-                        val emailToRegister = intent.getStringExtra(EMAIL_TO_REGISTER)
+                        val emailToRegister = binding.etEmail.text.toString()
 
                         if (BuildConfig.DEBUG) {
                             startDynamicActivity(
