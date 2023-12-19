@@ -47,7 +47,7 @@ class CustomOfferFragment : Fragment() {
                 dialog.dismiss()
             }
             confirmationPopupBinding.btnCancel.apply {
-                text = "Diskusikan Kembali"
+                text = "Kembali"
                 setOnClickListener {
                     dialog.dismiss()
                 }
