@@ -30,7 +30,7 @@ class SearchActivity : AppCompatActivity() {
             SearchHistoryData("Gathering")
         )
 
-        binding.rvSearchHistory.adapter = RecyclerViewSearchHistoryAdapter(searchHistoryList)
+        binding.rvSearchHistory.adapter = RecyclerViewSearchHistoryAdapter(this, searchHistoryList)
         binding.rvSearchHistory.layoutManager = GridLayoutManager(this, 1)
     }
 

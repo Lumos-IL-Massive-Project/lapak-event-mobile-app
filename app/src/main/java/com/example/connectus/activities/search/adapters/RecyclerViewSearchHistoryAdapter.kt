@@ -1,16 +1,35 @@
 package com.example.connectus.activities.search.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.connectus.activities.productlist.ProductListActivity
 import com.example.connectus.activities.search.models.SearchHistoryData
 import com.example.connectus.databinding.SearchHistorySearchItemBinding
+import com.example.connectus.utils.Constants.SEARCH_QUERY
+import com.example.connectus.utils.startDynamicActivity
 
-class RecyclerViewSearchHistoryAdapter(private val searchHistoryList: List<SearchHistoryData>) :
+class RecyclerViewSearchHistoryAdapter(
+    private val context: Context,
+    private val searchHistoryList: List<SearchHistoryData>
+) :
     RecyclerView.Adapter<RecyclerViewSearchHistoryAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: SearchHistorySearchItemBinding) :
         RecyclerView.ViewHolder(itemView.root) {
-        val searchHistoryLabel = itemView.searchHistoryLabel
+        private val binding = itemView
+
+        fun bind(data: SearchHistoryData) {
+            binding.searchHistoryLabel.text = data.name
+
+            binding.btnHistorySearchItem.setOnClickListener {
+                startDynamicActivity(
+                    context, ProductListActivity::class.java, data = arrayOf(
+                        Pair(SEARCH_QUERY, data.name)
+                    )
+                )
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,6 +46,6 @@ class RecyclerViewSearchHistoryAdapter(private val searchHistoryList: List<Searc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.searchHistoryLabel.text = searchHistoryList[position].name
+        holder.bind(searchHistoryList[position])
     }
 }
