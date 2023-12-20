@@ -8,6 +8,8 @@ import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productlist.adapters.RecyclerViewProductAdapter
 import com.example.connectus.activities.productlist.fragments.ModalFilterFragment
 import com.example.connectus.databinding.ActivityProductListBinding
+import com.example.connectus.utils.Constants.CATEGORY_ID
+import com.example.connectus.utils.Constants.SEARCH_QUERY
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,7 @@ class ProductListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initTopBar()
+        initSearchBar()
         initFilters()
         initProductList()
     }
@@ -28,6 +31,13 @@ class ProductListActivity : AppCompatActivity() {
         binding.ivBack.setOnClickListener {
             finish()
         }
+    }
+
+    private fun initSearchBar() {
+        val categoryId = intent.getStringExtra(CATEGORY_ID)
+        val searchQuery = intent.getStringExtra(SEARCH_QUERY)
+
+        binding.etSearchFixed.setText(searchQuery)
     }
 
     private fun initFilters() {
