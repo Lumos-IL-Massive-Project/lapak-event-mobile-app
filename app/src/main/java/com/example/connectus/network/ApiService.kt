@@ -9,6 +9,7 @@ import com.example.connectus.network.bodyrequest.VerifyOtpBody
 import com.example.connectus.network.response.EmailCheckResponse
 import com.example.connectus.network.response.LoginResponse
 import com.example.connectus.network.response.ProductCategoryResponse
+import com.example.connectus.network.response.ProductsResponse
 import com.example.connectus.network.response.RefreshOTPResponse
 import com.example.connectus.network.response.RefreshTokenResponse
 import com.example.connectus.network.response.RegisterResponse
@@ -18,6 +19,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
     @POST("api/auth/check-email")
@@ -43,4 +45,10 @@ interface ApiService {
 
     @GET("api/product-category")
     suspend fun getProductCategory(): ProductCategoryResponse
+
+    @GET("api/product")
+    suspend fun getProducts(
+        @Query("category_id") categoryId: String? = null,
+        @Query("name") name: String? = null
+    ): ProductsResponse
 }
