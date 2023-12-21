@@ -135,6 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:focusable="true"
             android:foreground="@drawable/squared_ripple_effect"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -176,7 +177,7 @@
         android:id="@+id/rvProducts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
+        android:clipToPadding="true"
         android:isScrollContainer="false"
         android:nestedScrollingEnabled="false"
         android:paddingBottom="100dp"

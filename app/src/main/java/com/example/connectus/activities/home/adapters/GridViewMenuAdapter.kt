@@ -11,7 +11,6 @@ import com.example.connectus.R
 import com.example.connectus.activities.allcategories.AllCategoriesActivity
 import com.example.connectus.activities.home.models.MenuData
 import com.example.connectus.activities.productlist.ProductListActivity
-import com.example.connectus.utils.Constants.SEARCH_QUERY
 import com.example.connectus.utils.startDynamicActivity
 
 class GridViewMenuAdapter(private val context: Context, private val menuList: List<MenuData>) :
@@ -42,11 +41,7 @@ class GridViewMenuAdapter(private val context: Context, private val menuList: Li
             if (item.name == "Menu Lainnya") {
                 startDynamicActivity(context, AllCategoriesActivity::class.java)
             } else {
-                startDynamicActivity(
-                    context, ProductListActivity::class.java, data = arrayOf(
-                        Pair(SEARCH_QUERY, item.name)
-                    )
-                )
+                startDynamicActivity(context, ProductListActivity::class.java)
             }
         }
         return view

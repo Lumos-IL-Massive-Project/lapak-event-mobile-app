@@ -1,20 +1,26 @@
 package com.example.connectus.activities.productlist
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.R
-import com.example.connectus.activities.home.models.ProductData
 import com.example.connectus.activities.productlist.adapters.RecyclerViewProductAdapter
 import com.example.connectus.activities.productlist.fragments.ModalFilterFragment
+import com.example.connectus.activities.productlist.viewmodels.ProductListViewModel
 import com.example.connectus.databinding.ActivityProductListBinding
+import com.example.connectus.network.ApiResult
 import com.example.connectus.utils.Constants.CATEGORY_ID
 import com.example.connectus.utils.Constants.SEARCH_QUERY
+import com.example.connectus.utils.GlobalPopup.dismissLoadingPopup
+import com.example.connectus.utils.GlobalPopup.showLoadingPopup
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ProductListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductListBinding
+    private val viewModel by viewModels<ProductListViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +30,7 @@ class ProductListActivity : AppCompatActivity() {
         initTopBar()
         initSearchBar()
         initFilters()
-        initProductList()
+        initProductsObserver()
     }
 
     private fun initTopBar() {
@@ -38,6 +44,7 @@ class ProductListActivity : AppCompatActivity() {
         val searchQuery = intent.getStringExtra(SEARCH_QUERY)
 
         binding.etSearchFixed.setText(searchQuery)
+        viewModel.getProducts(categoryId, searchQuery)
     }
 
     private fun initFilters() {
@@ -75,76 +82,24 @@ class ProductListActivity : AppCompatActivity() {
         }
     }
 
-    private fun initProductList() {
-        val productDataList: List<ProductData> = listOf(
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-            ProductData(
-                R.drawable.product,
-                "Grand Galas EO",
-                "Product Launching for Company",
-                4.8f,
-                13,
-                28920000.0
-            ),
-        )
+    private fun initProductsObserver() {
+        viewModel.productResult.observe(this, Observer { result ->
+            when (result) {
+                is ApiResult.Error -> {
+                    dismissLoadingPopup()
+                }
 
-        binding.rvProducts.adapter =
-            RecyclerViewProductAdapter(this, productDataList)
-        binding.rvProducts.layoutManager = GridLayoutManager(this, 2)
+                is ApiResult.Loading -> {
+                    showLoadingPopup(this, layoutInflater, true)
+                }
+
+                is ApiResult.Success -> {
+                    dismissLoadingPopup()
+                    binding.rvProducts.adapter =
+                        RecyclerViewProductAdapter(this, result.data.data)
+                    binding.rvProducts.layoutManager = GridLayoutManager(this, 2)
+                }
+            }
+        })
     }
 }

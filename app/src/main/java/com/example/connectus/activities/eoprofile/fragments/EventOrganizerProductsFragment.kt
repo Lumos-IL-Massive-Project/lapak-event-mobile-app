@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.connectus.R
+import com.example.connectus.activities.eoprofile.adapters.RecyclerViewProductAdapter
 import com.example.connectus.activities.home.models.ProductData
-import com.example.connectus.activities.productlist.adapters.RecyclerViewProductAdapter
 import com.example.connectus.databinding.FragmentEventOrganizerProductsBinding
 
 class EventOrganizerProductsFragment : Fragment() {
